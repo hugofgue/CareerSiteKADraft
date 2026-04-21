@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account &mdash; K&amp;A Careers</title>
+  <meta name="description" content="Join the Khatib &amp; Alami Global Talent Community. Create your candidate profile to apply for roles and hear about new opportunities." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ka-primary: #5E6B70;
+      --ka-accent: #FF6B35;
+      --ka-accent-dark: #E55A24;
+      --ka-light-bg: #F5F7FA;
+      --ka-text: #2C3E50;
+      --ka-dark: #1F2937;
+    }
+    body { font-family: Arial, sans-serif; color: var(--ka-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+
+    .nav-link { transition: color 200ms ease; }
+    .nav-link:hover { color: var(--ka-accent); }
+
+    .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
+    .ka-logo-mark {
+      display: inline-flex; align-items: center;
+      font-family: Arial, Helvetica, sans-serif; font-weight: 900;
+      font-size: 28px; line-height: 1; color: var(--ka-dark); letter-spacing: -1px;
+    }
+    .ka-logo-bar { display: inline-block; width: 3px; height: 26px; background-color: var(--ka-accent); margin: 0 4px; }
+    .ka-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .ka-logo-text .ka-line1 { font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--ka-dark); }
+    .ka-logo-text .ka-line2 { font-weight: 600; font-size: 9px; color: #6B7280; letter-spacing: 0.5px; }
+
+    .field-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ka-primary); margin-bottom: 0.35rem; }
+    .field-input {
+      width: 100%; padding: 0.65rem 0.9rem; border: 1px solid #d1d5db; border-radius: 0.5rem;
+      background: #fff; color: #111827; outline: none;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+    .field-input:focus { border-color: var(--ka-accent); box-shadow: 0 0 0 3px rgba(255,107,53,0.15); }
+
+    .strength-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 6px; }
+    .strength-meter span { height: 4px; background: #e5e7eb; border-radius: 2px; transition: background 200ms ease; }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
+        <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
+        <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
+        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
+        <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
+        <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+        <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
+        <a href="create-account.html"
+           class="text-white px-4 py-2 rounded-lg font-semibold transition"
+           style="background-color: var(--ka-accent);">
+          Create Account
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main ===== -->
+  <main class="py-12" style="background-color: var(--ka-light-bg); min-height: calc(100vh - 70px);">
+    <div class="max-w-5xl mx-auto px-4">
+
+      <div class="grid md:grid-cols-5 gap-8">
+
+        <!-- Left: intro -->
+        <aside class="md:col-span-2">
+          <h1 class="text-3xl font-bold mb-4" style="color: var(--ka-primary);">Join Our Global Talent Community</h1>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            Creating a profile takes less than 3 minutes — and it's the first step to being seen by K&amp;A recruiters across all our offices.
+          </p>
+          <ul class="space-y-3 text-sm text-gray-700">
+            <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Get notified when new roles match your background</li>
+            <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Apply to jobs with one click</li>
+            <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Update your CV and preferences anytime</li>
+            <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Be discovered directly by recruiters</li>
+          </ul>
+
+          <div class="mt-8 p-5 bg-white rounded-xl border border-gray-200">
+            <p class="text-sm text-gray-600">Already have an account?</p>
+            <a href="#" class="font-semibold transition" style="color: var(--ka-accent);">Sign in instead &rarr;</a>
+          </div>
+        </aside>
+
+        <!-- Right: form -->
+        <section class="md:col-span-3 bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm">
+          <h2 class="text-2xl font-bold mb-6" style="color: var(--ka-primary);">Create Your Account</h2>
+
+          <form id="signupForm" novalidate>
+
+            <!-- Name row -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="field-label" for="firstName">First Name *</label>
+                <input id="firstName" name="firstName" type="text" required class="field-input" placeholder="e.g., Hugo" />
+              </div>
+              <div>
+                <label class="field-label" for="lastName">Last Name *</label>
+                <input id="lastName" name="lastName" type="text" required class="field-input" placeholder="e.g., Guedelha" />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-4">
+              <label class="field-label" for="email">Email Address *</label>
+              <input id="email" name="email" type="email" required class="field-input" placeholder="you@example.com" />
+            </div>
+
+            <!-- Phone -->
+            <div class="grid sm:grid-cols-3 gap-4 mb-4">
+              <div>
+                <label class="field-label" for="dialCode">Dial Code</label>
+                <select id="dialCode" name="dialCode" class="field-input">
+                  <option value="+971">+971 (UAE)</option>
+                  <option value="+966">+966 (KSA)</option>
+                  <option value="+974">+974 (Qatar)</option>
+                  <option value="+973">+973 (Bahrain)</option>
+                  <option value="+965">+965 (Kuwait)</option>
+                  <option value="+968">+968 (Oman)</option>
+                  <option value="+961">+961 (Lebanon)</option>
+                  <option value="+20">+20 (Egypt)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+1">+1 (US/Canada)</option>
+                  <option value="+33">+33 (France)</option>
+                  <option value="+49">+49 (Germany)</option>
+                  <option value="+91">+91 (India)</option>
+                  <option value="+92">+92 (Pakistan)</option>
+                  <option value="+63">+63 (Philippines)</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="field-label" for="phone">Phone Number *</label>
+                <input id="phone" name="phone" type="tel" required class="field-input" placeholder="50 123 4567" />
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-2">
+              <div>
+                <label class="field-label" for="password">Password *</label>
+                <input id="password" name="password" type="password" required minlength="8" class="field-input" placeholder="Min 8 characters" />
+                <div class="strength-meter" id="strengthMeter">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+                <p class="text-xs text-gray-500 mt-1" id="strengthLabel">Use 8+ characters, mixing letters, numbers, and symbols.</p>
+              </div>
+              <div>
+                <label class="field-label" for="confirm">Confirm Password *</label>
+                <input id="confirm" name="confirm" type="password" required class="field-input" placeholder="Re-enter password" />
+                <p class="text-xs mt-1" id="matchLabel" style="color: #6B7280;">Passwords must match.</p>
+              </div>
+            </div>
+
+            <!-- Nationality + Country -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-4 mt-4">
+              <div>
+                <label class="field-label" for="nationality">Nationality *</label>
+                <select id="nationality" name="nationality" required class="field-input">
+                  <option value="">Select nationality</option>
+                  <option>Emirati</option>
+                  <option>Saudi</option>
+                  <option>Qatari</option>
+                  <option>Bahraini</option>
+                  <option>Kuwaiti</option>
+                  <option>Omani</option>
+                  <option>Lebanese</option>
+                  <option>Egyptian</option>
+                  <option>Jordanian</option>
+                  <option>Moroccan</option>
+                  <option>Tunisian</option>
+                  <option>Indian</option>
+                  <option>Pakistani</option>
+                  <option>Filipino</option>
+                  <option>British</option>
+                  <option>American</option>
+                  <option>French</option>
+                  <option>German</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="country">Country of Residence *</label>
+                <select id="country" name="country" required class="field-input">
+                  <option value="">Select country</option>
+                  <option>United Arab Emirates</option>
+                  <option>Saudi Arabia</option>
+                  <option>Qatar</option>
+                  <option>Bahrain</option>
+                  <option>Kuwait</option>
+                  <option>Oman</option>
+                  <option>Lebanon</option>
+                  <option>Egypt</option>
+                  <option>Jordan</option>
+                  <option>Morocco</option>
+                  <option>India</option>
+                  <option>Pakistan</option>
+                  <option>Philippines</option>
+                  <option>United Kingdom</option>
+                  <option>United States</option>
+                  <option>France</option>
+                  <option>Germany</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- City + DOB -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="field-label" for="city">City</label>
+                <input id="city" name="city" type="text" class="field-input" placeholder="e.g., Dubai" />
+              </div>
+              <div>
+                <label class="field-label" for="dob">Date of Birth</label>
+                <input id="dob" name="dob" type="date" class="field-input" />
+              </div>
+            </div>
+
+            <!-- Career level + preferred discipline -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="field-label" for="level">Career Level *</label>
+                <select id="level" name="level" required class="field-input">
+                  <option value="">Select level</option>
+                  <option>Student</option>
+                  <option>Recent Graduate</option>
+                  <option>Entry-level (0–2 yrs)</option>
+                  <option>Mid-level (3–6 yrs)</option>
+                  <option>Senior (7–12 yrs)</option>
+                  <option>Lead / Principal (12+ yrs)</option>
+                </select>
+              </div>
+              <div>
+                <label class="field-label" for="discipline">Preferred Discipline *</label>
+                <select id="discipline" name="discipline" required class="field-input">
+                  <option value="">Select discipline</option>
+                  <option>Design</option>
+                  <option>Supervision</option>
+                  <option>Digital</option>
+                  <option>PWC</option>
+                  <option>Corporate Services</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- LinkedIn + CV -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label class="field-label" for="linkedin">LinkedIn Profile (optional)</label>
+                <input id="linkedin" name="linkedin" type="url" class="field-input" placeholder="https://www.linkedin.com/in/..." />
+              </div>
+              <div>
+                <label class="field-label" for="cv">Upload CV (PDF or DOCX)</label>
+                <input id="cv" name="cv" type="file" accept=".pdf,.doc,.docx" class="field-input bg-white" />
+              </div>
+            </div>
+
+            <!-- Consent checkboxes -->
+            <div class="space-y-3 mt-6 mb-6">
+              <label class="flex items-start gap-3 text-sm text-gray-700">
+                <input type="checkbox" id="terms" name="terms" required class="mt-1" />
+                <span>I agree to the <a href="#" style="color: var(--ka-accent);" class="underline">Terms of Service</a> and <a href="#" style="color: var(--ka-accent);" class="underline">Privacy Policy</a>. *</span>
+              </label>
+              <label class="flex items-start gap-3 text-sm text-gray-700">
+                <input type="checkbox" id="marketing" name="marketing" class="mt-1" />
+                <span>Send me updates about new roles, programs, and events at Khatib &amp; Alami.</span>
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit"
+                    class="w-full text-white py-3 rounded-lg font-semibold text-lg transition"
+                    style="background-color: var(--ka-accent);"
+                    onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+                    onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+              Create My Account
+            </button>
+
+            <p class="text-xs text-gray-500 text-center mt-4">Fields marked * are required.</p>
+          </form>
+
+          <!-- Success card (hidden by default) -->
+          <div id="success" class="hidden mt-6 p-5 rounded-lg border" style="background-color: #ecfdf5; border-color: #a7f3d0;">
+            <h3 class="font-bold mb-1" style="color: #065f46;">Profile created!</h3>
+            <p class="text-sm" style="color: #065f46;">You're now part of our Global Talent Community. A recruiter will reach out when a role matches your background.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="text-white py-12" style="background-color: var(--ka-primary);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4 text-white">About</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">About Us</a></li>
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Our Work</a></li>
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4 text-white">Careers</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
+            <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
+            <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
+            <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <h4 class="font-bold mb-4 text-white">Compliance &amp; Legal</h4>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Accessibility &amp; Reasonable Accommodations</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Equal Opportunity Statement</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Pay Transparency</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Policy Statement</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Applicant Legal Rights</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Recruiting Agencies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/25 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/90">&copy; 2026 Khatib &amp; Alami. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-white/80 mr-1">Follow us:</span>
+          <a href="https://www.linkedin.com/company/khatib-and-alami" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.38-1.11 2.5-2.48 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.55 0h4.37v2.05h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.48 3.04 5.48 7v8.32h-4.56v-7.38c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.91-2.83 3.89v7.51H7.77V8z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/khatibalami/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 01-1.38-.9 3.71 3.71 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.81C4.01 8.5 4 8.86 4 12s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.81.34 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.81.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a3.06 3.06 0 00-.73-1.13 3.06 3.06 0 00-1.13-.73c-.34-.14-.86-.3-1.81-.34C15.5 4.01 15.14 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/khatib.alami/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0022 12z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 00.5 6.2 31.3 31.3 0 000 12a31.3 31.3 0 00.5 5.8 3 3 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 002.12-2.13A31.3 31.3 0 0024 12a31.3 31.3 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+          </a>
+          <a href="https://twitter.com/khatibalami" target="_blank" rel="noopener" aria-label="X / Twitter" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.88l-4.9-6.4L4.5 22H1.74l6.97-7.97L2 2h6.93l4.47 5.87L18.244 2zm-1.2 18h1.7L7.04 4H5.25l11.8 16z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Password strength meter
+    const pw = document.getElementById('password');
+    const conf = document.getElementById('confirm');
+    const meter = document.getElementById('strengthMeter');
+    const strengthLabel = document.getElementById('strengthLabel');
+    const matchLabel = document.getElementById('matchLabel');
+    const bars = meter.querySelectorAll('span');
+    const accent = '#FF6B35';
+
+    function scorePw(v) {
+      let s = 0;
+      if (v.length >= 8) s++;
+      if (/[A-Z]/.test(v) && /[a-z]/.test(v)) s++;
+      if (/\d/.test(v)) s++;
+      if (/[^A-Za-z0-9]/.test(v)) s++;
+      return s;
+    }
+    function colorFor(s) {
+      if (s <= 1) return '#ef4444';
+      if (s === 2) return '#f59e0b';
+      if (s === 3) return '#eab308';
+      return '#10b981';
+    }
+    function labelFor(s) {
+      if (!pw.value) return 'Use 8+ characters, mixing letters, numbers, and symbols.';
+      if (s <= 1) return 'Weak password — add more variety.';
+      if (s === 2) return 'Fair — consider adding numbers or symbols.';
+      if (s === 3) return 'Good password.';
+      return 'Strong password.';
+    }
+    pw.addEventListener('input', () => {
+      const s = scorePw(pw.value);
+      bars.forEach((b, i) => b.style.background = (i < s ? colorFor(s) : '#e5e7eb'));
+      strengthLabel.textContent = labelFor(s);
+      checkMatch();
+    });
+    function checkMatch() {
+      if (!conf.value) { matchLabel.textContent = 'Passwords must match.'; matchLabel.style.color = '#6B7280'; return; }
+      if (conf.value === pw.value) { matchLabel.textContent = 'Passwords match.'; matchLabel.style.color = '#10b981'; }
+      else { matchLabel.textContent = 'Passwords do not match.'; matchLabel.style.color = '#ef4444'; }
+    }
+    conf.addEventListener('input', checkMatch);
+
+    // Submit handler
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (pw.value !== conf.value) {
+        matchLabel.textContent = 'Passwords do not match.';
+        matchLabel.style.color = '#ef4444';
+        conf.focus();
+        return;
+      }
+      document.getElementById('signupForm').classList.add('hidden');
+      document.getElementById('success').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

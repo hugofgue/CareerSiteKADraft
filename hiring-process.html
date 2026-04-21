@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Hiring Process &mdash; K&amp;A Careers</title>
+  <meta name="description" content="Learn how we hire at Khatib &amp; Alami — from profile creation to your offer, with videos and guidance for every step." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ka-primary: #5E6B70;
+      --ka-accent: #FF6B35;
+      --ka-accent-dark: #E55A24;
+      --ka-light-bg: #F5F7FA;
+      --ka-text: #2C3E50;
+      --ka-dark: #1F2937;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: Arial, sans-serif; color: var(--ka-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+
+    .nav-link { transition: color 200ms ease; }
+    .nav-link:hover { color: var(--ka-accent); }
+
+    .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
+    .ka-logo-mark {
+      display: inline-flex; align-items: center;
+      font-family: Arial, Helvetica, sans-serif; font-weight: 900;
+      font-size: 28px; line-height: 1; color: var(--ka-dark); letter-spacing: -1px;
+    }
+    .ka-logo-bar { display: inline-block; width: 3px; height: 26px; background-color: var(--ka-accent); margin: 0 4px; }
+    .ka-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .ka-logo-text .ka-line1 { font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--ka-dark); }
+    .ka-logo-text .ka-line2 { font-weight: 600; font-size: 9px; color: #6B7280; letter-spacing: 0.5px; }
+
+    .step-card { transition: transform 250ms ease, box-shadow 250ms ease; }
+    .step-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,0.12); }
+
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      aspect-ratio: 16 / 9;
+      background: #1F2937;
+    }
+    .video-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+    .video-card:hover img { transform: scale(1.05); }
+    .video-card .play-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
+      display: flex; align-items: center; justify-content: center;
+      transition: background 200ms ease;
+    }
+    .video-card:hover .play-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,107,53,0.55)); }
+    .video-card .play-btn {
+      width: 68px; height: 68px; border-radius: 999px;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
+        <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
+        <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
+        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
+        <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
+        <a href="hiring-process.html" class="nav-link hidden md:inline" style="color: var(--ka-accent);">Our Hiring Process</a>
+        <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
+        <a href="create-account.html"
+           class="text-white px-4 py-2 rounded-lg font-semibold transition"
+           style="background-color: var(--ka-accent);"
+           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+          Create Account
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="relative h-80 bg-cover bg-center flex items-center justify-center"
+           style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-professional-dev_b43f7a11.jpg');">
+    <div class="absolute inset-0" style="background-color: rgba(31, 41, 55, 0.65);"></div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto px-4 text-white">
+      <h1 class="text-5xl font-extrabold mb-4 text-white" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Our Hiring Process</h1>
+      <p class="text-xl text-white/90">A clear, transparent journey from application to offer</p>
+    </div>
+  </section>
+
+  <!-- ===== Intro ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4" style="color: var(--ka-primary);">What to Expect</h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Hiring at K&amp;A is designed to be a two-way conversation. We want to understand your experience, goals, and strengths — and we want you to get a real feel for our people, projects, and culture. Here's exactly what to expect, step by step.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Process Steps (detailed) ===== -->
+  <section class="py-16" style="background-color: var(--ka-light-bg);">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--ka-primary);">Five Steps to Joining K&amp;A</h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4 mb-10">
+        <div class="step-card bg-white p-6 rounded-xl border border-gray-200 text-center">
+          <div class="w-14 h-14 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-xl" style="background-color: var(--ka-accent);">1</div>
+          <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Create Your Profile</h3>
+          <p class="text-sm text-gray-600">Join our Global Talent Community. Quick and simple — once you're in, recruiters can reach out when a role matches your background.</p>
+        </div>
+        <div class="step-card bg-white p-6 rounded-xl border border-gray-200 text-center">
+          <div class="w-14 h-14 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-xl" style="background-color: var(--ka-accent);">2</div>
+          <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Apply</h3>
+          <p class="text-sm text-gray-600">Upload your CV and supporting documents. Include the job reference number if listed, so we can route your application correctly.</p>
+        </div>
+        <div class="step-card bg-white p-6 rounded-xl border border-gray-200 text-center">
+          <div class="w-14 h-14 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-xl" style="background-color: var(--ka-accent);">3</div>
+          <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Screening</h3>
+          <p class="text-sm text-gray-600">Our recruiters review every application carefully. You'll hear back within 3–5 business days if you're moving forward.</p>
+        </div>
+        <div class="step-card bg-white p-6 rounded-xl border border-gray-200 text-center">
+          <div class="w-14 h-14 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-xl" style="background-color: var(--ka-accent);">4</div>
+          <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Interview</h3>
+          <p class="text-sm text-gray-600">Conversations with our internal teams — HR, hiring manager, and technical panels. When the role requires it, we also coordinate a client interview. Expect the full stage to take around two weeks.</p>
+        </div>
+        <div class="step-card bg-white p-6 rounded-xl border border-gray-200 text-center">
+          <div class="w-14 h-14 text-white rounded-full mx-auto mb-4 flex items-center justify-center font-bold text-xl" style="background-color: var(--ka-accent);">5</div>
+          <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Offer &amp; Onboarding</h3>
+          <p class="text-sm text-gray-600">If selected, you'll receive a formal offer followed by a smooth onboarding process — paperwork, induction, and your first project team.</p>
+        </div>
+      </div>
+
+      <!-- What we believe -->
+      <div class="bg-white p-8 rounded-xl border border-gray-200">
+        <h3 class="text-xl font-bold mb-4" style="color: var(--ka-primary);">What We Believe</h3>
+        <ul class="grid md:grid-cols-2 gap-3">
+          <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span><span class="text-gray-700">We review every application carefully, not just the top of the stack.</span></li>
+          <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span><span class="text-gray-700">Interviews are a two-way conversation — we want to learn about you, and we expect you to learn about us.</span></li>
+          <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span><span class="text-gray-700">We share feedback with candidates wherever we can.</span></li>
+          <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span><span class="text-gray-700">Your background, references, and technical experience all matter — but so does how you think.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Videos ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">Hear From Our Recruitment Team</h2>
+      <p class="text-center text-gray-600 mb-12">Short videos walking you through what to expect at each stage</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="video-card">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-team-building_426b1706.jpg" alt="Preparing your profile" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold mt-4 mb-1" style="color: var(--ka-primary);">Preparing Your Profile</h3>
+          <p class="text-sm text-gray-600">Our recruiters share what makes a strong profile stand out — CV structure, key details, and common pitfalls.</p>
+        </div>
+        <div>
+          <div class="video-card">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-professional-dev_b43f7a11.jpg" alt="What happens after you apply" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold mt-4 mb-1" style="color: var(--ka-primary);">After You Apply</h3>
+          <p class="text-sm text-gray-600">How screening works behind the scenes, and how we decide who moves forward to the interview stage.</p>
+        </div>
+        <div>
+          <div class="video-card">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-collaborative_f713e837.jpg" alt="Interview tips" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold mt-4 mb-1" style="color: var(--ka-primary);">Interview Tips</h3>
+          <p class="text-sm text-gray-600">What our interviewers are really listening for — and how to make the most of the conversation.</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-500 mt-6">Videos are illustrative. Replace poster thumbnails and link to your hosted video embeds (YouTube, Vimeo, or Wistia) when ready.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="py-16" style="background-color: var(--ka-light-bg);">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--ka-primary);">Frequently Asked Questions</h2>
+
+      <div class="space-y-4">
+        <details class="bg-white p-5 rounded-lg border border-gray-200">
+          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">How long does the full process take?</summary>
+          <p class="mt-3 text-gray-700 text-sm">From application to offer typically takes 3–4 weeks, depending on role seniority and scheduling availability. The interview stage itself is usually about two weeks.</p>
+        </details>
+        <details class="bg-white p-5 rounded-lg border border-gray-200">
+          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">Can I apply to multiple roles?</summary>
+          <p class="mt-3 text-gray-700 text-sm">Yes. We encourage you to apply to any role where your background fits. If several positions match, our recruiters will help you focus on the best fit.</p>
+        </details>
+        <details class="bg-white p-5 rounded-lg border border-gray-200">
+          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">Do I need to be in the same city as the role?</summary>
+          <p class="mt-3 text-gray-700 text-sm">Not always. For many roles we support relocation across our offices in Dubai, Riyadh, Abu Dhabi, and beyond. Remote options are also available for eligible positions.</p>
+        </details>
+        <details class="bg-white p-5 rounded-lg border border-gray-200">
+          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">What should I bring to interviews?</summary>
+          <p class="mt-3 text-gray-700 text-sm">A portfolio or project summaries (for technical roles), your CV, and questions — interviews are a two-way conversation and we want you to leave informed.</p>
+        </details>
+        <details class="bg-white p-5 rounded-lg border border-gray-200">
+          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">Will I get feedback if I'm not selected?</summary>
+          <p class="mt-3 text-gray-700 text-sm">Yes. Wherever possible, we provide feedback so candidates leave the process having learned something — whether the outcome was a yes or a no.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="py-16" style="background-color: var(--ka-primary);">
+    <div class="max-w-4xl mx-auto px-4 text-center text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to Start?</h2>
+      <p class="text-lg text-white/90 mb-8">Create your profile or browse open roles across our offices.</p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href="create-account.html"
+           class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold transition"
+           style="background-color: var(--ka-accent);"
+           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+          Create Your Profile
+        </a>
+        <a href="jobs.html"
+           class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition bg-white"
+           style="color: var(--ka-primary);"
+           onmouseover="this.style.backgroundColor='#F5F7FA'"
+           onmouseout="this.style.backgroundColor='#fff'">
+          Browse Open Jobs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="text-white py-12" style="background-color: var(--ka-primary);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4 text-white">About</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">About Us</a></li>
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Our Work</a></li>
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4 text-white">Careers</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
+            <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
+            <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
+            <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <h4 class="font-bold mb-4 text-white">Compliance &amp; Legal</h4>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Accessibility &amp; Reasonable Accommodations</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Equal Opportunity Statement</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Pay Transparency</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Policy Statement</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Applicant Legal Rights</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Recruiting Agencies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/25 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/90">&copy; 2026 Khatib &amp; Alami. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-white/80 mr-1">Follow us:</span>
+          <a href="https://www.linkedin.com/company/khatib-and-alami" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.38-1.11 2.5-2.48 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.55 0h4.37v2.05h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.48 3.04 5.48 7v8.32h-4.56v-7.38c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.91-2.83 3.89v7.51H7.77V8z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/khatibalami/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 01-1.38-.9 3.71 3.71 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.81C4.01 8.5 4 8.86 4 12s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.81.34 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.81.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a3.06 3.06 0 00-.73-1.13 3.06 3.06 0 00-1.13-.73c-.34-.14-.86-.3-1.81-.34C15.5 4.01 15.14 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/khatib.alami/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0022 12z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 00.5 6.2 31.3 31.3 0 000 12a31.3 31.3 0 00.5 5.8 3 3 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 002.12-2.13A31.3 31.3 0 0024 12a31.3 31.3 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+          </a>
+          <a href="https://twitter.com/khatibalami" target="_blank" rel="noopener" aria-label="X / Twitter" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.88l-4.9-6.4L4.5 22H1.74l6.97-7.97L2 2h6.93l4.47 5.87L18.244 2zm-1.2 18h1.7L7.04 4H5.25l11.8 16z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

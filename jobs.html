@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K&amp;A Careers &mdash; Open Positions</title>
+  <meta name="description" content="Browse open positions at Khatib &amp; Alami. Filter by location, business category, type, and experience level." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --ka-primary: #5E6B70;
+      --ka-accent: #FF6B35;
+      --ka-accent-dark: #E55A24;
+      --ka-light-bg: #F5F7FA;
+      --ka-text: #2C3E50;
+      --ka-dark: #1F2937;
+    }
+    body { font-family: Arial, sans-serif; color: var(--ka-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--ka-accent);
+      border-color: var(--ka-accent);
+    }
+
+    .job-card { transition: box-shadow 200ms ease, border-color 200ms ease; }
+    .job-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-color: var(--ka-accent); }
+    .job-card:hover h3 { color: var(--ka-accent); }
+
+    .nav-link { transition: color 200ms ease; }
+    .nav-link:hover { color: var(--ka-accent); }
+
+    .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
+    .ka-logo-mark {
+      display: inline-flex; align-items: center;
+      font-family: Arial, Helvetica, sans-serif; font-weight: 900;
+      font-size: 28px; line-height: 1; color: var(--ka-dark); letter-spacing: -1px;
+    }
+    .ka-logo-bar { display: inline-block; width: 3px; height: 26px; background-color: var(--ka-accent); margin: 0 4px; }
+    .ka-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .ka-logo-text .ka-line1 { font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--ka-dark); }
+    .ka-logo-text .ka-line2 { font-weight: 600; font-size: 9px; color: #6B7280; letter-spacing: 0.5px; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-white">
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
+        <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
+      </a>
+      <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
+        <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
+        <a href="jobs.html" class="nav-link hidden sm:inline" style="color: var(--ka-accent);">Browse Jobs</a>
+        <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
+        <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+        <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
+        <a href="create-account.html"
+           class="text-white px-4 py-2 rounded-lg font-semibold transition"
+           style="background-color: var(--ka-accent);"
+           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+          Create Account
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero (swapped by JS based on ?type=) ===== -->
+  <section id="heroSection" class="py-12" style="background-color: var(--ka-light-bg);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <img id="heroImage" src="" alt="" class="rounded-lg shadow-lg w-full" />
+        </div>
+        <div>
+          <h2 id="heroTitle" class="text-4xl font-bold mb-4" style="color: var(--ka-primary);"></h2>
+          <p id="heroDesc" class="text-lg text-gray-700 mb-6"></p>
+          <ul id="heroList" class="space-y-3 text-gray-700"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Filters + Jobs ===== -->
+  <div class="flex flex-1 flex-col md:flex-row">
+    <!-- Sidebar -->
+    <aside class="w-full md:w-72 border-r border-gray-200 p-6 overflow-y-auto" style="background-color: var(--ka-light-bg);">
+      <h3 class="text-lg font-bold mb-6" style="color: var(--ka-primary);">Filters</h3>
+
+      <div class="mb-6">
+        <label class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Search</label>
+        <input type="text" id="fSearch" placeholder="Job title or keyword..."
+               class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Location</label>
+        <select id="fLocation" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <option value="all">All Locations</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Abu Dhabi">Abu Dhabi</option>
+          <option value="Riyadh">Riyadh</option>
+          <option value="Remote">Remote</option>
+        </select>
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Business Category</label>
+        <select id="fCategory" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <option value="all">All Categories</option>
+          <option value="Design">Design</option>
+          <option value="Supervision">Supervision</option>
+          <option value="Digital">Digital</option>
+          <option value="PWC">PWC</option>
+          <option value="Corporate Services">Corporate Services</option>
+        </select>
+      </div>
+
+      <div class="mb-6">
+        <label id="fTypeLabel" class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Employment Type</label>
+        <select id="fType" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <!-- options filled by JS depending on type -->
+        </select>
+      </div>
+
+      <div class="mb-6">
+        <label id="fLevelLabel" class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Experience Level</label>
+        <select id="fLevel" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+          <!-- options filled by JS depending on type -->
+        </select>
+      </div>
+
+      <!-- Results count -->
+      <div class="mt-8 p-4 bg-white rounded-lg border border-gray-200 text-center">
+        <p id="countNum" class="text-2xl font-bold" style="color: var(--ka-accent);">0</p>
+        <p id="countLabel" class="text-sm text-gray-600">Positions Found</p>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="flex-1 p-6 md:p-8">
+      <h2 id="listTitle" class="text-3xl font-bold mb-2" style="color: var(--ka-primary);">Open Positions</h2>
+      <p id="listSubtitle" class="text-gray-600 mb-8">positions available</p>
+
+      <div id="jobsList" class="space-y-6"></div>
+
+      <div id="emptyState" class="hidden rounded-lg p-12 text-center" style="background-color: var(--ka-light-bg);">
+        <p class="text-gray-600 mb-4">No positions match your filters</p>
+        <button id="clearBtn" class="font-semibold transition"
+                style="color: var(--ka-accent);"
+                onmouseover="this.style.color='var(--ka-accent-dark)'"
+                onmouseout="this.style.color='var(--ka-accent)'">
+          Clear Filters
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="text-white py-12" style="background-color: var(--ka-primary);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h4 class="font-bold mb-4 text-white">About</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">About Us</a></li>
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Our Work</a></li>
+            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4 text-white">Careers</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
+            <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
+            <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
+            <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <h4 class="font-bold mb-4 text-white">Compliance &amp; Legal</h4>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Accessibility &amp; Reasonable Accommodations</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Equal Opportunity Statement</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Pay Transparency</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Policy Statement</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Applicant Legal Rights</a></li>
+            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Recruiting Agencies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/25 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-white/90">&copy; 2026 Khatib &amp; Alami. All rights reserved.</p>
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-white/80 mr-1">Follow us:</span>
+          <a href="https://www.linkedin.com/company/khatib-and-alami" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.38-1.11 2.5-2.48 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.55 0h4.37v2.05h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.48 3.04 5.48 7v8.32h-4.56v-7.38c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.91-2.83 3.89v7.51H7.77V8z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/khatibalami/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 01-1.38-.9 3.71 3.71 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.81C4.01 8.5 4 8.86 4 12s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.81.34 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.81.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a3.06 3.06 0 00-.73-1.13 3.06 3.06 0 00-1.13-.73c-.34-.14-.86-.3-1.81-.34C15.5 4.01 15.14 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/khatib.alami/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0022 12z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 00.5 6.2 31.3 31.3 0 000 12a31.3 31.3 0 00.5 5.8 3 3 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 002.12-2.13A31.3 31.3 0 0024 12a31.3 31.3 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+          </a>
+          <a href="https://twitter.com/khatibalami" target="_blank" rel="noopener" aria-label="X / Twitter" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.88l-4.9-6.4L4.5 22H1.74l6.97-7.97L2 2h6.93l4.47 5.87L18.244 2zm-1.2 18h1.7L7.04 4H5.25l11.8 16z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // ----- Data (now with Business Category) -----
+    const jobListings = [
+      { id: 1, title: "Senior Architect",              department: "Architecture & Planning", location: "Dubai",     level: "Senior",      function: "Design",      type: "Full-time",  category: "Design"              },
+      { id: 2, title: "Civil Engineer",                 department: "Infrastructure",           location: "Riyadh",    level: "Mid-level",   function: "Engineering", type: "Full-time",  category: "Design"              },
+      { id: 3, title: "BIM Manager",                    department: "Digital Services",         location: "Abu Dhabi", level: "Mid-level",   function: "Management",  type: "Full-time",  category: "Digital"             },
+      { id: 4, title: "Site Supervision Engineer",      department: "Project Supervision",      location: "Riyadh",    level: "Mid-level",   function: "Supervision", type: "Full-time",  category: "Supervision"         },
+      { id: 5, title: "Sustainability Engineer",        department: "Energy",                   location: "Dubai",     level: "Entry-level", function: "Engineering", type: "Full-time",  category: "Design"              },
+      { id: 6, title: "Frontend Developer",             department: "Digital Services",         location: "Remote",    level: "Mid-level",   function: "Development", type: "Full-time",  category: "Digital"             },
+      { id: 7, title: "Project Manager",                department: "PWC",                      location: "Dubai",     level: "Senior",      function: "Management",  type: "Full-time",  category: "PWC"                 },
+      { id: 8, title: "Works Inspector",                department: "PWC",                      location: "Abu Dhabi", level: "Mid-level",   function: "Supervision", type: "Full-time",  category: "PWC"                 },
+      { id: 9, title: "HR Business Partner",            department: "Human Resources",          location: "Dubai",     level: "Senior",      function: "HR",          type: "Full-time",  category: "Corporate Services"  },
+      { id:10, title: "Financial Controller",           department: "Finance",                  location: "Abu Dhabi", level: "Senior",      function: "Finance",     type: "Full-time",  category: "Corporate Services"  },
+      { id:11, title: "Graduate Architect",             department: "Architecture & Planning", location: "Dubai",     level: "Entry-level", function: "Design",      type: "Graduate",   category: "Design"              },
+      { id:12, title: "Internship - Urban Planning",    department: "Architecture & Planning", location: "Abu Dhabi", level: "Entry-level", function: "Planning",    type: "Internship", category: "Design"              },
+      { id:13, title: "GIS Analyst",                    department: "Digital Services",         location: "Dubai",     level: "Mid-level",   function: "Analysis",    type: "Full-time",  category: "Digital"             },
+      { id:14, title: "Resident Engineer",              department: "Project Supervision",      location: "Riyadh",    level: "Senior",      function: "Supervision", type: "Full-time",  category: "Supervision"         },
+    ];
+
+    // ----- Hero + filter content per ?type= -----
+    const configs = {
+      professional: {
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/professional-roles-hero-Td2ZD2gToaV8RQ9YrScY9x.webp",
+        title: "Professional Roles",
+        desc:  "Join our experienced team of architects, engineers, and consultants. We're looking for talented professionals who are ready to make an impact on iconic projects across the Middle East and beyond.",
+        bullets: [
+          "Full-time positions",
+          "Competitive compensation & benefits",
+          "Career growth opportunities",
+          "Work on world-class projects"
+        ],
+        typeLabel: "Employment Type",
+        typeOptions: [["all","All Types"], ["Full-time","Full-time"]],
+        levelLabel: "Experience Level",
+        levelOptions: [["all","All Levels"], ["Entry-level","Entry-level"], ["Mid-level","Mid-level"], ["Senior","Senior"]],
+        listTitle: "Open Positions",
+        countLabel: "Positions Found",
+        filterFn: (j) => j.type === "Full-time"
+      },
+      graduate: {
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/graduate-internship-hero-m3xS9Gj7jSfwzArhLbSiyz.webp",
+        title: "Graduate & Internship Programs",
+        desc:  "Launch your career with Khatib & Alami. Our graduate and internship programs are designed to develop the next generation of leaders in architecture, engineering, and consultancy. You'll work alongside industry experts on real projects while gaining invaluable experience.",
+        bullets: [
+          "Structured mentorship programs",
+          "Hands-on project experience",
+          "Professional development training",
+          "Potential for permanent roles"
+        ],
+        typeLabel: "Program Type",
+        typeOptions: [["all","All Programs"], ["Graduate","Graduate"], ["Internship","Internship"]],
+        levelLabel: "Education Level",
+        levelOptions: [["all","All Levels"], ["Entry-level","Recent Graduate"], ["Mid-level","Final Year Student"]],
+        listTitle: "Graduate & Internship Opportunities",
+        countLabel: "Programs Available",
+        filterFn: (j) => j.type === "Graduate" || j.type === "Internship"
+      },
+      all: {
+        image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/hero-team-collaboration-223FY5ccDYmQQ7h7hZ6AWU.webp",
+        title: "All Open Positions",
+        desc:  "Browse every open role across Khatib & Alami. Filter by location, business category, employment type, and experience level to find the opportunity that fits you.",
+        bullets: [
+          "Full-time, Graduate, and Internship roles",
+          "Multiple locations across the region",
+          "Design, Supervision, Digital, PWC & Corporate Services",
+          "Entry-level to Senior positions"
+        ],
+        typeLabel: "Employment Type",
+        typeOptions: [["all","All Types"], ["Full-time","Full-time"], ["Graduate","Graduate"], ["Internship","Internship"]],
+        levelLabel: "Experience Level",
+        levelOptions: [["all","All Levels"], ["Entry-level","Entry-level"], ["Mid-level","Mid-level"], ["Senior","Senior"]],
+        listTitle: "Open Positions",
+        countLabel: "Positions Found",
+        filterFn: () => true
+      }
+    };
+
+    // ----- Read query parameters -----
+    const params = new URLSearchParams(window.location.search);
+    const typeParam = params.get('type');
+    const cfg = configs[typeParam] || configs.all;
+
+    // Populate hero
+    document.getElementById('heroImage').src = cfg.image;
+    document.getElementById('heroImage').alt = cfg.title;
+    document.getElementById('heroTitle').textContent = cfg.title;
+    document.getElementById('heroDesc').textContent = cfg.desc;
+    const listEl = document.getElementById('heroList');
+    cfg.bullets.forEach(b => {
+      const li = document.createElement('li');
+      li.className = 'flex items-center gap-2';
+      li.innerHTML = `<span class="font-bold" style="color: var(--ka-accent);">&check;</span> ${b}`;
+      listEl.appendChild(li);
+    });
+
+    // Populate filter selects
+    const fType = document.getElementById('fType');
+    const fLevel = document.getElementById('fLevel');
+    const fCategory = document.getElementById('fCategory');
+    document.getElementById('fTypeLabel').textContent = cfg.typeLabel;
+    document.getElementById('fLevelLabel').textContent = cfg.levelLabel;
+    cfg.typeOptions.forEach(([v, t]) => {
+      const o = document.createElement('option'); o.value = v; o.textContent = t; fType.appendChild(o);
+    });
+    cfg.levelOptions.forEach(([v, t]) => {
+      const o = document.createElement('option'); o.value = v; o.textContent = t; fLevel.appendChild(o);
+    });
+
+    document.getElementById('listTitle').textContent = cfg.listTitle;
+    document.getElementById('countLabel').textContent = cfg.countLabel;
+
+    // Prefill from search params if coming from home hero form or category tiles
+    const prefillKeyword = params.get('q');
+    const prefillLocation = params.get('location') || params.get('loc');
+    const prefillCategory = params.get('category');
+    const prefillEmployment = params.get('employment');
+    if (prefillKeyword) document.getElementById('fSearch').value = prefillKeyword;
+    if (prefillLocation && prefillLocation !== 'all') document.getElementById('fLocation').value = prefillLocation;
+    if (prefillCategory && prefillCategory !== 'all') {
+      // ensure the option exists; set value
+      const hasOpt = Array.from(fCategory.options).some(o => o.value === prefillCategory);
+      if (hasOpt) fCategory.value = prefillCategory;
+    }
+    if (prefillEmployment && prefillEmployment !== 'all' && cfg.typeOptions.some(([v]) => v === prefillEmployment)) {
+      fType.value = prefillEmployment;
+    }
+
+    // ----- Filtering + rendering -----
+    const jobsListEl = document.getElementById('jobsList');
+    const emptyStateEl = document.getElementById('emptyState');
+    const countNumEl = document.getElementById('countNum');
+    const listSubtitleEl = document.getElementById('listSubtitle');
+
+    function iconMapPin() {
+      return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-accent);"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>';
+    }
+    function iconBriefcase() {
+      return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-accent);"><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>';
+    }
+    function iconClock() {
+      return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-accent);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+    }
+    function iconLayers() {
+      return '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-accent);"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>';
+    }
+
+    function render() {
+      const searchVal = document.getElementById('fSearch').value.trim().toLowerCase();
+      const loc = document.getElementById('fLocation').value;
+      const cat = fCategory.value;
+      const typ = fType.value;
+      const lvl = fLevel.value;
+
+      const filtered = jobListings
+        .filter(cfg.filterFn)
+        .filter(j => loc === 'all' || j.location === loc)
+        .filter(j => cat === 'all' || j.category === cat)
+        .filter(j => typ === 'all' || j.type === typ)
+        .filter(j => lvl === 'all' || j.level === lvl)
+        .filter(j => !searchVal ||
+                     j.title.toLowerCase().includes(searchVal) ||
+                     j.department.toLowerCase().includes(searchVal));
+
+      countNumEl.textContent = filtered.length;
+      const word = (cfg.countLabel.toLowerCase().includes('program') ? 'program' : 'position');
+      listSubtitleEl.textContent = `${filtered.length} ${word}${filtered.length === 1 ? '' : 's'} available`;
+
+      jobsListEl.innerHTML = '';
+      if (filtered.length === 0) {
+        emptyStateEl.classList.remove('hidden');
+        return;
+      }
+      emptyStateEl.classList.add('hidden');
+
+      filtered.forEach(job => {
+        const card = document.createElement('div');
+        card.className = 'job-card bg-white border border-gray-200 rounded-lg p-6 cursor-pointer';
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-3">
+            <div>
+              <h3 class="text-xl font-bold transition" style="color: var(--ka-primary);">${job.title}</h3>
+              <p class="text-sm text-gray-600 mt-1">${job.department}</p>
+            </div>
+            <span class="px-3 py-1 text-xs font-semibold rounded-full" style="background-color: var(--ka-light-bg); color: var(--ka-primary);">
+              ${job.type}
+            </span>
+          </div>
+          <div class="flex flex-wrap gap-4 mb-4 text-sm text-gray-600">
+            <div class="flex items-center gap-1">${iconMapPin()} ${job.location}</div>
+            <div class="flex items-center gap-1">${iconBriefcase()} ${job.level}</div>
+            <div class="flex items-center gap-1">${iconClock()} ${job.function}</div>
+            <div class="flex items-center gap-1">${iconLayers()} ${job.category}</div>
+          </div>
+          <button class="text-white px-6 py-2 rounded-lg font-medium transition"
+                  style="background-color: var(--ka-accent);"
+                  onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+                  onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+            View &amp; Apply
+          </button>
+        `;
+        jobsListEl.appendChild(card);
+      });
+    }
+
+    // Wire up filters
+    ['fSearch','fLocation','fCategory','fType','fLevel'].forEach(id => {
+      document.getElementById(id).addEventListener('input', render);
+      document.getElementById(id).addEventListener('change', render);
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', () => {
+      document.getElementById('fSearch').value = '';
+      document.getElementById('fLocation').value = 'all';
+      fCategory.value = 'all';
+      fType.value = 'all';
+      fLevel.value = 'all';
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
