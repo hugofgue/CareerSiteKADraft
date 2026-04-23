@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Account &mdash; K&amp;A Careers</title>
+  <title>Create Account | K&amp;A Careers</title>
   <meta name="description" content="Join the Khatib &amp; Alami Global Talent Community. Create your candidate profile to apply for roles and hear about new opportunities." />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -55,9 +55,10 @@
       </a>
       <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
         <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
-        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
+        <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
         <a href="create-account.html"
            class="text-white px-4 py-2 rounded-lg font-semibold transition"
@@ -78,7 +79,7 @@
         <aside class="md:col-span-2">
           <h1 class="text-3xl font-bold mb-4" style="color: var(--ka-primary);">Join Our Global Talent Community</h1>
           <p class="text-gray-700 mb-6 leading-relaxed">
-            Creating a profile takes less than 3 minutes — and it's the first step to being seen by K&amp;A recruiters across all our offices.
+            Creating a profile takes less than 3 minutes, and it's the first step to being seen by K&amp;A recruiters across all our offices.
           </p>
           <ul class="space-y-3 text-sm text-gray-700">
             <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Get notified when new roles match your background</li>
@@ -248,7 +249,7 @@
                   <option>Design</option>
                   <option>Supervision</option>
                   <option>Digital</option>
-                  <option>PWC</option>
+                  <option>PMC - Program Management Consultancy</option>
                   <option>Corporate Services</option>
                 </select>
               </div>
@@ -315,9 +316,10 @@
         <div>
           <h4 class="font-bold mb-4 text-white">Careers</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
+            <li><a href="why.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Why K&amp;A</a></li>
             <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
             <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
+            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
             <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
           </ul>
         </div>
@@ -383,8 +385,8 @@
     }
     function labelFor(s) {
       if (!pw.value) return 'Use 8+ characters, mixing letters, numbers, and symbols.';
-      if (s <= 1) return 'Weak password — add more variety.';
-      if (s === 2) return 'Fair — consider adding numbers or symbols.';
+      if (s <= 1) return 'Weak password. Add more variety.';
+      if (s === 2) return 'Fair. Consider adding numbers or symbols.';
       if (s === 3) return 'Good password.';
       return 'Strong password.';
     }

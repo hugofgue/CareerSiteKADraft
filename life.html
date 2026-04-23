@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Life at Khatib &amp; Alami &mdash; K&amp;A Careers</title>
-  <meta name="description" content="Discover the culture, people, and values at Khatib &amp; Alami. Explore what it's like to work on landmark projects across the Middle East and beyond." />
+  <title>Life at Khatib &amp; Alami | K&amp;A Careers</title>
+  <meta name="description" content="Discover what life is really like at Khatib &amp; Alami: our people, our projects, our values, and how we support every stage of your career." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -31,18 +31,64 @@
     .nav-link:hover { color: var(--ka-accent); }
 
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
-    .ka-logo-mark {
-      display: inline-flex; align-items: center;
-      font-family: Arial, Helvetica, sans-serif; font-weight: 900;
-      font-size: 28px; line-height: 1; color: var(--ka-dark); letter-spacing: -1px;
-    }
-    .ka-logo-bar { display: inline-block; width: 3px; height: 26px; background-color: var(--ka-accent); margin: 0 4px; }
-    .ka-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .ka-logo-text .ka-line1 { font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--ka-dark); }
-    .ka-logo-text .ka-line2 { font-weight: 600; font-size: 9px; color: #6B7280; letter-spacing: 0.5px; }
 
     .value-card { transition: transform 250ms ease, box-shadow 250ms ease; }
     .value-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,0.12); }
+
+    /* Video card styling (shared with hiring-process) */
+    .video-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      cursor: pointer;
+      aspect-ratio: 16 / 9;
+      background: #1F2937;
+    }
+    .video-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+    .video-card:hover img { transform: scale(1.05); }
+    .video-card .play-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
+      display: flex; align-items: center; justify-content: center;
+      transition: background 200ms ease;
+    }
+    .video-card:hover .play-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,107,53,0.55)); }
+    .video-card .play-btn {
+      width: 68px; height: 68px; border-radius: 999px;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .video-card .badge {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--ka-accent); color: #fff;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+    }
+
+    /* Feature video (big one) */
+    .feature-video {
+      position: relative; overflow: hidden; border-radius: 16px;
+      aspect-ratio: 16 / 9; background: #1F2937;
+      cursor: pointer;
+    }
+    .feature-video img { width: 100%; height: 100%; object-fit: cover; transition: transform 400ms ease; }
+    .feature-video:hover img { transform: scale(1.03); }
+    .feature-video .overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+      display: flex; align-items: flex-end;
+      padding: 2rem;
+    }
+    .feature-video .big-play {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 90px; height: 90px; border-radius: 999px;
+      background: rgba(255,255,255,0.95);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+      transition: transform 200ms ease;
+    }
+    .feature-video:hover .big-play { transform: translate(-50%, -50%) scale(1.06); }
   </style>
 </head>
 <body class="bg-white">
@@ -55,9 +101,10 @@
       </a>
       <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
         <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
-        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
+        <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline" style="color: var(--ka-accent);">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
         <a href="create-account.html"
            class="text-white px-4 py-2 rounded-lg font-semibold transition"
@@ -72,7 +119,7 @@
 
   <!-- ===== Hero ===== -->
   <section class="relative h-80 bg-cover bg-center flex items-center justify-center"
-           style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-collaborative_f713e837.jpg');">
+           style="background-image: url('photos/uae-national-day.jpg');">
     <div class="absolute inset-0" style="background-color: rgba(31, 41, 55, 0.6);"></div>
     <div class="relative z-10 text-center max-w-4xl mx-auto px-4 text-white">
       <h1 class="text-5xl font-extrabold mb-4" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #fff;">Life at Khatib &amp; Alami</h1>
@@ -80,98 +127,146 @@
     </div>
   </section>
 
-  <!-- ===== Intro ===== -->
+  <!-- ===== Intro (culture-focused) ===== -->
   <section class="py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-6" style="color: var(--ka-primary);">A Workplace Shaped by 60+ Years of Experience</h2>
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6" style="color: var(--ka-primary);">What a Day Here Looks Like</h2>
       <p class="text-lg text-gray-700 leading-relaxed">
-        Since 1959, Khatib &amp; Alami has brought together architects, engineers, planners, and innovators to shape the skylines, infrastructure, and communities of the Middle East and beyond. Our team of 6,500+ professionals works across 30+ offices and 25+ nationalities — building not just iconic projects, but a workplace where people grow, belong, and do their best work.
+        Life at K&amp;A is collaborative, multicultural, and grounded in real work on real projects. You'll move between design reviews, site visits, and client workshops. One week with an airport team, the next on an urban masterplan. Our people describe it as a place where the projects are serious but the culture stays human.
       </p>
     </div>
   </section>
 
-  <!-- ===== Carousel ===== -->
+  <!-- ===== Video section: People & Projects ===== -->
   <section class="py-16" style="background-color: var(--ka-light-bg);">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-3" style="color: var(--ka-primary);">Our People &amp; Our Projects</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">Short stories from the teams behind the work: what they do, what they're proud of, and what keeps them here.</p>
+      </div>
+
+      <!-- Featured video -->
+      <div class="feature-video mb-8">
+        <img src="photos/graduate-mentorship.jpg"
+             alt="Featured video: Life at K&A" />
+        <div class="overlay">
+          <div class="text-white">
+            <span class="inline-block bg-[color:var(--ka-accent)] text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3" style="background-color: var(--ka-accent);">Featured &middot; 3 min</span>
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Meet the Team Behind Our Landmark Projects</h3>
+            <p class="text-white/90 max-w-2xl">Architects, engineers, and planners share what it's like to work at the scale we do, and why they stay.</p>
+          </div>
+        </div>
+        <div class="big-play">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+        </div>
+      </div>
+
+      <!-- Video grid -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <div class="video-card">
+            <span class="badge">People</span>
+            <img src="Testemonials/Anna.webp" alt="Anna: A Day in the Life" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold mt-4 mb-1" style="color: var(--ka-primary);">A Day in the Life: Design</h3>
+          <p class="text-sm text-gray-600">Anna, Senior Architect in Dubai, walks through a typical project day: morning reviews, site visits, and client workshops.</p>
+        </div>
+        <div>
+          <div class="video-card">
+            <span class="badge">Project</span>
+            <img src="photos/site-walk.jpg" alt="Airport Project Story" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold mt-4 mb-1" style="color: var(--ka-primary);">Inside an Airport Project</h3>
+          <p class="text-sm text-gray-600">How a multi-discipline K&amp;A team delivered one of the region's major new terminals: scale, pressure, and what they learned.</p>
+        </div>
+        <div>
+          <div class="video-card">
+            <span class="badge">People</span>
+            <img src="Testemonials/Hajj-Hassan.webp" alt="From Graduate to BIM Lead" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+              </div>
+            </div>
+          </div>
+          <h3 class="font-bold mt-4 mb-1" style="color: var(--ka-primary);">From Graduate to BIM Lead</h3>
+          <p class="text-sm text-gray-600">Hajj Hassan's five-year journey at K&amp;A: the projects, the mentors, and the moves that shaped his career.</p>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-500 mt-6">Videos are illustrative. Replace poster images and link to your hosted video embeds (YouTube, Vimeo, or Wistia) when ready.</p>
+    </div>
+  </section>
+
+  <!-- ===== Carousel: Our Culture in Pictures ===== -->
+  <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">Our Culture in Pictures</h2>
       <p class="text-center text-gray-600 mb-12">A glimpse into the moments that define our day-to-day</p>
 
       <div class="relative bg-gray-100 rounded-xl overflow-hidden">
         <div class="relative h-[30rem]" id="carousel">
-          <!-- 1. Scale of Projects -->
+          <!-- 1. Collaboration -->
           <div class="carousel-slide active">
-            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&h=900&fit=crop"
-                 alt="Scale of Projects" class="w-full h-full object-cover" />
+            <img src="photos/boardroom-meeting.jpg"
+                 alt="Collaboration" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">01 — Scale</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Scale of Projects</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Work on landmark projects across the Middle East and beyond, from iconic skyscrapers to complex infrastructure.</p>
+              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">01 · Collaboration</span>
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Cross-Discipline Teamwork</h3>
+              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Architects, engineers, and planners work side by side. The best ideas come from the overlap, not the silos.</p>
             </div>
           </div>
 
-          <!-- 2. Regional Presence -->
+          <!-- 2. Professional Dev -->
           <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=1600&h=900&fit=crop"
-                 alt="Regional Presence" class="w-full h-full object-cover" />
+            <img src="photos/training-session.jpg"
+                 alt="Professional Development" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">02 — Reach</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Regional Presence</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Our offices span multiple countries in the Middle East, offering exposure and regional mobility opportunities.</p>
+              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">02 · Learning</span>
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Mentoring &amp; Continuous Learning</h3>
+              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Structured mentorship, sponsored accreditations, and technical training at every stage of your career.</p>
             </div>
           </div>
 
-          <!-- 3. Career Growth -->
+          <!-- 3. Innovation & AI -->
           <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1600&h=900&fit=crop"
-                 alt="Career Growth" class="w-full h-full object-cover" />
+            <img src="photos/conference-vr.jpg"
+                 alt="Innovation and AI" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">03 — Growth</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Career Growth</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Continuous learning programs and mentorship from industry leaders accelerate your professional development.</p>
+              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">03 · Digital</span>
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Innovation &amp; AI in Digital Services</h3>
+              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Our award-winning Digital Services team is an ESRI Platinum Partner, delivering GIS, remote sensing, and AI-enabled solutions.</p>
             </div>
           </div>
 
-          <!-- 4. Global Standards -->
+          <!-- 4. Team Building -->
           <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=900&fit=crop"
-                 alt="Global Standards" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">04 — Standards</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Global Standards</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Work with a consulting firm that maintains global standards while delivering locally-relevant solutions.</p>
-            </div>
-          </div>
-
-          <!-- 5. Innovation & AI - Digital Services -->
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&h=900&fit=crop"
-                 alt="Innovation and AI - Digital Services" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">05 — Digital</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Innovation &amp; AI — Digital Services</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Join our award-winning Digital Services team as an ESRI Platinum Partner. We deliver complex, innovative projects across GIS, remote sensing, and AI with a strong regional footprint across UAE, Oman, Egypt, India, and Lebanon. Ideal for application developers, product developers, and AI engineers.</p>
-            </div>
-          </div>
-
-          <!-- 6. Impact & Complexity -->
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&h=900&fit=crop"
-                 alt="Impact and Complexity" class="w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">06 — Impact</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Impact &amp; Complexity</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Lead complex, high-impact projects that shape the built environment and influence communities.</p>
-            </div>
-          </div>
-
-          <!-- 7. Events & Recruitment -->
-          <div class="carousel-slide">
-            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1600&h=900&fit=crop"
+            <img src="photos/career-fair.jpg"
                  alt="Events and Recruitment" class="w-full h-full object-cover" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
-              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">07 — Events</span>
-              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Events &amp; Recruitment</h3>
-              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Join us at upcoming job fairs, walk-in recruitment campaigns, and regional initiatives. Connect with our team and explore exciting career opportunities across the Middle East.</p>
+              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">04 · Community</span>
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Events, Meetups &amp; Recruitment</h3>
+              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Office events, career days, and team gatherings. The moments that make a workplace feel like one.</p>
+            </div>
+          </div>
+
+          <!-- 5. Inclusion -->
+          <div class="carousel-slide">
+            <img src="photos/qatar-team.jpg"
+                 alt="Inclusion and Belonging" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 flex flex-col justify-end p-8 md:p-12">
+              <span class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2">05 · Belonging</span>
+              <h3 class="text-3xl md:text-4xl font-bold text-white mb-3">Inclusion &amp; Belonging</h3>
+              <p class="text-gray-100 max-w-2xl text-base md:text-lg">Teams drawn from 25+ nationalities. A workplace where different voices, cultures, and perspectives all count.</p>
             </div>
           </div>
         </div>
@@ -188,47 +283,93 @@
           <button data-index="2" class="w-2.5 h-2.5 rounded-full transition bg-white/60"></button>
           <button data-index="3" class="w-2.5 h-2.5 rounded-full transition bg-white/60"></button>
           <button data-index="4" class="w-2.5 h-2.5 rounded-full transition bg-white/60"></button>
-          <button data-index="5" class="w-2.5 h-2.5 rounded-full transition bg-white/60"></button>
-          <button data-index="6" class="w-2.5 h-2.5 rounded-full transition bg-white/60"></button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Our Values ===== -->
-  <section class="py-16 bg-white">
+  <!-- ===== What We Stand For ===== -->
+  <section class="py-16" style="background-color: var(--ka-light-bg);">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">What We Stand For</h2>
       <p class="text-center text-gray-600 mb-12">The values that guide how we work, collaborate, and grow</p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="value-card p-6 rounded-xl border border-gray-200 text-center">
+        <div class="value-card bg-white p-6 rounded-xl border border-gray-200 text-center">
           <div class="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center" style="background-color: var(--ka-accent);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Collaboration</h3>
-          <p class="text-sm text-gray-600">We work across disciplines, offices, and borders — because the best ideas come from diverse perspectives.</p>
+          <p class="text-sm text-gray-600">We work across disciplines, offices, and borders, because the best ideas come from diverse perspectives.</p>
         </div>
-        <div class="value-card p-6 rounded-xl border border-gray-200 text-center">
+        <div class="value-card bg-white p-6 rounded-xl border border-gray-200 text-center">
           <div class="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center" style="background-color: var(--ka-accent);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
           </div>
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Continuous Learning</h3>
-          <p class="text-sm text-gray-600">Mentoring, technical training, and accreditation programs — we invest in every stage of your career.</p>
+          <p class="text-sm text-gray-600">Mentoring, technical training, and accreditation programs. We invest in every stage of your career.</p>
         </div>
-        <div class="value-card p-6 rounded-xl border border-gray-200 text-center">
+        <div class="value-card bg-white p-6 rounded-xl border border-gray-200 text-center">
           <div class="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center" style="background-color: var(--ka-accent);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Global Impact</h3>
-          <p class="text-sm text-gray-600">From airports to universities to urban masterplans — our work shapes how communities live and connect.</p>
+          <p class="text-sm text-gray-600">From airports to universities to urban masterplans, our work shapes how communities live and connect.</p>
         </div>
-        <div class="value-card p-6 rounded-xl border border-gray-200 text-center">
+        <div class="value-card bg-white p-6 rounded-xl border border-gray-200 text-center">
           <div class="w-14 h-14 rounded-full mx-auto mb-4 flex items-center justify-center" style="background-color: var(--ka-accent);">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
           </div>
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Inclusion &amp; Belonging</h3>
-          <p class="text-sm text-gray-600">Teams drawn from 25+ nationalities across the region — a workplace where every voice counts.</p>
+          <p class="text-sm text-gray-600">Teams drawn from 25+ nationalities across the region, a workplace where every voice counts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Career paths callout ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block text-xs font-bold uppercase tracking-widest mb-3" style="color: var(--ka-accent);">Career Paths &amp; Growth</span>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--ka-primary);">Careers That Grow With You</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            At K&amp;A, your career is a ladder, not a lane. Engineers move into project management. Designers shift into digital services. Graduates grow into project leads, and many of our senior leaders started out as entry-level engineers or architects.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Our scale (30+ offices, 6,500+ professionals, multiple disciplines) means your next step rarely requires leaving. Move across offices, across geographies, or into new service lines.
+          </p>
+          <a href="why.html#career-paths"
+             class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold transition"
+             style="background-color: var(--ka-accent);"
+             onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+             onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+            See How People Grow Here
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-gray-200" style="background-color: var(--ka-light-bg);">
+            <p class="text-3xl font-extrabold mb-1" style="color: var(--ka-accent);">4+</p>
+            <p class="text-sm font-semibold" style="color: var(--ka-primary);">Career Stages</p>
+            <p class="text-xs text-gray-600 mt-1">From graduate to director, a clear progression path.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-200" style="background-color: var(--ka-light-bg);">
+            <p class="text-3xl font-extrabold mb-1" style="color: var(--ka-accent);">30+</p>
+            <p class="text-sm font-semibold" style="color: var(--ka-primary);">Offices</p>
+            <p class="text-xs text-gray-600 mt-1">Real geographic mobility across the region.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-200" style="background-color: var(--ka-light-bg);">
+            <p class="text-3xl font-extrabold mb-1" style="color: var(--ka-accent);">5</p>
+            <p class="text-sm font-semibold" style="color: var(--ka-primary);">Disciplines</p>
+            <p class="text-xs text-gray-600 mt-1">Design, Supervision, Digital, PMC &amp; Corporate Services.</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-200" style="background-color: var(--ka-light-bg);">
+            <p class="text-3xl font-extrabold mb-1" style="color: var(--ka-accent);">100%</p>
+            <p class="text-sm font-semibold" style="color: var(--ka-primary);">Sponsored Learning</p>
+            <p class="text-xs text-gray-600 mt-1">Professional accreditations fully supported.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -247,7 +388,7 @@
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Learning &amp; Development</h3>
-          <p class="text-sm text-gray-600">Technical training, professional accreditations, and leadership programs — fully sponsored.</p>
+          <p class="text-sm text-gray-600">Technical training, professional accreditations, and leadership programs, fully sponsored.</p>
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Family Support</h3>
@@ -255,7 +396,7 @@
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Diversity in Leadership</h3>
-          <p class="text-sm text-gray-600">A multicultural leadership team drawn from across our regions — a workplace where every background and perspective can thrive.</p>
+          <p class="text-sm text-gray-600">A multicultural leadership team drawn from across our regions, a workplace where every background and perspective can thrive.</p>
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Competitive Rewards</h3>
@@ -263,31 +404,7 @@
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Career Mobility</h3>
-          <p class="text-sm text-gray-600">Move across disciplines, offices, and geographies — our scale means your next step doesn't require leaving.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Stats ===== -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">60+</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">Years of Experience</p>
-        </div>
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">6,500+</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">Professionals</p>
-        </div>
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">30+</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">Offices Across the Globe</p>
-        </div>
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">25+</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">Nationalities</p>
+          <p class="text-sm text-gray-600">Move across disciplines, offices, and geographies. Our scale means your next step doesn't require leaving.</p>
         </div>
       </div>
     </div>
@@ -332,9 +449,10 @@
         <div>
           <h4 class="font-bold mb-4 text-white">Careers</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
+            <li><a href="why.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Why K&amp;A</a></li>
             <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
             <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
+            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
             <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
           </ul>
         </div>
@@ -386,8 +504,8 @@
       function show(i) {
         slides.forEach((s, n) => s.classList.toggle('active', n === i));
         dots.forEach((d, n) => {
-          if (n === i) { d.style.backgroundColor = accent; d.classList.remove('bg-white/50'); }
-          else { d.style.backgroundColor = ''; d.classList.add('bg-white/50'); }
+          if (n === i) { d.style.backgroundColor = accent; d.classList.remove('bg-white/60'); }
+          else { d.style.backgroundColor = ''; d.classList.add('bg-white/60'); }
         });
         index = i;
       }

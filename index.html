@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>K&amp;A Careers &mdash; Work on Landmark Projects Across the Middle East and Beyond</title>
-  <meta name="description" content="Join Khatib &amp; Alami — a global team of architects, engineers, and innovators transforming how cities and communities are designed, built, and experienced." />
+  <title>K&amp;A Careers | Work on Landmark Projects Across the Middle East and Beyond</title>
+  <meta name="description" content="Join Khatib &amp; Alami, a global team of architects, engineers, and innovators transforming how cities and communities are designed, built, and experienced." />
 
   <!-- Tailwind (matches the original React project's styling system) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -52,10 +52,14 @@
       border-radius: 6px;
       font-weight: 800;
       color: #fff;
-      background-color: rgba(31, 41, 55, 0.85);
+      background-color: var(--ka-accent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.25);
       line-height: 1.15;
-      font-size: 1.05rem;
-      word-break: break-word;
+      font-size: clamp(0.82rem, 2.2vw, 1.05rem);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 0.2px;
     }
 
     /* Testimonials slider */
@@ -142,7 +146,7 @@
   <!-- ===== Header ===== -->
   <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <!-- Logo (left) — clicks through to the main Khatib & Alami site -->
+      <!-- Logo (left), clicks through to the main Khatib & Alami site -->
       <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
         <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
       </a>
@@ -150,9 +154,10 @@
       <!-- Nav (right) -->
       <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
         <a href="index.html" class="nav-link hidden sm:inline" style="color: var(--ka-accent);">Career Home</a>
-        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
+        <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+        <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
         <a href="create-account.html"
            class="text-white px-4 py-2 rounded-lg font-semibold transition"
@@ -217,38 +222,52 @@
       </div>
     </section>
 
-    <!-- ===== Job Locations (moved here as 2nd section) ===== -->
-    <section class="py-16" style="background-color: var(--ka-light-bg);">
+    <!-- ===== Why K&A CTA banner ===== -->
+    <section class="py-14" style="background-color: var(--ka-light-bg);">
       <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">Job Locations</h2>
-        <p class="text-center text-gray-600 mb-10">We work where the world is being built — explore roles across our offices and project sites.</p>
-        <div class="relative bg-white rounded-xl overflow-hidden shadow-lg">
-          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/world-map-locations_a292c0bd.png"
-               alt="Global Job Locations Map"
-               class="w-full h-auto cursor-pointer hover:opacity-90 transition" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
-          <a href="jobs.html"
-             class="absolute bottom-8 right-8 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
-             style="background-color: var(--ka-accent);"
-             onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-             onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-            Explore All Positions
-          </a>
+        <div class="grid md:grid-cols-5 gap-8 items-center rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm">
+          <div class="md:col-span-2 h-64 md:h-full">
+            <img src="photos/project-planning.jpg" alt="K&amp;A project planning" class="w-full h-full object-cover" />
+          </div>
+          <div class="md:col-span-3 p-8 md:p-10">
+            <span class="inline-block text-xs font-bold tracking-widest uppercase mb-3" style="color: var(--ka-accent);">Why Khatib &amp; Alami</span>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--ka-primary);">More than a job: a career worth building</h2>
+            <p class="text-gray-700 mb-6">
+              Discover why thousands of professionals choose K&amp;A: landmark projects across 40+ countries, multidisciplinary teams, structured growth paths, and a culture that invests in the people behind the work.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="why.html"
+                 class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold transition"
+                 style="background-color: var(--ka-accent);"
+                 onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+                 onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+                Discover Why K&amp;A
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a href="why.html#career-paths"
+                 class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold border-2 transition"
+                 style="color: var(--ka-primary); border-color: var(--ka-primary);"
+                 onmouseover="this.style.backgroundColor='var(--ka-primary)'; this.style.color='#fff'"
+                 onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--ka-primary)'">
+                See Career Paths
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Categories of our Business & Recruitment ===== -->
+    <!-- ===== Our Divisions ===== -->
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">
-          Explore Our Categories
+          Our Divisions
         </h2>
         <p class="text-center text-gray-600 mb-12">
           Discover careers across the disciplines that power our projects
         </p>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           <!-- Design -->
           <a href="jobs.html?category=Design"
              class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
@@ -257,7 +276,7 @@
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
                  style="background-color: rgba(31, 41, 55, 0.55);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Design</h3>
               <p class="text-xs text-white/90 mt-1">Architecture &amp; Planning</p>
             </div>
@@ -271,7 +290,7 @@
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
                  style="background-color: rgba(31, 41, 55, 0.55);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Supervision</h3>
               <p class="text-xs text-white/90 mt-1">Construction &amp; Site</p>
             </div>
@@ -285,23 +304,23 @@
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
                  style="background-color: rgba(31, 41, 55, 0.55);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Digital</h3>
               <p class="text-xs text-white/90 mt-1">BIM, GIS &amp; Technology</p>
             </div>
           </a>
 
-          <!-- PWC -->
-          <a href="jobs.html?category=PWC"
+          <!-- PMC -->
+          <a href="jobs.html?category=PMC"
              class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
             <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=600&fit=crop"
-                 alt="PWC"
+                 alt="PMC, Program Management Consultancy"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
                  style="background-color: rgba(31, 41, 55, 0.55);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
-              <h3 class="cat-title">PWC</h3>
-              <p class="text-xs text-white/90 mt-1">Project &amp; Works Consultancy</p>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">PMC</h3>
+              <p class="text-xs text-white/90 mt-1">Program Management Consultancy (PMC)</p>
             </div>
           </a>
 
@@ -313,63 +332,25 @@
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
                  style="background-color: rgba(31, 41, 55, 0.55);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-5 text-white">
-              <h3 class="cat-title">Corporate Services</h3>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Corporate</h3>
               <p class="text-xs text-white/90 mt-1">HR, Finance &amp; Admin</p>
             </div>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Your Next Career Move ===== -->
-    <section class="py-16" style="background-color: var(--ka-light-bg);">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">
-          Your Next Career Move
-        </h2>
-        <p class="text-center text-gray-600 mb-12">Choose your path and join our growing team</p>
-
-        <div class="grid md:grid-cols-2 gap-8">
-          <!-- Professional Roles -->
-          <div class="career-card relative overflow-hidden rounded-xl text-left h-72 block group">
-            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-professional-dev_b43f7a11.jpg"
-                 alt="Professional Roles"
-                 class="absolute inset-0 w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-              <h3 class="text-3xl font-bold mb-3 bg-white px-3 py-1 rounded-lg inline-block w-max" style="color: var(--ka-primary);">Professional Roles</h3>
-              <p class="text-gray-100 mb-5 max-w-lg">Join our team of experienced architects, engineers, and consultants shaping the Middle East's most iconic projects.</p>
-              <a href="jobs.html?type=professional"
-                 class="inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg font-semibold transition w-max"
-                 style="background-color: var(--ka-accent);"
-                 onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-                 onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-                View Open Roles
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
-            </div>
-          </div>
 
           <!-- Internship -->
-          <div class="career-card relative overflow-hidden rounded-xl text-left h-72 block group">
+          <a href="jobs.html?type=graduate"
+             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-team-building_426b1706.jpg"
                  alt="Internship"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition"></div>
-            <div class="relative z-10 h-full flex flex-col justify-end p-8 text-white">
-              <h3 class="text-3xl font-bold mb-3 bg-white px-3 py-1 rounded-lg inline-block w-max" style="color: var(--ka-primary);">Internship</h3>
-              <p class="text-gray-100 mb-5 max-w-lg">Gain hands-on experience with mentorship from industry leaders and work on real-world projects.</p>
-              <a href="jobs.html?type=internship"
-                 class="inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg font-semibold transition w-max"
-                 style="background-color: var(--ka-accent);"
-                 onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-                 onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-                Apply Now
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-              </a>
+            <div class="cat-overlay absolute inset-0 transition"
+                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Internship</h3>
+              <p class="text-xs text-white/90 mt-1">Graduate &amp; Early Careers</p>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
@@ -420,7 +401,7 @@
                 </div>
                 <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"I joined K&amp;A as a junior and within a few years I was leading a major design package. The mentorship here is exceptional — people invest in you."</p>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"I joined K&amp;A as a junior and within a few years I was leading a major design package. The mentorship here is exceptional. People invest in you."</p>
                   <p class="font-bold" style="color: var(--ka-primary);">Anna</p>
                   <p class="text-sm text-gray-600">Senior Architect &bull; Dubai</p>
                 </div>
@@ -435,7 +416,7 @@
                 </div>
                 <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"What sets K&amp;A apart is the collaborative spirit. Engineers, architects, and planners work together from day one — and the projects are genuinely landmark."</p>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"What sets K&amp;A apart is the collaborative spirit. Engineers, architects, and planners work together from day one, and the projects are genuinely landmark."</p>
                   <p class="font-bold" style="color: var(--ka-primary);">Baraa</p>
                   <p class="text-sm text-gray-600">Infrastructure Engineer &bull; Riyadh</p>
                 </div>
@@ -465,7 +446,7 @@
                 </div>
                 <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"K&amp;A invests in cutting-edge technology and continuous learning. I've grown more here than I did anywhere else — the scale of the work pushes you."</p>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"K&amp;A invests in cutting-edge technology and continuous learning. I've grown more here than I did anywhere else. The scale of the work pushes you."</p>
                   <p class="font-bold" style="color: var(--ka-primary);">Hajj Hassan</p>
                   <p class="text-sm text-gray-600">BIM Specialist &bull; Dubai</p>
                 </div>
@@ -480,7 +461,7 @@
                 </div>
                 <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"The culture is what kept me. People are generous with their time and knowledge — and every project team feels like a small family you actually want to belong to."</p>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"The culture is what kept me. People are generous with their time and knowledge, and every project team feels like a small family you actually want to belong to."</p>
                   <p class="font-bold" style="color: var(--ka-primary);">Maria</p>
                   <p class="text-sm text-gray-600">Senior Project Manager &bull; Beirut</p>
                 </div>
@@ -504,6 +485,27 @@
             <button data-index="3" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
             <button data-index="4" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Job Locations (moved here as the last section) ===== -->
+    <section class="py-16" style="background-color: var(--ka-light-bg);">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">Job Locations</h2>
+        <p class="text-center text-gray-600 mb-10">We work where the world is being built. Explore roles across our offices and project sites.</p>
+        <div class="relative bg-white rounded-xl overflow-hidden shadow-lg">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/world-map-locations_a292c0bd.png"
+               alt="Global Job Locations Map"
+               class="w-full h-auto cursor-pointer hover:opacity-90 transition" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+          <a href="jobs.html"
+             class="absolute bottom-8 right-8 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition"
+             style="background-color: var(--ka-accent);"
+             onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+             onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+            Explore All Positions
+          </a>
         </div>
       </div>
     </section>
@@ -644,9 +646,10 @@
         <div>
           <h4 class="font-bold mb-4 text-white">Careers</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
+            <li><a href="why.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Why K&amp;A</a></li>
             <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
             <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
+            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
             <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
           </ul>
         </div>
