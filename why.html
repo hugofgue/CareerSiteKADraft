@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Why Khatib &amp; Alami | K&amp;A Careers</title>
-  <meta name="description" content="Why build your career at Khatib &amp; Alami: landmark projects, regional reach, and room to grow. Discover what sets K&amp;A apart." />
+  <meta name="description" content="Why build your career at Khatib &amp; Alami. How we work, how people grow here, and what it means to take on work that outlasts us." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -25,20 +25,74 @@
 
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
 
-    .reason-card {
-      transition: transform 250ms ease, box-shadow 250ms ease;
+    .feature-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .feature-card:hover .feature-img { transform: scale(1.04); }
+
+    /* Collapsible "Read more" cards */
+    details.readmore {
       background: #fff;
+      border: 1px solid #E5E7EB;
+      border-radius: 14px;
+      transition: box-shadow 250ms ease, transform 250ms ease;
     }
-    .reason-card:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,0.12); }
-    .reason-icon {
-      width: 56px; height: 56px; border-radius: 999px;
+    details.readmore[open] {
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
+    details.readmore summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    details.readmore summary::-webkit-details-marker { display: none; }
+    details.readmore .rm-icon {
+      flex: none;
+      width: 40px; height: 40px;
+      border-radius: 999px;
+      background: var(--ka-accent);
+      color: #fff;
       display: flex; align-items: center; justify-content: center;
-      background-color: var(--ka-accent);
+    }
+    details.readmore .rm-text h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.25rem 0;
+      color: var(--ka-primary);
+    }
+    details.readmore .rm-teaser {
+      color: #4B5563;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    details.readmore .rm-more {
+      color: var(--ka-accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-top: 0.35rem;
+      display: inline-block;
+    }
+    details.readmore[open] .rm-more::after { content: " \25B2"; }
+    details.readmore:not([open]) .rm-more::after { content: " \25BC"; }
+    details.readmore .rm-body {
+      padding: 0 1.5rem 1.5rem 4.5rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+    details.readmore .rm-body p + p { margin-top: 0.9rem; }
+
+    .stat-block p.stat-num {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--ka-accent);
     }
 
-    .showcase-img { transition: transform 500ms ease; }
-    .showcase:hover .showcase-img { transform: scale(1.05); }
-
+    /* Career path timeline */
     .path-step {
       position: relative;
       padding-left: 2.5rem;
@@ -89,133 +143,97 @@
            style="background-image: url('photos/boardroom-meeting.jpg');">
     <div class="absolute inset-0" style="background-color: rgba(31, 41, 55, 0.65);"></div>
     <div class="relative z-10 text-center max-w-4xl mx-auto px-4 text-white">
-      <h1 class="text-5xl font-extrabold mb-4" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #fff;">Why Khatib &amp; Alami</h1>
-      <p class="text-xl text-white/90">Choose a career that shapes cities, infrastructure, and communities across the region, and beyond.</p>
+      <h1 class="text-5xl font-extrabold mb-4" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #fff;">Why Work Here</h1>
+      <p class="text-xl text-white/90">Serious work, capable teams, and a place to build an enduring career.</p>
     </div>
   </section>
 
-  <!-- ===== Intro ===== -->
+  <!-- ===== Why K&A (intro) ===== -->
   <section class="py-16 bg-white">
-    <div class="max-w-5xl mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6" style="color: var(--ka-primary);">A Workplace Shaped by 60+ Years of Experience</h2>
-      <p class="text-lg text-gray-700 leading-relaxed">
-        Since 1959, Khatib &amp; Alami has brought together architects, engineers, planners, and innovators to shape the skylines, infrastructure, and communities of the Middle East and beyond. Our team of 6,500+ professionals works across 30+ offices and 25+ nationalities, building not just iconic projects, but a workplace where people grow, belong, and do their best work.
-      </p>
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center" style="color: var(--ka-primary);">Why K&amp;A</h2>
+      <div class="text-lg text-gray-700 leading-relaxed space-y-5">
+        <p>
+          At K&amp;A, the work we do carries responsibility, and so does the way we do it. We are trusted to take on demanding work, apply professional judgement, and deliver outcomes that stand up to scrutiny from clients, partners, and communities.
+        </p>
+        <p>
+          That trust has been built over time through technical capability, consistency, and the quality of our people. We work with colleagues who care about getting things right, who take ownership of their work, and who understand the impact of their decisions.
+        </p>
+        <p>
+          Careers at K&amp;A develop through contribution and experience. We give our people exposure to major projects, access to experienced leaders, and opportunities to build capability over time. Progression reflects readiness and performance, with responsibility increasing as trust is earned.
+        </p>
+        <p>
+          K&amp;A offers the strength and stability of a well-established organisation alongside the opportunity to be involved in work of real scale and significance. For those who take pride in their profession and value being part of a serious, capable team, K&amp;A offers a place to build a respected and enduring career.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- ===== Stats ===== -->
-  <section class="py-12" style="background-color: var(--ka-light-bg);">
+  <section class="py-10" style="background-color: var(--ka-light-bg);">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">60+</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">Years of Experience</p>
+        <div class="stat-block">
+          <p class="stat-num">1956</p>
+          <p class="text-sm text-gray-600 uppercase tracking-wide">Founded</p>
         </div>
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">6,500+</p>
+        <div class="stat-block">
+          <p class="stat-num">6,500+</p>
           <p class="text-sm text-gray-600 uppercase tracking-wide">Professionals</p>
         </div>
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">30+</p>
-          <p class="text-sm text-gray-600 uppercase tracking-wide">Offices Across the Globe</p>
+        <div class="stat-block">
+          <p class="stat-num">30+</p>
+          <p class="text-sm text-gray-600 uppercase tracking-wide">Offices worldwide</p>
         </div>
-        <div>
-          <p class="text-5xl font-extrabold mb-2" style="color: var(--ka-accent);">25+</p>
+        <div class="stat-block">
+          <p class="stat-num">25+</p>
           <p class="text-sm text-gray-600 uppercase tracking-wide">Nationalities</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Six Reasons (differentiators) ===== -->
+  <!-- ===== Our purpose and impact ===== -->
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">Six Reasons to Join Us</h2>
-      <p class="text-center text-gray-600 mb-12">What sets a career at K&amp;A apart</p>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="reason-card p-6 rounded-xl border border-gray-200">
-          <div class="reason-icon mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l5-4 5 4v14"/><path d="M19 21V11l-4-2"/></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2" style="color: var(--ka-primary);">Landmark Projects at Scale</h3>
-          <p class="text-sm text-gray-600">Work on the region's most iconic developments, from skyscrapers and airports to urban masterplans and complex infrastructure programs.</p>
+      <div class="grid md:grid-cols-2 gap-10 items-center feature-card">
+        <div class="rounded-2xl overflow-hidden shadow-lg" style="max-height: 420px;">
+          <img src="photos/site-walk.jpg" alt="K&A professionals on site" class="feature-img" />
         </div>
-
-        <div class="reason-card p-6 rounded-xl border border-gray-200">
-          <div class="reason-icon mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2" style="color: var(--ka-primary);">Regional &amp; Global Reach</h3>
-          <p class="text-sm text-gray-600">30+ offices across the Middle East and beyond give you real mobility. Your next assignment might be in a new city, a new country, or a new discipline.</p>
-        </div>
-
-        <div class="reason-card p-6 rounded-xl border border-gray-200">
-          <div class="reason-icon mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 17l4-4 3 3 5-6"/></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2" style="color: var(--ka-primary);">Career Growth &amp; Mobility</h3>
-          <p class="text-sm text-gray-600">Clear career paths from graduate to leadership, with internal moves between disciplines and offices. Many of today's senior leaders started here as engineers, architects, or interns.</p>
-        </div>
-
-        <div class="reason-card p-6 rounded-xl border border-gray-200">
-          <div class="reason-icon mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2" style="color: var(--ka-primary);">Continuous Learning</h3>
-          <p class="text-sm text-gray-600">Technical training, professional accreditations, and mentorship from industry leaders, fully sponsored. We invest in every stage of your career.</p>
-        </div>
-
-        <div class="reason-card p-6 rounded-xl border border-gray-200">
-          <div class="reason-icon mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2" style="color: var(--ka-primary);">Innovation &amp; AI in Digital Services</h3>
-          <p class="text-sm text-gray-600">Join our award-winning Digital Services team as an ESRI Platinum Partner, delivering GIS, remote sensing, and AI-enabled solutions across the UAE, Oman, Egypt, India, and Lebanon.</p>
-        </div>
-
-        <div class="reason-card p-6 rounded-xl border border-gray-200">
-          <div class="reason-icon mb-4">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2" style="color: var(--ka-primary);">A Diverse, Multicultural Team</h3>
-          <p class="text-sm text-gray-600">Teams drawn from 25+ nationalities collaborate across offices, disciplines, and borders. Different perspectives make the work, and the workplace, stronger.</p>
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-5" style="color: var(--ka-primary);">Our purpose and impact</h2>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            K&amp;A was founded in 1956. In the decades since, we have designed bridges, planned cities, built water networks, supervised hospitals, and delivered the infrastructure that communities across the Middle East, Africa, and beyond depend on every day.
+          </p>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            That longevity matters for one reason: the work we do outlasts us. The road you design will be used for decades. The water system you supervise will serve families who have not yet been born. The building you help deliver will shape a neighbourhood for a generation. Not every engineering role offers that. Ours do.
+          </p>
+          <p class="text-gray-700 leading-relaxed">
+            If you want work that is technically demanding, consequential, and genuinely connected to the places and communities it serves, you are in the right place.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Scale of Projects visual showcase ===== -->
+  <!-- ===== How people work together ===== -->
   <section class="py-16" style="background-color: var(--ka-light-bg);">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div class="showcase relative overflow-hidden rounded-xl shadow-lg h-96">
-          <img src="photos/site-walk.jpg"
-               alt="K&amp;A engineers on a project site"
-               class="showcase-img absolute inset-0 w-full h-full object-cover" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-6 text-white">
-            <span class="text-xs font-semibold uppercase tracking-widest text-white/80">Our Work</span>
-            <h3 class="text-2xl font-bold mt-1">Projects That Shape the Region</h3>
-          </div>
+      <div class="grid md:grid-cols-2 gap-10 items-center feature-card">
+        <div class="md:order-2 rounded-2xl overflow-hidden shadow-lg" style="max-height: 420px;">
+          <img src="photos/project-planning.jpg" alt="K&A team collaboration across disciplines" class="feature-img" />
         </div>
-        <div>
-          <h2 class="text-3xl md:text-4xl font-bold mb-5" style="color: var(--ka-primary);">Work That Matters</h2>
+        <div class="md:order-1">
+          <h2 class="text-3xl md:text-4xl font-bold mb-5" style="color: var(--ka-primary);">How people work together</h2>
           <p class="text-gray-700 leading-relaxed mb-4">
-            From iconic skyscrapers and international airports to sustainable cities and complex infrastructure programs, our engineers, architects, and planners are behind some of the most visible projects in the Middle East.
+            K&amp;A is a firm of specialists who work across disciplines, geographies, and time zones as a matter of course. A water engineer in Beirut may collaborate with a structural specialist in Riyadh and an urban planner in Dubai on the same programme. A construction supervisor on site in Saudi Arabia will work closely with a design team in Egypt.
           </p>
-          <p class="text-gray-700 leading-relaxed mb-6">
-            If you want your work to be visible, meaningful, and built at scale, this is a place where you can see it happen.
+          <p class="text-gray-700 leading-relaxed mb-4">
+            We do not have a culture of internal competition. We have a culture of collective responsibility. Projects are delivered through teamwork, shared standards, and joint ownership of outcomes. Senior people are accessible because they remain closely connected to the work. Knowledge is shared because strong results depend on it. If you have a better idea, you are expected to raise it.
           </p>
-          <a href="jobs.html"
-             class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold transition"
-             style="background-color: var(--ka-accent);"
-             onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-             onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-            Browse Open Roles
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
+          <p class="text-gray-700 leading-relaxed">
+            People who thrive here take the work seriously without taking themselves too seriously. They value learning from colleagues with decades of experience and take pride in seeing something they helped build standing in the landscape.
+          </p>
         </div>
       </div>
     </div>
@@ -225,8 +243,8 @@
   <section id="career-paths" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4" style="color: var(--ka-primary);">Career Paths &amp; Room to Grow</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">Every career at K&amp;A is a ladder you can climb, or a map you can reroute. We design for growth, not gridlock.</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--ka-primary);">Career Paths &amp; Room to Grow</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">Progression reflects readiness and performance, with responsibility increasing as trust is earned.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -277,47 +295,71 @@
     </div>
   </section>
 
-  <!-- ===== Our People in Action gallery ===== -->
-  <section class="py-16" style="background-color: var(--ka-light-bg);">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-4xl font-bold mb-4" style="color: var(--ka-primary);">Our People in Action</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">From project sites and planning rooms to career expos and global conferences. A look at K&amp;A teams shaping the work.</p>
-      </div>
+  <!-- ===== Read more (collapsible) ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-3 text-center" style="color: var(--ka-primary);">More on how we work</h2>
+      <p class="text-center text-gray-600 mb-10">Click any section to read more</p>
 
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/site-walk.jpg" alt="Engineers on site" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">On-Site Inspection</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/site-office-meeting.jpg" alt="Project team meeting" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Project Site Office</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/project-planning.jpg" alt="Project planning" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Planning &amp; Coordination</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/trainee-inspection.jpg" alt="Trainee site inspection" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Graduates in the Field</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/conference-vr.jpg" alt="International conference booth" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Global Industry Events</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/career-expo.jpg" alt="Career expo" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">University Career Expos</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/site-inspection-plant.jpg" alt="Site inspection plant" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Infrastructure Supervision</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/international-exhibition.jpg" alt="International exhibition" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Representing K&amp;A Globally</figcaption>
-        </figure>
+      <div class="space-y-4">
+
+        <!-- Society, clients and communities -->
+        <details class="readmore">
+          <summary>
+            <span class="rm-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </span>
+            <span class="rm-text">
+              <h3>Work that serves society, clients, and communities</h3>
+              <span class="rm-teaser">We take a long view of success, measured over decades rather than projects.</span>
+              <span class="rm-more">Read more</span>
+            </span>
+          </summary>
+          <div class="rm-body">
+            <p>K&amp;A does not measure success by structures completed. We measure it by whether those structures continue to work, for the cities that depend on them, the clients who commissioned them, and the communities who live alongside them.</p>
+            <p>In practice, that means we take a long view. We build relationships with clients that span decades, not projects. We stay engaged beyond handover, because handover is not the end of a project's life. It is the beginning.</p>
+            <p>Our work spans infrastructure, buildings, water, energy, transport, urban planning, project management, and digital services. Across all of it, the question we ask is the same: will this still be working well in thirty years?</p>
+          </div>
+        </details>
+
+        <!-- Expectations, behaviors, leadership -->
+        <details class="readmore">
+          <summary>
+            <span class="rm-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span class="rm-text">
+              <h3>Expectations, behaviours, and leadership style</h3>
+              <span class="rm-teaser">Clear expectations, visible leadership, and accountability at every level.</span>
+              <span class="rm-more">Explore how we work</span>
+            </span>
+          </summary>
+          <div class="rm-body">
+            <p>K&amp;A expects its people to be accountable for their work, their commitments, and their conduct on site and in the office. We do not manage by hierarchy for its own sake. We manage by outcome.</p>
+            <p>Our leaders are expected to be visible, available, and honest, to give clear direction and to develop the people around them. That standard applies equally to a team leader on a construction supervision programme and to a geography head running a business unit.</p>
+            <p>What we do not expect is perfection. We expect people to flag problems early, to ask for help when they need it, and to learn from something that goes wrong as openly as they celebrate what goes right. Integrity, for us, means saying the difficult thing as readily as the easy one.</p>
+          </div>
+        </details>
+
+        <!-- Diversity and inclusion -->
+        <details class="readmore">
+          <summary>
+            <span class="rm-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <span class="rm-text">
+              <h3>Diversity and inclusion</h3>
+              <span class="rm-teaser">Teams built to reflect the markets and communities we serve.</span>
+              <span class="rm-more">Read more</span>
+            </span>
+          </summary>
+          <div class="rm-body">
+            <p>K&amp;A's workforce represents dozens of nationalities, backgrounds, and perspectives. This reflects the reality of operating across our markets and building teams from the communities we serve.</p>
+            <p>We believe diverse teams contribute to stronger engineering judgement and better project outcomes. We are deliberate in how we bring people together, ensuring a broad range of experience informs how projects are staffed, decisions are made, and future leaders are developed.</p>
+            <p>This approach is embedded in how we work and continues to evolve as our organisation and markets grow.</p>
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
@@ -325,22 +367,21 @@
   <!-- ===== CTA ===== -->
   <section class="py-16" style="background-color: var(--ka-primary);">
     <div class="max-w-4xl mx-auto px-4 text-center text-white">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to Build Something That Lasts?</h2>
-      <p class="text-lg text-white/90 mb-8">Explore open roles across our offices, or create a profile and let our recruiters come to you.</p>
-      <div class="flex gap-4 justify-center flex-wrap">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to build something that lasts?</h2>
+      <p class="text-lg text-white/90 mb-8">Browse open roles across our disciplines, or see what life at K&amp;A looks like day to day.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a href="jobs.html"
-           class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold transition"
+           class="px-8 py-3 rounded-lg font-semibold transition text-white"
            style="background-color: var(--ka-accent);"
            onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
            onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-          Browse Open Jobs
+          Browse Open Roles
         </a>
-        <a href="create-account.html"
-           class="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition bg-white"
-           style="color: var(--ka-primary);"
-           onmouseover="this.style.backgroundColor='#F5F7FA'"
-           onmouseout="this.style.backgroundColor='#fff'">
-          Create Your Profile
+        <a href="life.html"
+           class="px-8 py-3 rounded-lg font-semibold transition border-2 border-white text-white hover:bg-white"
+           onmouseover="this.style.color='var(--ka-primary)'"
+           onmouseout="this.style.color='white'">
+          Life at K&amp;A
         </a>
       </div>
     </div>

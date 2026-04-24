@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K&amp;A Careers | Open Positions</title>
-  <meta name="description" content="Browse open positions at Khatib &amp; Alami. Filter by location, business category, type, and experience level." />
+  <meta name="description" content="Browse open positions at Khatib &amp; Alami. Filter by location, discipline, type, and experience level." />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -110,14 +110,17 @@
       </div>
 
       <div class="mb-6">
-        <label class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Business Category</label>
+        <label class="block text-sm font-semibold mb-2" style="color: var(--ka-primary);">Discipline</label>
         <select id="fCategory" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
-          <option value="all">All Categories</option>
-          <option value="Design">Design</option>
-          <option value="Supervision">Supervision</option>
-          <option value="Digital">Digital</option>
-          <option value="PMC">PMC - Program Management Consultancy</option>
-          <option value="Corporate Services">Corporate Services</option>
+          <option value="all">All Disciplines</option>
+          <option value="Engineering &amp; Design">Engineering &amp; Design</option>
+          <option value="Construction Supervision">Construction Supervision</option>
+          <option value="Project &amp; Program Management">Project &amp; Program Management</option>
+          <option value="Planning &amp; Urban Design">Planning &amp; Urban Design</option>
+          <option value="Digital &amp; Technology">Digital &amp; Technology</option>
+          <option value="Environment &amp; Sustainability">Environment &amp; Sustainability</option>
+          <option value="Facilities Management">Facilities Management</option>
+          <option value="Business Services">Business Services</option>
         </select>
       </div>
 
@@ -221,22 +224,27 @@
 
   <!-- ===== JS ===== -->
   <script>
-    // ----- Data (now with Business Category) -----
+    // ----- Data (with Discipline category) -----
     const jobListings = [
-      { id: 1, title: "Senior Architect",              department: "Architecture & Planning", location: "Dubai",     level: "Senior",      function: "Design",      type: "Full-time",  category: "Design"              },
-      { id: 2, title: "Civil Engineer",                 department: "Infrastructure",           location: "Riyadh",    level: "Mid-level",   function: "Engineering", type: "Full-time",  category: "Design"              },
-      { id: 3, title: "BIM Manager",                    department: "Digital Services",         location: "Abu Dhabi", level: "Mid-level",   function: "Management",  type: "Full-time",  category: "Digital"             },
-      { id: 4, title: "Site Supervision Engineer",      department: "Project Supervision",      location: "Riyadh",    level: "Mid-level",   function: "Supervision", type: "Full-time",  category: "Supervision"         },
-      { id: 5, title: "Sustainability Engineer",        department: "Energy",                   location: "Dubai",     level: "Entry-level", function: "Engineering", type: "Full-time",  category: "Design"              },
-      { id: 6, title: "Frontend Developer",             department: "Digital Services",         location: "Remote",    level: "Mid-level",   function: "Development", type: "Full-time",  category: "Digital"             },
-      { id: 7, title: "Project Manager",                department: "PMC",                      location: "Dubai",     level: "Senior",      function: "Management",  type: "Full-time",  category: "PMC"                 },
-      { id: 8, title: "Works Inspector",                department: "PMC",                      location: "Abu Dhabi", level: "Mid-level",   function: "Supervision", type: "Full-time",  category: "PMC"                 },
-      { id: 9, title: "HR Business Partner",            department: "Human Resources",          location: "Dubai",     level: "Senior",      function: "HR",          type: "Full-time",  category: "Corporate Services"  },
-      { id:10, title: "Financial Controller",           department: "Finance",                  location: "Abu Dhabi", level: "Senior",      function: "Finance",     type: "Full-time",  category: "Corporate Services"  },
-      { id:11, title: "Graduate Architect",             department: "Architecture & Planning", location: "Dubai",     level: "Entry-level", function: "Design",      type: "Graduate",   category: "Design"              },
-      { id:12, title: "Internship - Urban Planning",    department: "Architecture & Planning", location: "Abu Dhabi", level: "Entry-level", function: "Planning",    type: "Internship", category: "Design"              },
-      { id:13, title: "GIS Analyst",                    department: "Digital Services",         location: "Dubai",     level: "Mid-level",   function: "Analysis",    type: "Full-time",  category: "Digital"             },
-      { id:14, title: "Resident Engineer",              department: "Project Supervision",      location: "Riyadh",    level: "Senior",      function: "Supervision", type: "Full-time",  category: "Supervision"         },
+      { id: 1, title: "Senior Architect",              department: "Architecture & Planning", location: "Dubai",     level: "Senior",      function: "Design",      type: "Full-time",  category: "Engineering & Design"             },
+      { id: 2, title: "Civil Engineer",                 department: "Infrastructure",           location: "Riyadh",    level: "Mid-level",   function: "Engineering", type: "Full-time",  category: "Engineering & Design"             },
+      { id: 3, title: "BIM Manager",                    department: "Digital Services",         location: "Abu Dhabi", level: "Mid-level",   function: "Management",  type: "Full-time",  category: "Digital & Technology"             },
+      { id: 4, title: "Site Supervision Engineer",      department: "Project Supervision",      location: "Riyadh",    level: "Mid-level",   function: "Supervision", type: "Full-time",  category: "Construction Supervision"         },
+      { id: 5, title: "Sustainability Engineer",        department: "Energy",                   location: "Dubai",     level: "Entry-level", function: "Engineering", type: "Full-time",  category: "Environment & Sustainability"     },
+      { id: 6, title: "Frontend Developer",             department: "Digital Services",         location: "Remote",    level: "Mid-level",   function: "Development", type: "Full-time",  category: "Digital & Technology"             },
+      { id: 7, title: "Project Manager",                department: "PMC",                      location: "Dubai",     level: "Senior",      function: "Management",  type: "Full-time",  category: "Project & Program Management"     },
+      { id: 8, title: "Works Inspector",                department: "PMC",                      location: "Abu Dhabi", level: "Mid-level",   function: "Supervision", type: "Full-time",  category: "Construction Supervision"         },
+      { id: 9, title: "HR Business Partner",            department: "Human Resources",          location: "Dubai",     level: "Senior",      function: "HR",          type: "Full-time",  category: "Business Services"                },
+      { id:10, title: "Financial Controller",           department: "Finance",                  location: "Abu Dhabi", level: "Senior",      function: "Finance",     type: "Full-time",  category: "Business Services"                },
+      { id:11, title: "Graduate Architect",             department: "Architecture & Planning", location: "Dubai",     level: "Entry-level", function: "Design",      type: "Graduate",   category: "Engineering & Design"             },
+      { id:12, title: "Internship - Urban Planning",    department: "Architecture & Planning", location: "Abu Dhabi", level: "Entry-level", function: "Planning",    type: "Internship", category: "Planning & Urban Design"          },
+      { id:13, title: "GIS Analyst",                    department: "Digital Services",         location: "Dubai",     level: "Mid-level",   function: "Analysis",    type: "Full-time",  category: "Digital & Technology"             },
+      { id:14, title: "Resident Engineer",              department: "Project Supervision",      location: "Riyadh",    level: "Senior",      function: "Supervision", type: "Full-time",  category: "Construction Supervision"         },
+      { id:15, title: "Urban Planner",                  department: "Architecture & Planning", location: "Dubai",     level: "Mid-level",   function: "Planning",    type: "Full-time",  category: "Planning & Urban Design"          },
+      { id:16, title: "Landscape Architect",            department: "Architecture & Planning", location: "Abu Dhabi", level: "Mid-level",   function: "Design",      type: "Full-time",  category: "Planning & Urban Design"          },
+      { id:17, title: "ESG Consultant",                 department: "Energy",                   location: "Riyadh",    level: "Senior",      function: "Sustainability", type: "Full-time", category: "Environment & Sustainability"    },
+      { id:18, title: "Facilities Manager",             department: "Operations",               location: "Dubai",     level: "Senior",      function: "Operations",  type: "Full-time",  category: "Facilities Management"            },
+      { id:19, title: "Cost Manager",                   department: "PMC",                      location: "Abu Dhabi", level: "Mid-level",   function: "Cost Control",type: "Full-time",  category: "Project & Program Management"     },
     ];
 
     // ----- Hero + filter content per ?type= -----
@@ -280,7 +288,7 @@
       all: {
         image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/hero-team-collaboration-223FY5ccDYmQQ7h7hZ6AWU.webp",
         title: "All Open Positions",
-        desc:  "Browse every open role across Khatib & Alami. Filter by location, business category, employment type, and experience level to find the opportunity that fits you.",
+        desc:  "Browse every open role across Khatib & Alami. Filter by location, discipline, employment type, and experience level to find the opportunity that fits you.",
         bullets: [
           "Full-time, Graduate, and Internship roles",
           "Multiple locations across the region",
