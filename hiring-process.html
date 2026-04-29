@@ -7,26 +7,38 @@
   <meta name="description" content="Learn how we hire at Khatib &amp; Alami, from profile creation to your offer, with videos and guidance for every step." />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --ka-primary: #5E6B70;
-      --ka-accent: #FF6B35;
-      --ka-accent-dark: #E55A24;
+      --ka-accent: #9d3621;
+      --ka-accent-dark: #7d2a1a;
       --ka-light-bg: #F5F7FA;
       --ka-text: #2C3E50;
       --ka-dark: #1F2937;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: Arial, sans-serif; color: var(--ka-text); }
-    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+    body { font-family: 'Roboto', Arial, sans-serif; color: var(--ka-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
 
-    .nav-link { transition: color 200ms ease; }
+    .nav-link {
+      transition: color 200ms ease;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+    }
     .nav-link:hover { color: var(--ka-accent); }
+    .nav-link.active {
+      color: var(--ka-accent);
+      font-weight: 700;
+      border-bottom-color: var(--ka-accent);
+    }
 
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
     .ka-logo-mark {
       display: inline-flex; align-items: center;
-      font-family: Arial, Helvetica, sans-serif; font-weight: 900;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif; font-weight: 900;
       font-size: 28px; line-height: 1; color: var(--ka-dark); letter-spacing: -1px;
     }
     .ka-logo-bar { display: inline-block; width: 3px; height: 26px; background-color: var(--ka-accent); margin: 0 4px; }
@@ -53,7 +65,7 @@
       display: flex; align-items: center; justify-content: center;
       transition: background 200ms ease;
     }
-    .video-card:hover .play-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(255,107,53,0.55)); }
+    .video-card:hover .play-overlay { background: linear-gradient(180deg, rgba(0,0,0,0.25), rgba(157,54,33,0.55)); }
     .video-card .play-btn {
       width: 68px; height: 68px; border-radius: 999px;
       background: rgba(255,255,255,0.95);
@@ -66,24 +78,15 @@
 
   <!-- ===== Header ===== -->
   <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
-        <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
-      </a>
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-start gap-6 flex-wrap">
       <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
-        <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
+        <a href="index.html" class="nav-link">Career Home</a>
         <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
-        <a href="hiring-process.html" class="nav-link hidden md:inline" style="color: var(--ka-accent);">Our Hiring Process</a>
+        <a href="hiring-process.html" class="nav-link active hidden md:inline">Our Hiring Process</a>
         <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
-        <a href="create-account.html"
-           class="text-white px-4 py-2 rounded-lg font-semibold transition"
-           style="background-color: var(--ka-accent);"
-           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-          Create Account
-        </a>
+        <a href="create-account.html" class="nav-link">Create Account</a>
       </nav>
     </div>
   </header>
@@ -166,7 +169,7 @@
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-team-building_426b1706.jpg" alt="Preparing your profile" />
             <div class="play-overlay">
               <div class="play-btn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#9d3621" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
               </div>
             </div>
           </div>
@@ -178,7 +181,7 @@
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-professional-dev_b43f7a11.jpg" alt="What happens after you apply" />
             <div class="play-overlay">
               <div class="play-btn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#9d3621" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
               </div>
             </div>
           </div>
@@ -190,7 +193,7 @@
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-collaborative_f713e837.jpg" alt="Interview tips" />
             <div class="play-overlay">
               <div class="play-btn">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="#FF6B35" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="#9d3621" stroke="none"><polygon points="6 3 20 12 6 21 6 3"/></svg>
               </div>
             </div>
           </div>

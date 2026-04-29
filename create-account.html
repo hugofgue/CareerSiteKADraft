@@ -7,25 +7,37 @@
   <meta name="description" content="Join the Khatib &amp; Alami Global Talent Community. Create your candidate profile to apply for roles and hear about new opportunities." />
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --ka-primary: #5E6B70;
-      --ka-accent: #FF6B35;
-      --ka-accent-dark: #E55A24;
+      --ka-accent: #9d3621;
+      --ka-accent-dark: #7d2a1a;
       --ka-light-bg: #F5F7FA;
       --ka-text: #2C3E50;
       --ka-dark: #1F2937;
     }
-    body { font-family: Arial, sans-serif; color: var(--ka-text); }
-    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+    body { font-family: 'Roboto', Arial, sans-serif; color: var(--ka-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
 
-    .nav-link { transition: color 200ms ease; }
+    .nav-link {
+      transition: color 200ms ease;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+    }
     .nav-link:hover { color: var(--ka-accent); }
+    .nav-link.active {
+      color: var(--ka-accent);
+      font-weight: 700;
+      border-bottom-color: var(--ka-accent);
+    }
 
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
     .ka-logo-mark {
       display: inline-flex; align-items: center;
-      font-family: Arial, Helvetica, sans-serif; font-weight: 900;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif; font-weight: 900;
       font-size: 28px; line-height: 1; color: var(--ka-dark); letter-spacing: -1px;
     }
     .ka-logo-bar { display: inline-block; width: 3px; height: 26px; background-color: var(--ka-accent); margin: 0 4px; }
@@ -39,7 +51,7 @@
       background: #fff; color: #111827; outline: none;
       transition: border-color 200ms ease, box-shadow 200ms ease;
     }
-    .field-input:focus { border-color: var(--ka-accent); box-shadow: 0 0 0 3px rgba(255,107,53,0.15); }
+    .field-input:focus { border-color: var(--ka-accent); box-shadow: 0 0 0 3px rgba(157,54,33,0.15); }
 
     .strength-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 6px; }
     .strength-meter span { height: 4px; background: #e5e7eb; border-radius: 2px; transition: background 200ms ease; }
@@ -49,22 +61,15 @@
 
   <!-- ===== Header ===== -->
   <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
-        <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
-      </a>
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-start gap-6 flex-wrap">
       <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
-        <a href="index.html" class="nav-link hidden sm:inline">Career Home</a>
+        <a href="index.html" class="nav-link">Career Home</a>
         <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
         <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
-        <a href="create-account.html"
-           class="text-white px-4 py-2 rounded-lg font-semibold transition"
-           style="background-color: var(--ka-accent);">
-          Create Account
-        </a>
+        <a href="create-account.html" class="nav-link active">Create Account</a>
       </nav>
     </div>
   </header>
@@ -367,7 +372,7 @@
     const strengthLabel = document.getElementById('strengthLabel');
     const matchLabel = document.getElementById('matchLabel');
     const bars = meter.querySelectorAll('span');
-    const accent = '#FF6B35';
+    const accent = '#9d3621';
 
     function scorePw(v) {
       let s = 0;

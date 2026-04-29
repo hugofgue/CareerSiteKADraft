@@ -8,26 +8,46 @@
 
   <!-- Tailwind (matches the original React project's styling system) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --ka-primary: #5E6B70;
-      --ka-accent: #FF6B35;
-      --ka-accent-dark: #E55A24;
+      --ka-accent: #9d3621;
+      --ka-accent-dark: #7d2a1a;
       --ka-light-bg: #F5F7FA;
       --ka-text: #2C3E50;
       --ka-dark: #1F2937;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: Arial, sans-serif; color: var(--ka-text); }
-    h1, h2, h3, h4, h5, h6 { font-family: Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+    body { font-family: 'Roboto', Arial, sans-serif; color: var(--ka-text); }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
 
     /* Carousel fade transition */
     .carousel-slide {
       position: absolute; inset: 0;
       opacity: 0;
-      transition: opacity 600ms ease-in-out;
+      transition: opacity 1200ms ease-in-out;
     }
     .carousel-slide.active { opacity: 1; }
+
+    /* Hero slider auto-rotating background */
+    .hero-slider { position: relative; overflow: hidden; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      /* Bias the visible area toward the upper third of each photo
+         so faces / heads stay in frame on wide hero crops. */
+      background-position: center 28%;
+      opacity: 0;
+      transition: opacity 1500ms ease-in-out, transform 8000ms ease-out;
+      transform: scale(1.05);
+    }
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1.08);
+    }
 
     /* Card hover lift */
     .career-card { transition: transform 250ms ease, box-shadow 250ms ease; }
@@ -35,14 +55,24 @@
     .career-card img { transition: transform 400ms ease; }
     .career-card:hover img { transform: scale(1.08); }
 
-    /* Nav link hover */
-    .nav-link { transition: color 200ms ease; }
+    /* Nav link hover + active indicator */
+    .nav-link {
+      transition: color 200ms ease;
+      padding: 6px 2px;
+      border-bottom: 2px solid transparent;
+      position: relative;
+    }
     .nav-link:hover { color: var(--ka-accent); }
+    .nav-link.active {
+      color: var(--ka-accent);
+      font-weight: 700;
+      border-bottom-color: var(--ka-accent);
+    }
 
     /* Category tile */
     .cat-tile { transition: transform 250ms ease, box-shadow 250ms ease; }
     .cat-tile:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,0.15); }
-    .cat-tile:hover .cat-overlay { background-color: rgba(255, 107, 53, 0.85); }
+    .cat-tile:hover .cat-overlay { background-color: rgba(157, 54, 33, 0.82); }
     .cat-tile img { transition: transform 400ms ease; }
     .cat-tile:hover img { transform: scale(1.08); }
     .cat-title {
@@ -60,6 +90,13 @@
       overflow: hidden;
       text-overflow: ellipsis;
       letter-spacing: 0.2px;
+    }
+    .cat-desc {
+      font-size: 0.78rem;
+      line-height: 1.35;
+      color: rgba(255,255,255,0.95);
+      margin-top: 6px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.6);
     }
 
     /* Testimonials slider */
@@ -97,7 +134,7 @@
     }
     .ac-item:last-child { border-bottom: none; }
     .ac-item:hover, .ac-item.ac-active { background-color: #F5F7FA; color: var(--ka-accent); }
-    .ac-item mark { background: rgba(255,107,53,0.18); color: inherit; padding: 0 2px; border-radius: 2px; }
+    .ac-item mark { background: rgba(157,54,33,0.18); color: inherit; padding: 0 2px; border-radius: 2px; }
 
     /* Logo styling */
     .ka-logo {
@@ -108,7 +145,7 @@
     .ka-logo-mark {
       display: inline-flex;
       align-items: center;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
       font-weight: 900;
       font-size: 28px;
       line-height: 1;
@@ -145,36 +182,36 @@
 
   <!-- ===== Header ===== -->
   <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-      <!-- Logo (left), clicks through to the main Khatib & Alami site -->
-      <a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="ka-logo" aria-label="Khatib & Alami">
-        <img src="ka_png.png" alt="Khatib & Alami" class="h-10 w-auto" />
-      </a>
-
-      <!-- Nav (right) -->
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-start gap-6 flex-wrap">
+      <!-- Nav (left) - this page is embedded in another, so links sit on the left -->
       <nav class="flex items-center gap-6 text-sm font-medium" style="color: var(--ka-primary);">
-        <a href="index.html" class="nav-link hidden sm:inline" style="color: var(--ka-accent);">Career Home</a>
+        <a href="index.html" class="nav-link active">Career Home</a>
         <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
         <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
-        <a href="create-account.html"
-           class="text-white px-4 py-2 rounded-lg font-semibold transition"
-           style="background-color: var(--ka-accent);"
-           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-          Create Account
-        </a>
+        <a href="create-account.html" class="nav-link">Create Account</a>
       </nav>
     </div>
   </header>
 
   <main class="flex-1">
 
-    <!-- ===== Hero ===== -->
-    <section class="relative h-[28rem] bg-cover bg-center flex items-center justify-center"
-             style="background-image: url('https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/hero-team-collaboration-223FY5ccDYmQQ7h7hZ6AWU.webp'); background-attachment: fixed;">
+    <!-- ===== Hero (auto-rotating slider) ===== -->
+    <section class="relative h-[32rem] flex items-center justify-center hero-slider overflow-hidden">
+      <!-- Auto-rotating engaging background images.
+           Each slide can override background-position to keep heads/faces
+           inside the visible crop on wide hero frames. -->
+      <div id="heroSlider" class="absolute inset-0">
+        <div class="hero-slide active" style="background-image: url('photos/boardroom-meeting.jpg'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/training-session.jpg'); background-position: center 30%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/international-exhibition.jpg'); background-position: center 32%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/site-office-meeting.jpg'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/project-planning.jpg'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/qatar-team.jpg'); background-position: center 30%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/career-expo.jpg'); background-position: center 30%;"></div>
+      </div>
       <!-- Dark overlay so white title stays readable -->
       <div class="absolute inset-0" style="background-color: rgba(31, 41, 55, 0.55);"></div>
 
@@ -270,127 +307,127 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
           <!-- Engineering & Design -->
           <a href="jobs.html?category=Engineering%20%26%20Design"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=600&fit=crop"
                  alt="Engineering &amp; Design"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Engineering &amp; Design</h3>
-              <p class="text-xs text-white/90 mt-1">Civil, structural, MEP &amp; architectural</p>
+              <p class="cat-desc">Civil, structural, MEP, and architectural engineering across buildings, transport, water, and energy. From concept to detailed design, our engineers and architects shape projects that define skylines and serve communities.</p>
             </div>
           </a>
 
           <!-- Construction Supervision -->
           <a href="jobs.html?category=Construction%20Supervision"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=600&fit=crop"
                  alt="Construction Supervision"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Construction Supervision</h3>
-              <p class="text-xs text-white/90 mt-1">Site oversight &amp; works inspection</p>
+              <p class="cat-desc">On-site oversight, works inspection, quality assurance, and HSE control. Our resident engineers and inspectors make sure every project is built to the design, on schedule, and to international standards.</p>
             </div>
           </a>
 
           <!-- Project & Program Management -->
           <a href="jobs.html?category=Project%20%26%20Program%20Management"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&h=600&fit=crop"
                  alt="Project &amp; Program Management"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Project &amp; Program Management</h3>
-              <p class="text-xs text-white/90 mt-1">PM, planning, cost &amp; risk</p>
+              <p class="cat-desc">End-to-end PMC services across multi-year programs: planning, scheduling, cost control, contract administration, risk, and stakeholder coordination, helping clients deliver complex capital projects with confidence.</p>
             </div>
           </a>
 
           <!-- Planning & Urban Design -->
           <a href="jobs.html?category=Planning%20%26%20Urban%20Design"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=600&fit=crop"
                  alt="Planning &amp; Urban Design"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Planning &amp; Urban Design</h3>
-              <p class="text-xs text-white/90 mt-1">Urban, landscape &amp; masterplanning</p>
+              <p class="cat-desc">Master planning, urban design, landscape architecture, and transport planning. Shaping cities, districts, and public realms across the region, from new urban centres to mixed-use destinations.</p>
             </div>
           </a>
 
           <!-- Digital & Technology -->
           <a href="jobs.html?category=Digital%20%26%20Technology"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&h=600&fit=crop"
                  alt="Digital &amp; Technology"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Digital &amp; Technology</h3>
-              <p class="text-xs text-white/90 mt-1">BIM, GIS &amp; digital solutions</p>
+              <p class="cat-desc">BIM, GIS (ESRI Platinum Partner), remote sensing, digital twins, and AI-driven solutions. Our award-winning Digital Services team builds the tools and platforms behind smarter design and project delivery.</p>
             </div>
           </a>
 
           <!-- Environment & Sustainability -->
           <a href="jobs.html?category=Environment%20%26%20Sustainability"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&h=600&fit=crop"
                  alt="Environment &amp; Sustainability"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Environment &amp; Sustainability</h3>
-              <p class="text-xs text-white/90 mt-1">Environmental, ESG &amp; sustainability</p>
+              <p class="cat-desc">Environmental impact assessments, ESG advisory, climate resilience, water resources, and green-building certification. Sustainability principles embedded into every discipline and every stage of project delivery.</p>
             </div>
           </a>
 
           <!-- Facilities Management -->
           <a href="jobs.html?category=Facilities%20Management"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=600&fit=crop"
                  alt="Facilities Management"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Facilities Management</h3>
-              <p class="text-xs text-white/90 mt-1">Operations &amp; asset management</p>
+              <p class="cat-desc">Operations, maintenance, and asset management for buildings and infrastructure across their full lifecycle. From hard and soft FM services to performance-driven asset advisory and lifecycle optimisation.</p>
             </div>
           </a>
 
           <!-- Business Services -->
           <a href="jobs.html?category=Business%20Services"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=600&fit=crop"
                  alt="Business Services"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
               <h3 class="cat-title">Business Services</h3>
-              <p class="text-xs text-white/90 mt-1">Finance, HR, Legal, Comms &amp; BD</p>
+              <p class="cat-desc">Finance, HR, Legal, IT, Communications, and Business Development. The corporate teams that keep a 6,500-strong, 30+ office firm running smoothly and growing across the region and beyond.</p>
             </div>
           </a>
 
           <!-- Internship -->
           <a href="jobs.html?type=graduate"
-             class="cat-tile relative overflow-hidden rounded-xl h-48 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
             <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/carousel-team-building_426b1706.jpg"
                  alt="Internship"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="cat-overlay absolute inset-0 transition"
-                 style="background-color: rgba(31, 41, 55, 0.55);"></div>
+                 style="background-color: rgba(31, 41, 55, 0.6);"></div>
             <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
-              <h3 class="cat-title">Internship</h3>
-              <p class="text-xs text-white/90 mt-1">Graduate &amp; early careers</p>
+              <h3 class="cat-title">Internship &amp; Graduate</h3>
+              <p class="cat-desc">Internships and graduate programs across all disciplines. Structured onboarding, real project exposure from week one, mentorship from senior engineers, and a clear path into a full-time role.</p>
             </div>
           </a>
         </div>
@@ -551,6 +588,21 @@
         </div>
       </div>
     </section>
+
+    <!-- ===== Hero auto-rotating slider ===== -->
+    <script>
+      (function () {
+        const heroSlides = document.querySelectorAll('#heroSlider .hero-slide');
+        if (!heroSlides.length) return;
+        let h = 0;
+        function rotate() {
+          heroSlides[h].classList.remove('active');
+          h = (h + 1) % heroSlides.length;
+          heroSlides[h].classList.add('active');
+        }
+        setInterval(rotate, 4500);
+      })();
+    </script>
 
     <script>
       (function () {
