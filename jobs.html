@@ -67,8 +67,14 @@
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
         <a href="jobs.html" class="nav-link active">Browse Jobs</a>
-        <a href="profile.html" class="nav-link hidden sm:inline">View Profile</a>
-        <a href="create-account.html" class="nav-link">Create Account</a>
+        <a href="create-account.html"
+           class="ml-2 inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg font-bold transition shadow-md text-sm"
+           style="background-color: var(--ka-accent);"
+           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'; this.style.transform='translateY(-1px)'"
+           onmouseout="this.style.backgroundColor='var(--ka-accent)'; this.style.transform='translateY(0)'">
+          Apply Now / Sign In
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
       </nav>
     </div>
   </header>
@@ -308,10 +314,136 @@
       }
     };
 
+    // ----- Discipline-specific hero configs (used when ?category= is in the URL) -----
+    // Each one matches a discipline tile on the home page. They reuse the default
+    // employment-type and experience-level filter setup, but show a tailored
+    // image, title, description, and bullet list at the top of the page.
+    const disciplineDefaults = {
+      typeLabel: "Employment Type",
+      typeOptions: [["all","All Types"], ["Full-time","Full-time"], ["Graduate","Graduate"], ["Internship","Internship"]],
+      levelLabel: "Experience Level",
+      levelOptions: [["all","All Levels"], ["Entry-level","Entry-level"], ["Mid-level","Mid-level"], ["Senior","Senior"]],
+      countLabel: "Positions Found"
+    };
+    const disciplineConfigs = {
+      "Engineering & Design": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=800&fit=crop",
+        title: "Engineering & Design",
+        desc:  "Civil, structural, MEP, and architectural engineering across buildings, transport, water, and energy. From concept to detailed design, our engineers and architects shape projects that define skylines and serve communities.",
+        bullets: [
+          "Civil, structural, MEP, transport & architecture",
+          "From concept to detailed design",
+          "Multidisciplinary project teams",
+          "Landmark projects across 30+ offices"
+        ],
+        listTitle: "Open Positions in Engineering & Design"
+      }),
+      "Construction Supervision": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=800&fit=crop",
+        title: "Construction Supervision",
+        desc:  "On-site oversight, works inspection, quality assurance, and HSE control. Our resident engineers and inspectors make sure every project is built to the design, on schedule, and to international standards.",
+        bullets: [
+          "Resident engineering & site supervision",
+          "Quality assurance & HSE control",
+          "Major infrastructure & buildings programmes",
+          "Roles across the region"
+        ],
+        listTitle: "Open Positions in Construction Supervision"
+      }),
+      "Project & Program Management": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1200&h=800&fit=crop",
+        title: "Project & Program Management",
+        desc:  "End-to-end PMC services across multi-year programmes: planning, scheduling, cost control, contract administration, risk, and stakeholder coordination, helping clients deliver complex capital projects with confidence.",
+        bullets: [
+          "Planning, scheduling & cost control",
+          "Contracts, claims & risk management",
+          "Multi-year capital programmes",
+          "Senior PMC and consultancy roles"
+        ],
+        listTitle: "Open Positions in Project & Program Management"
+      }),
+      "Planning & Urban Design": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1200&h=800&fit=crop",
+        title: "Planning & Urban Design",
+        desc:  "Master planning, urban design, and landscape architecture. Shaping cities, districts, and public realms across the region, from new urban centres to mixed-use destinations and revitalised waterfronts.",
+        bullets: [
+          "Master planning & urban design",
+          "Landscape architecture",
+          "Public realm & mixed-use destinations",
+          "Strategic regional planning work"
+        ],
+        listTitle: "Open Positions in Planning & Urban Design"
+      }),
+      "Digital & Technology": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1200&h=800&fit=crop",
+        title: "Digital & Technology",
+        desc:  "BIM, GIS (ESRI Platinum Partner), remote sensing, digital twins, and AI-driven solutions. Our award-winning Digital Services team builds the tools and platforms behind smarter design and project delivery.",
+        bullets: [
+          "BIM, GIS, remote sensing & digital twins",
+          "Software, AI & data engineering",
+          "ESRI Platinum Partner",
+          "Award-winning Digital Services team"
+        ],
+        listTitle: "Open Positions in Digital & Technology"
+      }),
+      "Environment & Sustainability": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=1200&h=800&fit=crop",
+        title: "Environment & Sustainability",
+        desc:  "Environmental impact assessments, ESG advisory, climate resilience, water resources, and green-building certification. Sustainability principles embedded into every discipline and every stage of project delivery.",
+        bullets: [
+          "EIA, ESG advisory & climate resilience",
+          "Water resources & green building",
+          "Sustainability across every project",
+          "Specialist consultancy roles"
+        ],
+        listTitle: "Open Positions in Environment & Sustainability"
+      }),
+      "Facilities Management": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&h=800&fit=crop",
+        title: "Facilities Management",
+        desc:  "Operations, maintenance, and asset management for buildings and infrastructure across their full lifecycle. From hard and soft FM services to performance-driven asset advisory and lifecycle optimisation.",
+        bullets: [
+          "Hard & soft FM services",
+          "Asset management & lifecycle advisory",
+          "Buildings & infrastructure portfolios",
+          "Operations and engineering roles"
+        ],
+        listTitle: "Open Positions in Facilities Management"
+      }),
+      "Business Services": Object.assign({}, disciplineDefaults, {
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&h=800&fit=crop",
+        title: "Business Services",
+        desc:  "Finance, HR, Legal, IT, Communications, and Business Development. The corporate teams that keep a 6,500-strong, 30+ office firm running smoothly and growing across the region and beyond.",
+        bullets: [
+          "Finance, HR, Legal, IT & Comms",
+          "Business Development & Bid Management",
+          "Roles across regional HQs",
+          "Career growth in a 6,500-strong firm"
+        ],
+        listTitle: "Open Positions in Business Services"
+      })
+    };
+
     // ----- Read query parameters -----
     const params = new URLSearchParams(window.location.search);
     const typeParam = params.get('type');
-    const cfg = configs[typeParam] || configs.all;
+    const categoryParam = params.get('category');
+
+    // Decode "%26" to "&" etc. so values like "Engineering & Design" match the keys
+    const decodedCategory = categoryParam ? decodeURIComponent(categoryParam) : null;
+
+    // Discipline-specific hero takes priority when ?category= is set,
+    // otherwise fall back to ?type= heroes (professional / graduate / all).
+    let cfg;
+    if (decodedCategory && disciplineConfigs[decodedCategory]) {
+      cfg = Object.assign({}, disciplineConfigs[decodedCategory], {
+        // Show only jobs in this discipline + still allow the user to widen the
+        // type/level filters from the sidebar
+        filterFn: (j) => j.category === decodedCategory
+      });
+    } else {
+      cfg = configs[typeParam] || configs.all;
+    }
 
     // Populate hero
     document.getElementById('heroImage').src = cfg.image;
