@@ -9,19 +9,62 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --ka-primary: #5E6B70;
       --ka-accent: #9d3621;
       --ka-accent-dark: #7d2a1a;
       --ka-light-bg: #F5F7FA;
-      --ka-text: #2C3E50;
+      --ka-text: #151515;
       --ka-dark: #1F2937;
+      --ka-ink: #151515;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Roboto', Arial, sans-serif; color: var(--ka-text); }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+    body {
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      color: var(--ka-ink);
+      font-size: 16px;
+      font-weight: 400;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      color: var(--ka-ink);
+      font-weight: 700;
+    }
+
+    /* ===== Marketing brand tokens (May 2026) ===== */
+    .h1-landing { font-size: 60px; font-weight: 600; text-transform: uppercase; color: var(--ka-ink); line-height: 1.05; text-align: left; }
+    .h2-style-1 { font-size: 36px; font-weight: 700; text-transform: uppercase; color: var(--ka-ink); line-height: 1.15; text-align: left; }
+    .h2-style-2 { font-size: 27.2px; font-weight: 700; color: var(--ka-ink); line-height: 1.2; text-align: left; }
+    .text-body  { font-size: 16px; font-weight: 400; color: var(--ka-ink); line-height: 1.6; text-align: left; }
+    @media (max-width: 640px) {
+      .h1-landing { font-size: 40px; }
+      .h2-style-1 { font-size: 28px; }
+      .h2-style-2 { font-size: 22px; }
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 14px 28px;
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      font-weight: 700; font-size: 14px; letter-spacing: 0.08em;
+      text-transform: uppercase; text-align: center;
+      border-radius: 0;
+      background-color: var(--ka-accent); color: #fff;
+      border: 2px solid var(--ka-accent);
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+      cursor: pointer;
+    }
+    .cta-btn:hover { background-color: var(--ka-accent-dark); border-color: var(--ka-accent-dark); transform: translateY(-1px); }
+    .cta-btn--secondary { background-color: transparent; color: var(--ka-ink); border-color: var(--ka-ink); }
+    .cta-btn--secondary:hover { background-color: var(--ka-ink); color: #fff; border-color: var(--ka-ink); }
+    .cta-btn--light { background-color: #fff; color: var(--ka-accent); border-color: #fff; }
+    .cta-btn--light:hover { background-color: #f3f4f6; color: var(--ka-accent-dark); border-color: #f3f4f6; }
+
+    /* Sharp edges on content blocks (override Tailwind rounded utilities) */
+    .rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl { border-radius: 0 !important; }
+    .keep-round, .rounded-full { border-radius: 9999px !important; }
+    .sharp, .sharp img { border-radius: 0 !important; }
 
     .nav-link {
       transition: color 200ms ease;
@@ -148,30 +191,30 @@
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="relative h-96 bg-cover bg-center flex items-center justify-center"
+  <section class="relative h-96 bg-cover bg-center flex items-center"
            style="background-image: url('photos/site-office-meeting.jpg');">
     <div class="absolute inset-0" style="background-color: rgba(31, 41, 55, 0.65);"></div>
-    <div class="relative z-10 text-center max-w-4xl mx-auto px-4 text-white">
-      <h1 class="text-5xl font-extrabold mb-4" style="text-shadow: 0 2px 10px rgba(0,0,0,0.5); color: #fff;">Why Work Here</h1>
-      <p class="text-xl text-white/90">Serious work, capable teams, and a place to build an enduring career.</p>
+    <div class="relative z-10 max-w-5xl mx-auto px-4 w-full">
+      <h1 class="h1-landing mb-4" style="color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Why Work Here</h1>
+      <p class="text-body" style="color: rgba(255,255,255,0.95); font-size: 18px;">Serious work, capable teams, and a place to build an enduring career.</p>
     </div>
   </section>
 
   <!-- ===== Why K&A (intro) ===== -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-center" style="color: var(--ka-primary);">Why K&amp;A</h2>
-      <div class="text-lg text-gray-700 leading-relaxed space-y-5">
-        <p>
+      <h2 class="h2-style-1 mb-6">Why K&amp;A</h2>
+      <div class="space-y-5">
+        <p class="text-body">
           At K&amp;A, the work we do carries responsibility, and so does the way we do it. We are trusted to take on demanding work, apply professional judgement, and deliver outcomes that stand up to scrutiny from clients, partners, and communities.
         </p>
-        <p>
+        <p class="text-body">
           That trust has been built over time through technical capability, consistency, and the quality of our people. We work with colleagues who care about getting things right, who take ownership of their work, and who understand the impact of their decisions.
         </p>
-        <p>
+        <p class="text-body">
           Careers at K&amp;A develop through contribution and experience. We give our people exposure to major projects, access to experienced leaders, and opportunities to build capability over time. Progression reflects readiness and performance, with responsibility increasing as trust is earned.
         </p>
-        <p>
+        <p class="text-body">
           K&amp;A offers the strength and stability of a well-established organisation alongside the opportunity to be involved in work of real scale and significance. For those who take pride in their profession and value being part of a serious, capable team, K&amp;A offers a place to build a respected and enduring career.
         </p>
       </div>
@@ -206,18 +249,18 @@
   <section class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-10 items-center feature-card">
-        <div class="rounded-2xl overflow-hidden shadow-lg" style="max-height: 420px;">
-          <img src="photos/site-walk.jpg" alt="K&A professionals on site" class="feature-img" />
+        <div class="overflow-hidden shadow-lg sharp" style="max-height: 420px;">
+          <img src="photos/site-walk.jpg" alt="K&A professionals on site" class="feature-img sharp" />
         </div>
         <div>
-          <h2 class="text-3xl md:text-4xl font-bold mb-5" style="color: var(--ka-primary);">Our purpose and impact</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <h2 class="h2-style-1 mb-5">Our Purpose and Impact</h2>
+          <p class="text-body mb-4">
             K&amp;A was founded in 1956. In the decades since, we have designed bridges, planned cities, built water networks, supervised hospitals, and delivered the infrastructure that communities across the Middle East, Africa, and beyond depend on every day.
           </p>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <p class="text-body mb-4">
             That longevity matters for one reason: the work we do outlasts us. The road you design will be used for decades. The water system you supervise will serve families who have not yet been born. The building you help deliver will shape a neighbourhood for a generation. Not every engineering role offers that. Ours do.
           </p>
-          <p class="text-gray-700 leading-relaxed">
+          <p class="text-body">
             If you want work that is technically demanding, consequential, and genuinely connected to the places and communities it serves, you are in the right place.
           </p>
         </div>
@@ -229,18 +272,18 @@
   <section class="py-16" style="background-color: var(--ka-light-bg);">
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-10 items-center feature-card">
-        <div class="md:order-2 rounded-2xl overflow-hidden shadow-lg" style="max-height: 420px;">
-          <img src="photos/project-planning.jpg" alt="K&A team collaboration across disciplines" class="feature-img" />
+        <div class="md:order-2 overflow-hidden shadow-lg sharp" style="max-height: 420px;">
+          <img src="photos/project-planning.jpg" alt="K&A team collaboration across disciplines" class="feature-img sharp" />
         </div>
         <div class="md:order-1">
-          <h2 class="text-3xl md:text-4xl font-bold mb-5" style="color: var(--ka-primary);">How people work together</h2>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <h2 class="h2-style-1 mb-5">How People Work Together</h2>
+          <p class="text-body mb-4">
             K&amp;A is a firm of specialists who work across disciplines, geographies, and time zones as a matter of course. A water engineer in Beirut may collaborate with a structural specialist in Riyadh and an urban planner in Dubai on the same programme. A construction supervisor on site in Saudi Arabia will work closely with a design team in Egypt.
           </p>
-          <p class="text-gray-700 leading-relaxed mb-4">
+          <p class="text-body mb-4">
             We do not have a culture of internal competition. We have a culture of collective responsibility. Projects are delivered through teamwork, shared standards, and joint ownership of outcomes. Senior people are accessible because they remain closely connected to the work. Knowledge is shared because strong results depend on it. If you have a better idea, you are expected to raise it.
           </p>
-          <p class="text-gray-700 leading-relaxed">
+          <p class="text-body">
             People who thrive here take the work seriously without taking themselves too seriously. They value learning from colleagues with decades of experience and take pride in seeing something they helped build standing in the landscape.
           </p>
         </div>
@@ -251,9 +294,9 @@
   <!-- ===== Career Paths & Growth ===== -->
   <section id="career-paths" class="py-16 bg-white">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4" style="color: var(--ka-primary);">Career Paths &amp; Room to Grow</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">Progression reflects readiness and performance, with responsibility increasing as trust is earned.</p>
+      <div class="mb-12">
+        <h2 class="h2-style-1 mb-4">Career Paths &amp; Room to Grow</h2>
+        <p class="text-body max-w-3xl">Progression reflects readiness and performance, with responsibility increasing as trust is earned.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -262,7 +305,7 @@
             <div class="path-step">
               <span class="dot">1</span>
               <h3 class="text-lg font-bold mb-1" style="color: var(--ka-primary);">Start Your Career</h3>
-              <p class="text-sm text-gray-600">Join as a graduate, intern, or entry-level engineer. Structured onboarding, technical training, and a mentor who has been in your shoes.</p>
+              <p class="text-sm text-gray-600">Join as a graduate, intern, or entry-level engineer. Structured onboarding, technical training, and Mentors and Leaders who have been in your shoes.</p>
             </div>
             <div class="path-step">
               <span class="dot">2</span>
@@ -307,13 +350,13 @@
   <!-- ===== Benefits & Wellbeing ===== -->
   <section class="py-16" style="background-color: var(--ka-light-bg);">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-4" style="color: var(--ka-primary);">Benefits &amp; Wellbeing</h2>
-      <p class="text-center text-gray-600 mb-12">Programs designed around your health, growth, and family</p>
+      <h2 class="h2-style-1 mb-4">Benefits &amp; Wellbeing</h2>
+      <p class="text-body mb-12">Programs designed around your health, growth, and family.</p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Health &amp; Wellness</h3>
-          <p class="text-sm text-gray-600">Comprehensive medical insurance, wellness programs, and mental health support for you and your family.</p>
+          <p class="text-sm text-gray-600">Comprehensive medical insurance and wellness programs, for you and your family.</p>
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Learning &amp; Development</h3>
@@ -321,7 +364,7 @@
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Family Support</h3>
-          <p class="text-sm text-gray-600">Parental leave, education allowances, and relocation support for international moves.</p>
+          <p class="text-sm text-gray-600">Parental leave and relocation support for international moves.</p>
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Diversity in Leadership</h3>
@@ -329,7 +372,7 @@
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Competitive Rewards</h3>
-          <p class="text-sm text-gray-600">Competitive compensation, performance bonuses, and long-service recognition programs.</p>
+          <p class="text-sm text-gray-600">Market-aligned compensation complemented by meaningful recognition and long-service programs.</p>
         </div>
         <div class="p-6 bg-white rounded-xl border border-gray-200">
           <h3 class="font-bold mb-2" style="color: var(--ka-primary);">Career Mobility</h3>
@@ -342,8 +385,8 @@
   <!-- ===== Read more (collapsible) ===== -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl md:text-4xl font-bold mb-3 text-center" style="color: var(--ka-primary);">More on how we work</h2>
-      <p class="text-center text-gray-600 mb-10">Click any section to read more</p>
+      <h2 class="h2-style-1 mb-3">More on How We Work</h2>
+      <p class="text-body mb-10">Click any section to read more.</p>
 
       <div class="space-y-4">
 
@@ -408,31 +451,20 @@
     </div>
   </section>
 
-  <!-- ===== CTA ===== -->
-  <section class="py-16" style="background-color: var(--ka-primary);">
-    <div class="max-w-4xl mx-auto px-4 text-center text-white">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Ready to build something that lasts?</h2>
-      <p class="text-lg text-white/90 mb-8">Browse open roles across our disciplines, or see what life at K&amp;A looks like day to day.</p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="jobs.html"
-           class="px-8 py-3 rounded-lg font-semibold transition text-white"
-           style="background-color: var(--ka-accent);"
-           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
-          Browse Open Roles
-        </a>
-        <a href="life.html"
-           class="px-8 py-3 rounded-lg font-semibold transition border-2 border-white text-white hover:bg-white"
-           onmouseover="this.style.color='var(--ka-primary)'"
-           onmouseout="this.style.color='white'">
-          Life at K&amp;A
-        </a>
+  <!-- ===== Footer-flock CTA, restyled as a regular section per marketing notes (no dark block) ===== -->
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="h2-style-1 mb-4">Ready to Build Something That Lasts?</h2>
+      <p class="text-body mb-8">Browse open roles across our disciplines, or see what life at K&amp;A looks like day to day.</p>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <a href="jobs.html" class="cta-btn">Browse Open Roles</a>
+        <a href="life.html" class="cta-btn cta-btn--secondary">Life at K&amp;A</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
-  <footer class="text-white py-12" style="background-color: var(--ka-primary);">
+  <!-- Footer removed per marketing notes — K&A website footer will be used at the end of every page. -->
+  <footer style="display:none" hidden>
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div>
