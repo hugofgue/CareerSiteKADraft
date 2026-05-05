@@ -9,18 +9,61 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --ka-primary: #5E6B70;
       --ka-accent: #9d3621;
       --ka-accent-dark: #7d2a1a;
       --ka-light-bg: #F5F7FA;
-      --ka-text: #2C3E50;
+      --ka-text: #151515;
       --ka-dark: #1F2937;
+      --ka-ink: #151515;
     }
-    body { font-family: 'Roboto', Arial, sans-serif; color: var(--ka-text); }
-    h1, h2, h3, h4, h5, h6 { font-family: 'Roboto', Arial, sans-serif; font-weight: 700; color: var(--ka-primary); }
+    body {
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      color: var(--ka-ink);
+      font-size: 16px;
+      font-weight: 400;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      color: var(--ka-ink);
+      font-weight: 700;
+    }
+
+    /* ===== Marketing brand tokens (May 2026) ===== */
+    .h1-landing { font-size: 60px; font-weight: 600; text-transform: uppercase; color: var(--ka-ink); line-height: 1.05; text-align: left; }
+    .h2-style-1 { font-size: 36px; font-weight: 700; text-transform: uppercase; color: var(--ka-ink); line-height: 1.15; text-align: left; }
+    .h2-style-2 { font-size: 27.2px; font-weight: 700; color: var(--ka-ink); line-height: 1.2; text-align: left; }
+    .text-body  { font-size: 16px; font-weight: 400; color: var(--ka-ink); line-height: 1.6; text-align: left; }
+    @media (max-width: 640px) {
+      .h1-landing { font-size: 40px; }
+      .h2-style-1 { font-size: 28px; }
+      .h2-style-2 { font-size: 22px; }
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 14px 28px;
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      font-weight: 700; font-size: 14px; letter-spacing: 0.08em;
+      text-transform: uppercase; text-align: center;
+      border-radius: 0;
+      background-color: var(--ka-accent); color: #fff;
+      border: 2px solid var(--ka-accent);
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+      cursor: pointer;
+    }
+    .cta-btn:hover { background-color: var(--ka-accent-dark); border-color: var(--ka-accent-dark); transform: translateY(-1px); }
+    .cta-btn--secondary { background-color: transparent; color: var(--ka-ink); border-color: var(--ka-ink); }
+    .cta-btn--secondary:hover { background-color: var(--ka-ink); color: #fff; border-color: var(--ka-ink); }
+    .cta-btn--light { background-color: #fff; color: var(--ka-accent); border-color: #fff; }
+    .cta-btn--light:hover { background-color: #f3f4f6; color: var(--ka-accent-dark); border-color: #f3f4f6; }
+
+    /* Sharp edges on content blocks (override Tailwind rounded utilities) */
+    .rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl { border-radius: 0 !important; }
+    .keep-round, .rounded-full { border-radius: 9999px !important; }
+    .sharp, .sharp img { border-radius: 0 !important; }
 
     .nav-link {
       transition: color 200ms ease;
@@ -45,16 +88,16 @@
     .ka-logo-text .ka-line1 { font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--ka-dark); }
     .ka-logo-text .ka-line2 { font-weight: 600; font-size: 9px; color: #6B7280; letter-spacing: 0.5px; }
 
-    .field-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ka-primary); margin-bottom: 0.35rem; }
+    .field-label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--ka-ink); margin-bottom: 0.35rem; }
     .field-input {
-      width: 100%; padding: 0.65rem 0.9rem; border: 1px solid #d1d5db; border-radius: 0.5rem;
-      background: #fff; color: #111827; outline: none;
+      width: 100%; padding: 0.65rem 0.9rem; border: 1px solid #d1d5db; border-radius: 0;  /* sharp edges */
+      background: #fff; color: var(--ka-ink); outline: none;
       transition: border-color 200ms ease, box-shadow 200ms ease;
     }
     .field-input:focus { border-color: var(--ka-accent); box-shadow: 0 0 0 3px rgba(157,54,33,0.15); }
 
     .strength-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-top: 6px; }
-    .strength-meter span { height: 4px; background: #e5e7eb; border-radius: 2px; transition: background 200ms ease; }
+    .strength-meter span { height: 4px; background: #e5e7eb; border-radius: 0; transition: background 200ms ease; }
   </style>
 </head>
 <body class="bg-white">
@@ -86,26 +129,26 @@
 
         <!-- Left: intro -->
         <aside class="md:col-span-2">
-          <h1 class="text-3xl font-bold mb-4" style="color: var(--ka-primary);">Join Our Global Talent Community</h1>
-          <p class="text-gray-700 mb-6 leading-relaxed">
+          <h1 class="h2-style-1 mb-4">Join Our Global Talent Community</h1>
+          <p class="text-body mb-6">
             Creating a profile takes less than 3 minutes, and it's the first step to being seen by K&amp;A recruiters across all our offices.
           </p>
-          <ul class="space-y-3 text-sm text-gray-700">
+          <ul class="space-y-3 text-body" style="font-size: 14px;">
             <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Get notified when new roles match your background</li>
             <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Apply to jobs with one click</li>
             <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Update your CV and preferences anytime</li>
             <li class="flex items-start gap-3"><span class="font-bold mt-0.5" style="color: var(--ka-accent);">&check;</span>Be discovered directly by recruiters</li>
           </ul>
 
-          <div class="mt-8 p-5 bg-white rounded-xl border border-gray-200">
-            <p class="text-sm text-gray-600">Already have an account?</p>
-            <a href="#" class="font-semibold transition" style="color: var(--ka-accent);">Sign in instead &rarr;</a>
+          <div class="mt-8 p-5 bg-white border border-gray-200 sharp">
+            <p class="text-body" style="font-size: 14px; margin-bottom: 4px;">Already have an account?</p>
+            <a href="#" class="font-semibold transition" style="color: var(--ka-accent); text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px;">Sign in instead &rarr;</a>
           </div>
         </aside>
 
         <!-- Right: form -->
-        <section class="md:col-span-3 bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm">
-          <h2 class="text-2xl font-bold mb-6" style="color: var(--ka-primary);">Create Your Account</h2>
+        <section class="md:col-span-3 bg-white border border-gray-200 p-6 md:p-8 shadow-sm sharp">
+          <h2 class="h2-style-2 mb-6">Create your account</h2>
 
           <form id="signupForm" novalidate>
 
@@ -289,11 +332,7 @@
             </div>
 
             <!-- Submit -->
-            <button type="submit"
-                    class="w-full text-white py-3 rounded-lg font-semibold text-lg transition"
-                    style="background-color: var(--ka-accent);"
-                    onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
-                    onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+            <button type="submit" class="cta-btn w-full" style="padding: 16px 28px; font-size: 15px;">
               Create My Account
             </button>
 
@@ -301,72 +340,16 @@
           </form>
 
           <!-- Success card (hidden by default) -->
-          <div id="success" class="hidden mt-6 p-5 rounded-lg border" style="background-color: #ecfdf5; border-color: #a7f3d0;">
-            <h3 class="font-bold mb-1" style="color: #065f46;">Profile created!</h3>
-            <p class="text-sm" style="color: #065f46;">You're now part of our Global Talent Community. A recruiter will reach out when a role matches your background.</p>
+          <div id="success" class="hidden mt-6 p-5 border sharp" style="background-color: #ecfdf5; border-color: #a7f3d0;">
+            <h3 class="h2-style-2 mb-1" style="color: #065f46; font-size: 20px;">Profile created!</h3>
+            <p class="text-body" style="color: #065f46; font-size: 14px;">You're now part of our Global Talent Community. A recruiter will reach out when a role matches your background.</p>
           </div>
         </section>
       </div>
     </div>
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="text-white py-12" style="background-color: var(--ka-primary);">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <h4 class="font-bold mb-4 text-white">About</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">About Us</a></li>
-            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Our Work</a></li>
-            <li><a href="https://www.khatibalami.com/" target="_blank" rel="noopener" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-bold mb-4 text-white">Careers</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="why.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Why K&amp;A</a></li>
-            <li><a href="life.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Life at K&amp;A</a></li>
-            <li><a href="hiring-process.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Hiring Process</a></li>
-            <li><a href="jobs.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Browse Jobs</a></li>
-            <li><a href="create-account.html" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Create Account</a></li>
-          </ul>
-        </div>
-        <div class="md:col-span-2">
-          <h4 class="font-bold mb-4 text-white">Compliance &amp; Legal</h4>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-sm">
-            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Accessibility &amp; Reasonable Accommodations</a></li>
-            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Equal Opportunity Statement</a></li>
-            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Pay Transparency</a></li>
-            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Policy Statement</a></li>
-            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Applicant Legal Rights</a></li>
-            <li><a href="#" class="hover:opacity-80 transition" onmouseover="this.style.color='var(--ka-accent)'" onmouseout="this.style.color=''">Recruiting Agencies</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-white/25 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-sm text-white/90">&copy; 2026 Khatib &amp; Alami. All rights reserved.</p>
-        <div class="flex items-center gap-3">
-          <span class="text-sm text-white/80 mr-1">Follow us:</span>
-          <a href="https://www.linkedin.com/company/khatib-and-alami" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.38-1.11 2.5-2.48 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.55 0h4.37v2.05h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.48 3.04 5.48 7v8.32h-4.56v-7.38c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.91-2.83 3.89v7.51H7.77V8z"/></svg>
-          </a>
-          <a href="https://www.instagram.com/khatibalami/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 01-1.38-.9 3.71 3.71 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.81C4.01 8.5 4 8.86 4 12s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.81.34 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.81.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a3.06 3.06 0 00-.73-1.13 3.06 3.06 0 00-1.13-.73c-.34-.14-.86-.3-1.81-.34C15.5 4.01 15.14 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/khatib.alami/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0022 12z"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 00.5 6.2 31.3 31.3 0 000 12a31.3 31.3 0 00.5 5.8 3 3 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 002.12-2.13A31.3 31.3 0 0024 12a31.3 31.3 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-          </a>
-          <a href="https://twitter.com/khatibalami" target="_blank" rel="noopener" aria-label="X / Twitter" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.88l-4.9-6.4L4.5 22H1.74l6.97-7.97L2 2h6.93l4.47 5.87L18.244 2zm-1.2 18h1.7L7.04 4H5.25l11.8 16z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer removed per marketing notes - K&A website footer will be used at the end of every page. -->
 
   <script>
     // Password strength meter
