@@ -78,6 +78,55 @@
       border-bottom-color: var(--ka-accent);
     }
 
+    /* Disciplines dropdown */
+    .disciplines-dropdown { position: relative; }
+    .disciplines-dropdown > .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .disciplines-dropdown > .nav-link svg {
+      transition: transform 200ms ease;
+    }
+    .disciplines-dropdown:hover > .nav-link svg { transform: rotate(180deg); }
+    .disciplines-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-top: 2px solid var(--ka-accent);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+      z-index: 100;
+      display: none;
+      border-radius: 0;
+    }
+    .disciplines-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: transparent;
+    }
+    .disciplines-dropdown:hover .disciplines-menu { display: block; }
+    .disciplines-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 0.875rem;
+      color: var(--ka-ink);
+      border-bottom: 1px solid #f3f4f6;
+      transition: background 150ms, color 150ms;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .disciplines-menu a:last-child { border-bottom: none; }
+    .disciplines-menu a:hover { background: #F5F7FA; color: var(--ka-accent); }
+
+
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
     .ka-logo-mark {
       display: inline-flex; align-items: center;
@@ -127,6 +176,25 @@
         <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link active hidden md:inline">Our Hiring Process</a>
+
+        <!-- Disciplines dropdown -->
+        <div class="disciplines-dropdown hidden md:block">
+          <a class="nav-link" style="user-select:none;">
+            Disciplines
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="disciplines-menu">
+            <a href="jobs.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a>
+            <a href="jobs.html?category=Construction%20Supervision">Construction Supervision</a>
+            <a href="jobs.html?category=Project%20%26%20Program%20Management">Project &amp; Program Management</a>
+            <a href="jobs.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a>
+            <a href="jobs.html?category=Digital%20%26%20Technology">Digital &amp; Technology</a>
+            <a href="jobs.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a>
+            <a href="jobs.html?category=Facilities%20Management">Facilities Management</a>
+            <a href="jobs.html?category=Business%20Services">Business Services</a>
+          </div>
+        </div>
+
         <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="create-account.html"
            class="ml-2 inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg font-bold transition shadow-md text-sm"
@@ -273,28 +341,4 @@
           <p class="mt-3 text-gray-700 text-sm">Not always. For many roles we support relocation across our offices in Dubai, Riyadh, Abu Dhabi, and beyond. Remote options are also available for eligible positions.</p>
         </details>
         <details class="bg-white p-5 rounded-lg border border-gray-200">
-          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">What should I bring to interviews?</summary>
-          <p class="mt-3 text-gray-700 text-sm">A portfolio or project summaries (for technical roles), your CV, and questions. Interviews are a two-way conversation and we want you to leave informed.</p>
-        </details>
-        <details class="bg-white p-5 rounded-lg border border-gray-200">
-          <summary class="font-semibold cursor-pointer" style="color: var(--ka-primary);">Will I get feedback if I'm not selected?</summary>
-          <p class="mt-3 text-gray-700 text-sm">Yes. Wherever possible, we provide feedback so candidates leave the process having learned something, whether the outcome was a yes or a no.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer-flock CTA, restyled as a regular section per marketing notes (no dark block) ===== -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="h2-style-1 mb-4">Ready to Start?</h2>
-      <p class="text-body mb-8">Create your profile or browse open roles across our offices.</p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="create-account.html" class="cta-btn">Create Your Profile</a>
-        <a href="jobs.html" class="cta-btn cta-btn--secondary">Browse Open Jobs</a>
-      </div>
-    </div>
-  </section>
-  <!-- Footer removed per marketing notes - K&A website footer will be used at the end of every page. -->
-</body>
-</html>
+          <summary class="font-semibold cursor-pointer" style="color: var(--

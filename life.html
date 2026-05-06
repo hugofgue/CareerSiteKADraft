@@ -85,6 +85,55 @@
       border-bottom-color: var(--ka-accent);
     }
 
+    /* Disciplines dropdown */
+    .disciplines-dropdown { position: relative; }
+    .disciplines-dropdown > .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .disciplines-dropdown > .nav-link svg {
+      transition: transform 200ms ease;
+    }
+    .disciplines-dropdown:hover > .nav-link svg { transform: rotate(180deg); }
+    .disciplines-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-top: 2px solid var(--ka-accent);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+      z-index: 100;
+      display: none;
+      border-radius: 0;
+    }
+    .disciplines-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: transparent;
+    }
+    .disciplines-dropdown:hover .disciplines-menu { display: block; }
+    .disciplines-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 0.875rem;
+      color: var(--ka-ink);
+      border-bottom: 1px solid #f3f4f6;
+      transition: background 150ms, color 150ms;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .disciplines-menu a:last-child { border-bottom: none; }
+    .disciplines-menu a:hover { background: #F5F7FA; color: var(--ka-accent); }
+
+
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
 
     .value-card { transition: transform 250ms ease, box-shadow 250ms ease; }
@@ -156,6 +205,25 @@
         <a href="why.html" class="nav-link hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link active hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+
+        <!-- Disciplines dropdown -->
+        <div class="disciplines-dropdown hidden md:block">
+          <a class="nav-link" style="user-select:none;">
+            Disciplines
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="disciplines-menu">
+            <a href="jobs.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a>
+            <a href="jobs.html?category=Construction%20Supervision">Construction Supervision</a>
+            <a href="jobs.html?category=Project%20%26%20Program%20Management">Project &amp; Program Management</a>
+            <a href="jobs.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a>
+            <a href="jobs.html?category=Digital%20%26%20Technology">Digital &amp; Technology</a>
+            <a href="jobs.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a>
+            <a href="jobs.html?category=Facilities%20Management">Facilities Management</a>
+            <a href="jobs.html?category=Business%20Services">Business Services</a>
+          </div>
+        </div>
+
         <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="create-account.html"
            class="ml-2 inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg font-bold transition shadow-md text-sm"
@@ -477,147 +545,4 @@
       var cw  = getCardWidth();
       track.style.transform = 'translateX(-' + (currentIdx * (cw + gap)) + 'px)';
       updateDots();
-      updateButtons();
-    }
-
-    function updateButtons() {
-      prevBtn.style.opacity = currentIdx === 0 ? '0.35' : '1';
-      nextBtn.style.opacity = currentIdx >= maxIndex() ? '0.35' : '1';
-    }
-
-    // Build dots (one per "page")
-    function buildDots() {
-      dotsWrap.innerHTML = '';
-      var pages = maxIndex() + 1;
-      for (var i = 0; i < pages; i++) {
-        var dot = document.createElement('button');
-        dot.style.cssText = 'width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;padding:0;background:#CBD5E1;transition:background .2s;';
-        dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
-        (function(idx) {
-          dot.addEventListener('click', function() { goTo(idx); });
-        })(i);
-        dotsWrap.appendChild(dot);
-      }
-    }
-
-    function updateDots() {
-      var dots = dotsWrap.querySelectorAll('button');
-      dots.forEach(function(d, i) {
-        d.style.background = i === currentIdx ? 'var(--ka-accent)' : '#CBD5E1';
-      });
-    }
-
-    prevBtn.addEventListener('click', function() { goTo(currentIdx - 1); });
-    nextBtn.addEventListener('click', function() { goTo(currentIdx + 1); });
-
-    // Touch / swipe support
-    var touchStartX = 0;
-    viewport.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; }, {passive:true});
-    viewport.addEventListener('touchend', function(e) {
-      var diff = touchStartX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) goTo(currentIdx + (diff > 0 ? 1 : -1));
-    }, {passive:true});
-
-    // Init & resize
-    function init() {
-      setCardWidths();
-      buildDots();
-      goTo(0);
-    }
-
-    window.addEventListener('resize', function() {
-      setCardWidths();
-      buildDots();
-      goTo(Math.min(currentIdx, maxIndex()));
-    });
-
-    init();
-  })();
-  </script>
-
-  <!-- ===== Our People in Action gallery ===== -->
-  <section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="mb-12">
-        <h2 class="h2-style-1 mb-4">Our People in Action</h2>
-        <p class="text-body max-w-3xl">From project sites and planning rooms to career expos and global conferences. A look at K&amp;A teams shaping the work.</p>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/site-walk.jpg" alt="Engineers on site" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">On-Site Inspection</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/site-office-meeting.jpg" alt="Project team meeting" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Project Site Office</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/project-planning.jpg" alt="Project planning" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Planning &amp; Coordination</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/trainee-inspection.jpg" alt="Trainee site inspection" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Graduates in the Field</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/conference-vr.jpg" alt="International conference booth" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Global Industry Events</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/career-expo.jpg" alt="Career expo" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">University Career Expos</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/site-inspection-plant.jpg" alt="Site inspection plant" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Infrastructure Supervision</figcaption>
-        </figure>
-        <figure class="gallery-item relative overflow-hidden rounded-xl shadow-sm group" style="aspect-ratio: 4/3;">
-          <img src="photos/international-exhibition.jpg" alt="International exhibition" class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105" />
-          <figcaption class="absolute bottom-0 left-0 right-0 p-3 text-white text-xs font-semibold" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.75) 100%);">Representing K&amp;A Globally</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer-flock CTA, restyled as a regular section per marketing notes (no dark block) ===== -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-4">
-      <h2 class="h2-style-1 mb-4">Ready to Build Your Career With Us?</h2>
-      <p class="text-body mb-8">Explore open roles across our offices in Dubai, Riyadh, Abu Dhabi, and beyond.</p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <a href="jobs.html" class="cta-btn">Browse Open Jobs</a>
-        <a href="create-account.html" class="cta-btn cta-btn--secondary">Create Your Profile</a>
-      </div>
-    </div>
-  </section>
-  <!-- Footer removed per marketing notes - K&A website footer will be used at the end of every page. -->
-
-  <script>
-    (function () {
-      const slides = document.querySelectorAll('.carousel-slide');
-      const dots = document.querySelectorAll('#indicators button');
-      const prevBtn = document.getElementById('prevBtn');
-      const nextBtn = document.getElementById('nextBtn');
-      let index = 0;
-      let timer;
-      const accent = getComputedStyle(document.documentElement).getPropertyValue('--ka-accent').trim();
-      function show(i) {
-        slides.forEach((s, n) => s.classList.toggle('active', n === i));
-        dots.forEach((d, n) => {
-          if (n === i) { d.style.backgroundColor = accent; d.classList.remove('bg-white/60'); }
-          else { d.style.backgroundColor = ''; d.classList.add('bg-white/60'); }
-        });
-        index = i;
-      }
-      function next() { show((index + 1) % slides.length); }
-      function prev() { show((index - 1 + slides.length) % slides.length); }
-      function restart() { clearInterval(timer); timer = setInterval(next, 5000); }
-      prevBtn.addEventListener('click', () => { prev(); restart(); });
-      nextBtn.addEventListener('click', () => { next(); restart(); });
-      dots.forEach(d => d.addEventListener('click', () => { show(parseInt(d.dataset.index, 10)); restart(); }));
-      restart();
-    })();
-  </script>
-</body>
-</html>
+     

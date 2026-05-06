@@ -78,6 +78,55 @@
       border-bottom-color: var(--ka-accent);
     }
 
+    /* Disciplines dropdown */
+    .disciplines-dropdown { position: relative; }
+    .disciplines-dropdown > .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .disciplines-dropdown > .nav-link svg {
+      transition: transform 200ms ease;
+    }
+    .disciplines-dropdown:hover > .nav-link svg { transform: rotate(180deg); }
+    .disciplines-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 240px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-top: 2px solid var(--ka-accent);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+      z-index: 100;
+      display: none;
+      border-radius: 0;
+    }
+    .disciplines-dropdown::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: transparent;
+    }
+    .disciplines-dropdown:hover .disciplines-menu { display: block; }
+    .disciplines-menu a {
+      display: block;
+      padding: 10px 16px;
+      font-size: 0.875rem;
+      color: var(--ka-ink);
+      border-bottom: 1px solid #f3f4f6;
+      transition: background 150ms, color 150ms;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .disciplines-menu a:last-child { border-bottom: none; }
+    .disciplines-menu a:hover { background: #F5F7FA; color: var(--ka-accent); }
+
+
     .ka-logo { display: inline-flex; align-items: center; gap: 10px; }
 
     .feature-img {
@@ -177,6 +226,25 @@
         <a href="why.html" class="nav-link active hidden md:inline">Why K&amp;A</a>
         <a href="life.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
         <a href="hiring-process.html" class="nav-link hidden md:inline">Our Hiring Process</a>
+
+        <!-- Disciplines dropdown -->
+        <div class="disciplines-dropdown hidden md:block">
+          <a class="nav-link" style="user-select:none;">
+            Disciplines
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="disciplines-menu">
+            <a href="jobs.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a>
+            <a href="jobs.html?category=Construction%20Supervision">Construction Supervision</a>
+            <a href="jobs.html?category=Project%20%26%20Program%20Management">Project &amp; Program Management</a>
+            <a href="jobs.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a>
+            <a href="jobs.html?category=Digital%20%26%20Technology">Digital &amp; Technology</a>
+            <a href="jobs.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a>
+            <a href="jobs.html?category=Facilities%20Management">Facilities Management</a>
+            <a href="jobs.html?category=Business%20Services">Business Services</a>
+          </div>
+        </div>
+
         <a href="jobs.html" class="nav-link hidden sm:inline">Browse Jobs</a>
         <a href="create-account.html"
            class="ml-2 inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-lg font-bold transition shadow-md text-sm"
@@ -510,15 +578,4 @@
           <a href="https://www.facebook.com/khatib.alami/" target="_blank" rel="noopener" aria-label="Facebook" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0022 12z"/></svg>
           </a>
-          <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.12-2.13C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.57A3 3 0 00.5 6.2 31.3 31.3 0 000 12a31.3 31.3 0 00.5 5.8 3 3 0 002.12 2.13C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.57a3 3 0 002.12-2.13A31.3 31.3 0 0024 12a31.3 31.3 0 00-.5-5.8zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
-          </a>
-          <a href="https://twitter.com/khatibalami" target="_blank" rel="noopener" aria-label="X / Twitter" class="w-9 h-9 rounded-full flex items-center justify-center transition" style="background-color: rgba(255,255,255,0.12);" onmouseover="this.style.backgroundColor='var(--ka-accent)'" onmouseout="this.style.backgroundColor='rgba(255,255,255,0.12)'">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21l-6.52 7.45L22 22h-6.88l-4.9-6.4L4.5 22H1.74l6.97-7.97L2 2h6.93l4.47 5.87L18.244 2zm-1.2 18h1.7L7.04 4H5.25l11.8 16z"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-</body>
-</html>
+          <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" c
