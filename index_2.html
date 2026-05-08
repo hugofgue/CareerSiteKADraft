@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K&amp;A Careers | Work on Landmark Projects Across the Middle East and Beyond</title>
+  <meta name="description" content="Join Khatib &amp; Alami, a global team of architects, engineers, and innovators transforming how cities and communities are designed, built, and experienced." />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ka-primary: #5E6B70;
+      --ka-accent: #9d3621;
+      --ka-accent-dark: #7d2a1a;
+      --ka-light-bg: #F5F7FA;
+      --ka-text: #151515;
+      --ka-dark: #1F2937;
+      --ka-ink: #151515;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      color: var(--ka-ink);
+      font-size: 16px;
+      font-weight: 400;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      color: var(--ka-ink);
+      font-weight: 700;
+    }
+
+    .h1-landing { font-size: 60px; font-weight: 600; text-transform: uppercase; color: var(--ka-ink); line-height: 1.05; text-align: left; }
+    .h2-style-1 { font-size: 36px; font-weight: 700; text-transform: uppercase; color: var(--ka-ink); line-height: 1.15; text-align: left; }
+    .h2-style-2 { font-size: 27.2px; font-weight: 700; color: var(--ka-ink); line-height: 1.2; text-align: left; }
+    .text-body  { font-size: 16px; font-weight: 400; color: var(--ka-ink); line-height: 1.6; text-align: left; }
+    @media (max-width: 640px) {
+      .h1-landing { font-size: 38px; }
+      .h2-style-1 { font-size: 26px; }
+      .h2-style-2 { font-size: 20px; }
+    }
+
+    .cta-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 14px 28px;
+      font-family: 'Gotham', 'Tahoma', 'Roboto', Arial, sans-serif;
+      font-weight: 700; font-size: 14px; letter-spacing: 0.08em;
+      text-transform: uppercase; text-align: center;
+      border-radius: 0;
+      background-color: var(--ka-accent); color: #fff;
+      border: 2px solid var(--ka-accent);
+      transition: background-color 200ms ease, color 200ms ease, transform 200ms ease;
+      cursor: pointer; text-decoration: none;
+    }
+    .cta-btn:hover { background-color: var(--ka-accent-dark); border-color: var(--ka-accent-dark); transform: translateY(-1px); }
+    .cta-btn--secondary { background-color: transparent; color: var(--ka-ink); border-color: var(--ka-ink); }
+    .cta-btn--secondary:hover { background-color: var(--ka-ink); color: #fff; }
+    .cta-btn--light { background-color: #fff; color: var(--ka-accent); border-color: #fff; }
+    .cta-btn--light:hover { background-color: #f3f4f6; color: var(--ka-accent-dark); }
+
+    .rounded, .rounded-sm, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl { border-radius: 0 !important; }
+    .keep-round, .rounded-full { border-radius: 9999px !important; }
+    .sharp, .sharp img { border-radius: 0 !important; }
+
+    /* Hero slider */
+    .hero-slider { position: relative; overflow: hidden; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center 28%;
+      opacity: 0;
+      transition: opacity 1500ms ease-in-out, transform 8000ms ease-out;
+      transform: scale(1.05);
+    }
+    .hero-slide.active { opacity: 1; transform: scale(1.08); }
+
+    /* Card hover */
+    .career-card { transition: transform 250ms ease, box-shadow 250ms ease; }
+    .career-card:hover { transform: scale(1.03); box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
+    .career-card img { transition: transform 400ms ease; }
+    .career-card:hover img { transform: scale(1.08); }
+
+    /* Nav */
+    .nav-link {
+      transition: color 200ms ease; padding: 6px 2px;
+      border-bottom: 2px solid transparent; text-decoration: none;
+    }
+    .nav-link:hover { color: var(--ka-accent); }
+    .nav-link.active { color: var(--ka-accent); font-weight: 700; border-bottom-color: var(--ka-accent); }
+
+    /* Disciplines dropdown */
+    .disciplines-dropdown { position: relative; }
+    .disciplines-dropdown > .nav-link { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+    .disciplines-dropdown > .nav-link svg { transition: transform 200ms ease; }
+    .disciplines-dropdown:hover > .nav-link svg { transform: rotate(180deg); }
+    .disciplines-menu {
+      position: absolute; top: 100%; right: 0;
+      min-width: 240px; background: #fff;
+      border: 1px solid #e5e7eb; border-top: 2px solid var(--ka-accent);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+      z-index: 100; display: none; border-radius: 0; padding-top: 0;
+    }
+    .disciplines-dropdown::after {
+      content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 8px; background: transparent;
+    }
+    .disciplines-dropdown:hover .disciplines-menu { display: block; }
+    .disciplines-menu a {
+      display: block; padding: 10px 16px; font-size: 0.875rem; color: var(--ka-ink);
+      border-bottom: 1px solid #f3f4f6; transition: background 150ms, color 150ms;
+      white-space: nowrap; text-decoration: none;
+    }
+    .disciplines-menu a:last-child { border-bottom: none; }
+    .disciplines-menu a:hover { background: #F5F7FA; color: var(--ka-accent); }
+
+    /* Category tile */
+    .cat-tile { transition: transform 250ms ease, box-shadow 250ms ease; }
+    .cat-tile:hover { transform: translateY(-4px); box-shadow: 0 14px 28px rgba(0,0,0,0.15); }
+    .cat-tile:hover .cat-overlay { background-color: rgba(157, 54, 33, 0.82); }
+    .cat-tile img { transition: transform 400ms ease; }
+    .cat-tile:hover img { transform: scale(1.08); }
+    .cat-title {
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+      width: 100%; padding: 7px 10px; border-radius: 0; font-weight: 800; color: #fff;
+      background-color: var(--ka-accent); box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+      line-height: 1.2; font-size: clamp(0.78rem, 1.5vw, 0.92rem); letter-spacing: 0.2px;
+      word-break: break-word; min-height: calc(2 * 1.2em + 14px); box-sizing: border-box; text-align: left;
+    }
+    .cat-desc {
+      display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;
+      font-size: 0.78rem; line-height: 1.4; color: rgba(255,255,255,0.95);
+      margin-top: 8px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+    }
+
+    /* Testimonials */
+    .t-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 600ms ease-in-out; pointer-events: none; }
+    .t-slide.active { opacity: 1; pointer-events: auto; }
+
+    /* Search autocomplete */
+    .ac-wrap { position: relative; }
+    .ac-list {
+      position: absolute; top: calc(100% + 4px); left: 0; right: 0;
+      background: #fff; border: 1px solid #e5e7eb; border-radius: 0.5rem;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18); max-height: 260px; overflow-y: auto;
+      z-index: 30; display: none;
+    }
+    .ac-list.show { display: block; }
+    .ac-item { padding: 10px 14px; cursor: pointer; color: #1F2937; font-size: 0.95rem; border-bottom: 1px solid #f3f4f6; text-align: left; }
+    .ac-item:last-child { border-bottom: none; }
+    .ac-item:hover, .ac-item.ac-active { background-color: #F5F7FA; color: var(--ka-accent); }
+    .ac-item mark { background: rgba(157,54,33,0.18); color: inherit; padding: 0 2px; border-radius: 2px; }
+
+    /* Logo */
+    .ka-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .ka-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+    .ka-logo-text .ka-line1 { font-weight: 800; font-size: 11px; letter-spacing: 1px; color: var(--ka-dark); }
+    .ka-logo-text .ka-line2 { font-weight: 600; font-size: 9px; color: #6B7280; letter-spacing: 0.5px; }
+
+    /* ===== FOOTER ===== */
+    .ka-footer { background-color: #1a2533; color: #fff; }
+    .ka-footer a { color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.875rem; transition: color 180ms ease; }
+    .ka-footer a:hover { color: #fff; }
+    .ka-footer-heading { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 1rem; }
+    .ka-footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+    .ka-footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 0; }
+    .social-icon {
+      width: 36px; height: 36px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.1); transition: background 200ms ease;
+    }
+    .social-icon:hover { background: var(--ka-accent); }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- ===== Header: Logo LEFT | Nav RIGHT ===== -->
+  <header class="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+
+      <!-- Logo — left -->
+      <a href="index_2.html" class="ka-logo flex-none">
+        <img src="ka_png.png" alt="Khatib &amp; Alami" style="height:42px;object-fit:contain;" />
+        <div class="ka-logo-text">
+          <span class="ka-line1">KHATIB &amp; ALAMI</span>
+          <span class="ka-line2">CAREERS</span>
+        </div>
+      </a>
+
+      <!-- Nav — right -->
+      <nav class="flex items-center gap-5 text-sm font-medium flex-wrap justify-end" style="color: var(--ka-primary);">
+        <a href="index_2.html" class="nav-link active hidden sm:inline">Career Home</a>
+        <a href="why_2.html" class="nav-link hidden md:inline">Why K&amp;A</a>
+        <a href="life_2.html" class="nav-link hidden md:inline">Life at K&amp;A</a>
+        <a href="hiring-process_2.html" class="nav-link hidden lg:inline">Hiring Process</a>
+
+        <!-- Disciplines dropdown -->
+        <div class="disciplines-dropdown hidden md:block">
+          <a class="nav-link" style="user-select:none; cursor:pointer;">
+            Disciplines
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </a>
+          <div class="disciplines-menu">
+            <a href="jobs_2.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a>
+            <a href="jobs_2.html?category=Construction%20Supervision">Construction Supervision</a>
+            <a href="jobs_2.html?category=Project%20%26%20Program%20Management">Project &amp; Program Management</a>
+            <a href="jobs_2.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a>
+            <a href="jobs_2.html?category=Digital%20%26%20Technology">Digital &amp; Technology</a>
+            <a href="jobs_2.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a>
+            <a href="jobs_2.html?category=Facilities%20Management">Facilities Management</a>
+            <a href="jobs_2.html?category=Business%20Services">Business Services</a>
+          </div>
+        </div>
+
+        <a href="jobs_2.html" class="nav-link hidden sm:inline">Browse Jobs</a>
+
+        <a href="create-account_2.html"
+           class="inline-flex items-center gap-2 text-white px-4 py-2.5 font-bold transition shadow-md text-sm flex-none"
+           style="background-color: var(--ka-accent); border-radius:0;"
+           onmouseover="this.style.backgroundColor='var(--ka-accent-dark)'"
+           onmouseout="this.style.backgroundColor='var(--ka-accent)'">
+          Apply Now / Sign In
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== Hero slider ===== -->
+    <section class="relative h-[26rem] flex items-center justify-center hero-slider overflow-hidden">
+        <div id="heroSlider" class="absolute inset-0">
+        <div class="hero-slide active" style="background-image: url('photos/1.png'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/2.png'); background-position: center 30%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/3.png'); background-position: center 32%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/4.png'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/5.png'); background-position: center 35%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/6.png'); background-position: center 30%;"></div>
+        <div class="hero-slide" style="background-image: url('photos/career-expo.jpg'); background-position: center 30%;"></div>
+		<div class="hero-slide" style="background-image: url('photos/7.png'); background-position: center 30%;"></div>
+		<div class="hero-slide" style="background-image: url('photos/8.png'); background-position: center 30%;"></div>
+      </div>
+      <div class="absolute inset-0" style="background-color: rgba(31, 41, 55, 0.55);"></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-4 w-full">
+        <h1 class="h1-landing mb-5" style="color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+          Work with responsibility.<br>Build with purpose.
+        </h1>
+        <p class="text-body mb-8" style="color: rgba(255,255,255,0.95); font-size: 18px;">
+          Join K&amp;A to deliver work of lasting significance across complex projects and diverse markets.
+        </p>
+        <form action="jobs.html" method="get" class="max-w-3xl">
+          <div class="flex gap-3 flex-col sm:flex-row items-end">
+            <div class="flex-1 w-full text-left ac-wrap">
+              <label for="search-keyword" class="block text-sm font-semibold text-white mb-1.5">Keyword</label>
+              <div class="relative">
+                <svg class="absolute left-3 top-3 text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input id="search-keyword" type="text" name="q" placeholder="" autocomplete="off"
+                       class="w-full pl-10 pr-4 py-3 text-gray-800 bg-white focus:outline-none focus:ring-2"
+                       style="--tw-ring-color: var(--ka-accent); border-radius: 0;" />
+              </div>
+              <div id="ac-keyword" class="ac-list" role="listbox"></div>
+            </div>
+            <div class="flex-1 w-full text-left ac-wrap">
+              <label for="search-location" class="block text-sm font-semibold text-white mb-1.5">Location</label>
+              <div class="relative">
+                <svg class="absolute left-3 top-3 text-gray-400" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <input id="search-location" type="text" name="loc" placeholder="" autocomplete="off"
+                       class="w-full pl-10 pr-4 py-3 text-gray-800 bg-white focus:outline-none focus:ring-2"
+                       style="--tw-ring-color: var(--ka-accent); border-radius: 0;" />
+              </div>
+              <div id="ac-location" class="ac-list" role="listbox"></div>
+            </div>
+            <button type="submit" class="cta-btn">Search Jobs</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== Why K&A CTA banner — uses WhyKhatibAlami.jpg ===== -->
+    <section class="py-14" style="background-color: var(--ka-light-bg);">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-5 gap-0 items-stretch overflow-hidden bg-white border border-gray-200 shadow-sm">
+          <div class="md:col-span-2 h-72 md:h-full">
+            <img src="Pics_CareerPage/WhyKhatibAlami.jpg" alt="Why Khatib &amp; Alami" class="w-full h-full object-cover sharp" />
+          </div>
+          <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+            <h2 class="h2-style-1 mb-4">Why Khatib &amp; Alami</h2>
+            <h3 class="h2-style-2 mb-4">More than a job: a career worth building</h3>
+            <p class="text-body mb-6">
+              Discover why thousands of professionals choose K&amp;A: landmark projects across 40+ countries, multidisciplinary teams, structured growth paths, and a culture that invests in the people behind the work.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="why_2.html" class="cta-btn">
+                Explore Why K&amp;A
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+              <a href="why_2.html#career-paths" class="cta-btn cta-btn--secondary">See Career Paths</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Disciplines — using Pics_CareerPage/Disciplines-Pics/ ===== -->
+    <section id="disciplines" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="h2-style-1 mb-4">Explore Roles by Discipline</h2>
+        <p class="text-body mb-10">Browse roles across our core disciplines.</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+          <!-- Engineering & Design -->
+          <a href="jobs_2.html?category=Engineering%20%26%20Design"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/EngineeringDesign.png"
+                 alt="Engineering &amp; Design"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Engineering &amp; Design</h3>
+              <p class="cat-desc">Civil, structural, MEP, and architectural engineering across buildings, transport, water, and energy. From concept to detailed design, our engineers and architects shape projects that define skylines and serve communities.</p>
+            </div>
+          </a>
+
+          <!-- Construction Supervision -->
+          <a href="jobs_2.html?category=Construction%20Supervision"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/ConstructionSupervision1.jpg"
+                 alt="Construction Supervision"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Construction Supervision</h3>
+              <p class="cat-desc">On-site oversight, works inspection, quality assurance, and HSE control. Our resident engineers and inspectors make sure every project is built to the design, on schedule, and to international standards.</p>
+            </div>
+          </a>
+
+          <!-- Project & Program Management -->
+          <a href="jobs_2.html?category=Project%20%26%20Program%20Management"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/ProjectProgram Management.jpg"
+                 alt="Project &amp; Program Management"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Project &amp; Program Management</h3>
+              <p class="cat-desc">End-to-end PMC services across multi-year programs: planning, scheduling, cost control, contract administration, risk, and stakeholder coordination.</p>
+            </div>
+          </a>
+
+          <!-- Planning & Urban Design -->
+          <a href="jobs_2.html?category=Planning%20%26%20Urban%20Design"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/PlanningUrbanDesign.jpg"
+                 alt="Planning &amp; Urban Design"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Planning &amp; Urban Design</h3>
+              <p class="cat-desc">Master planning, urban design, and landscape architecture. Shaping cities, districts, and public realms — from new urban centres to mixed-use destinations and revitalised waterfronts.</p>
+            </div>
+          </a>
+
+          <!-- Digital & Technology -->
+          <a href="jobs_2.html?category=Digital%20%26%20Technology"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/DigitalTechnology.jpg"
+                 alt="Digital &amp; Technology"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Digital &amp; Technology</h3>
+              <p class="cat-desc">BIM, GIS (ESRI Platinum Partner), remote sensing, digital twins, and AI-driven solutions. Our award-winning Digital Services team builds the tools and platforms behind smarter design and project delivery.</p>
+            </div>
+          </a>
+
+          <!-- Environment & Sustainability -->
+          <a href="jobs_2.html?category=Environment%20%26%20Sustainability"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/EnvironmentSustainability.png"
+                 alt="Environment &amp; Sustainability"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Environment &amp; Sustainability</h3>
+              <p class="cat-desc">Environmental impact assessments, ESG advisory, climate resilience, water resources, and green-building certification. Sustainability principles embedded into every discipline and every stage of project delivery.</p>
+            </div>
+          </a>
+
+          <!-- Facilities Management -->
+          <a href="jobs_2.html?category=Facilities%20Management"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/Facilities managemen.jpg"
+                 alt="Facilities Management"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Facilities Management</h3>
+              <p class="cat-desc">Operations, maintenance, and asset management for buildings and infrastructure across their full lifecycle. From hard and soft FM services to performance-driven asset advisory and lifecycle optimisation.</p>
+            </div>
+          </a>
+
+          <!-- Business Services -->
+          <a href="jobs_2.html?category=Business%20Services"
+             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/BusinessServices.jpg"
+                 alt="Business Services"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+              <h3 class="cat-title">Business Services</h3>
+              <p class="cat-desc">Finance, HR, Legal, IT, Communications, and Business Development. The corporate teams that keep a 6,500-strong, 30+ office firm running smoothly and growing across the region and beyond.</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Internship & Graduate ===== -->
+    <section class="relative overflow-hidden">
+      <img src="photos/graduate-mentorship.jpg" alt="" aria-hidden="true"
+           class="absolute inset-0 w-full h-full object-cover" style="object-position: center 30%;" />
+      <div class="absolute inset-0"
+           style="background: linear-gradient(115deg, rgba(157,54,33,0.92) 0%, rgba(157,54,33,0.78) 55%, rgba(31,41,55,0.82) 100%);"></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-4 py-16 md:py-20">
+        <h2 class="h2-style-1 mb-3" style="color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.35);">Internship &amp; Graduate</h2>
+        <h3 class="h2-style-2 mb-5" style="color: #ffffff; text-shadow: 0 2px 10px rgba(0,0,0,0.30);">Just Starting Your Career?</h3>
+        <p class="text-body mb-9 max-w-3xl" style="color: rgba(255,255,255,0.95); font-size: 18px;">
+          Internships and graduate programs across all our disciplines. Real project exposure from week one, mentorship from senior engineers, and a clear path into a full-time role.
+        </p>
+        <a href="jobs_2.html?type=graduate" class="cta-btn cta-btn--light shadow-2xl">
+          Find Internship &amp; Graduate Opportunities
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- ===== Life at K&A teaser — uses Life.jpg ===== -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div class="overflow-hidden">
+            <img src="Pics_CareerPage/Life.jpg"
+                 alt="Life at K&amp;A"
+                 class="shadow-lg w-full h-80 object-cover sharp" />
+          </div>
+          <div>
+            <h2 class="h2-style-1 mb-4">Life at K&amp;A</h2>
+            <p class="text-body mb-4">
+              For over 60 years, K&amp;A has built a workplace where collaboration, continuous learning, and shared values drive every project. Our 6,500+ people in 30+ offices come from 25+ nationalities and work across architecture, engineering, planning, and digital services.
+            </p>
+            <p class="text-body mb-6">
+              Discover our culture, benefits, inclusion commitments, and what it's like to be part of our global team.
+            </p>
+            <a href="life_2.html" class="cta-btn">
+              See What It's Like to Work Here
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Testimonials ===== -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="h2-style-1 mb-4">Stories Behind K&amp;A Impact</h2>
+        <p class="text-body mb-12">Meet the people shaping their careers at Khatib &amp; Alami</p>
+        <div class="relative overflow-hidden shadow-lg sharp" style="background-color: var(--ka-light-bg);">
+          <div class="relative h-[22rem] md:h-[24rem]" id="tCarousel">
+
+            <div class="t-slide active">
+              <div class="grid md:grid-cols-5 h-full">
+                <div class="md:col-span-2 h-56 md:h-full">
+                  <img src="Testemonials/Anna.webp" alt="Anna" class="w-full h-full object-cover" />
+                </div>
+                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"I joined K&amp;A as a junior and within a few years I was leading a major design package. The mentorship here is exceptional. People invest in you."</p>
+                  <p class="font-bold" style="color: var(--ka-primary);">Anna</p>
+                  <p class="text-sm text-gray-600">Senior Architect &bull; Dubai</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="t-slide">
+              <div class="grid md:grid-cols-5 h-full">
+                <div class="md:col-span-2 h-56 md:h-full">
+                  <img src="Testemonials/Baraa.webp" alt="Baraa" class="w-full h-full object-cover" />
+                </div>
+                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"What sets K&amp;A apart is the collaborative spirit. Engineers, architects, and planners work together from day one, and the projects are genuinely landmark."</p>
+                  <p class="font-bold" style="color: var(--ka-primary);">Baraa</p>
+                  <p class="text-sm text-gray-600">Infrastructure Engineer &bull; Riyadh</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="t-slide">
+              <div class="grid md:grid-cols-5 h-full">
+                <div class="md:col-span-2 h-56 md:h-full">
+                  <img src="Testemonials/Fadel.webp" alt="Fadel" class="w-full h-full object-cover" />
+                </div>
+                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"The diversity of projects is incredible. One month I'm on a sustainable tower, the next I'm planning urban infrastructure across a new district."</p>
+                  <p class="font-bold" style="color: var(--ka-primary);">Fadel</p>
+                  <p class="text-sm text-gray-600">Urban Planner &bull; Abu Dhabi</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="t-slide">
+              <div class="grid md:grid-cols-5 h-full">
+                <div class="md:col-span-2 h-56 md:h-full">
+                  <img src="Testemonials/Hajj-Hassan.webp" alt="Hajj Hassan" class="w-full h-full object-cover" />
+                </div>
+                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"K&amp;A invests in cutting-edge technology and continuous learning. I've grown more here than I did anywhere else. The scale of the work pushes you."</p>
+                  <p class="font-bold" style="color: var(--ka-primary);">Hajj Hassan</p>
+                  <p class="text-sm text-gray-600">BIM Specialist &bull; Dubai</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="t-slide">
+              <div class="grid md:grid-cols-5 h-full">
+                <div class="md:col-span-2 h-56 md:h-full">
+                  <img src="Testemonials/Maria.webp" alt="Maria" class="w-full h-full object-cover" />
+                </div>
+                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"The culture is what kept me. People are generous with their time and knowledge, and every project team feels like a small family you actually want to belong to."</p>
+                  <p class="font-bold" style="color: var(--ka-primary);">Maria</p>
+                  <p class="text-sm text-gray-600">Senior Project Manager &bull; Beirut</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button id="tPrev" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow transition z-10">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-primary);"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button id="tNext" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow transition z-10">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-primary);"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="tDots">
+            <button data-index="0" class="w-2.5 h-2.5 rounded-full transition" style="background-color: var(--ka-accent);"></button>
+            <button data-index="1" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
+            <button data-index="2" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
+            <button data-index="3" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
+            <button data-index="4" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Job Locations ===== -->
+    <section class="py-16" style="background-color: var(--ka-light-bg);">
+      <div class="max-w-6xl mx-auto px-4">
+        <h2 class="h2-style-1 mb-4">Job Locations</h2>
+        <p class="text-body mb-10">We work where the world is being built. View open roles by location.</p>
+        <div class="relative bg-white overflow-hidden shadow-lg sharp">
+          <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663365211765/gxUECYbKVRKmo9SdXaGAxf/world-map-locations_a292c0bd.png"
+               alt="Global Job Locations Map"
+               class="w-full h-auto cursor-pointer hover:opacity-90 transition sharp" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
+          <a href="jobs.html" class="cta-btn absolute bottom-8 right-8 shadow-lg">Browse All Roles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Explore Projects — extra pic used ===== -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h2 class="h2-style-1 mb-4">Explore Projects You'll Work On</h2>
+            <p class="text-body mb-6">
+              From transformational urban districts to landmark infrastructure, K&amp;A delivers work of lasting significance across 40+ countries. Discover the projects shaping the region — and the kind of work you could be part of.
+            </p>
+            <a href="https://www.khatibalami.com/projects" target="_blank" rel="noopener" class="cta-btn">
+              View K&amp;A Projects
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div>
+            <img src="Pics_CareerPage/Extra/Extrapics4.jpg"
+                 alt="K&amp;A landmark projects"
+                 class="w-full h-80 object-cover shadow-lg sharp" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Get Inspired strip — extra pics ===== -->
+    <section class="py-0 overflow-hidden">
+      <div class="flex h-40 md:h-52">
+        <div class="flex-1 overflow-hidden"><img src="Pics_CareerPage/Extra/Extrapics5.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover hover:scale-105 transition duration-500" /></div>
+        <div class="flex-1 overflow-hidden"><img src="Pics_CareerPage/Extra/Extrapics6.jpeg" alt="" aria-hidden="true" class="w-full h-full object-cover hover:scale-105 transition duration-500" /></div>
+        <div class="flex-1 overflow-hidden hidden md:block"><img src="Pics_CareerPage/Disciplines-Pics/ConstructionSupervision2.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover hover:scale-105 transition duration-500" /></div>
+        <div class="flex-1 overflow-hidden hidden lg:block"><img src="Pics_CareerPage/Disciplines-Pics/Project Management 3.jpeg" alt="" aria-hidden="true" class="w-full h-full object-cover hover:scale-105 transition duration-500" /></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="ka-footer">
+    <div class="max-w-7xl mx-auto px-4 pt-14 pb-10">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+
+        <!-- Brand column -->
+        <div class="ka-footer-col sm:col-span-2 md:col-span-1">
+          <div class="ka-logo mb-5" style="filter: brightness(0) invert(1); opacity: 0.9;">
+            <img src="ka_png.png" alt="Khatib &amp; Alami" style="height:38px;object-fit:contain;" />
+          </div>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.875rem;line-height:1.7;margin-bottom:1.25rem;">
+            Building landmark projects across the Middle East, Africa, and beyond since 1956. 6,500+ professionals. 30+ offices.
+          </p>
+          <!-- Social -->
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="https://www.linkedin.com/company/khatib-and-alami" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.38-1.11 2.5-2.48 2.5S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.55 0h4.37v2.05h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.48 3.04 5.48 7v8.32h-4.56v-7.38c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.91-2.83 3.89v7.51H7.77V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/khatibalami/" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.71 3.71 0 01-1.38-.9 3.71 3.71 0 01-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.81C4.01 8.5 4 8.86 4 12s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.81.34 1.24.06 1.6.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.81.06-1.24.07-1.6.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a3.06 3.06 0 00-.73-1.13 3.06 3.06 0 00-1.13-.73c-.34-.14-.86-.3-1.81-.34C15.5 4.01 15.14 4 12 4zm0 3.1a4.9 4.9 0 110 9.8 4.9 4.9 0 010-9.8zm0 1.8a3.1 3.1 0 100 6.2 3.1 3.1 0 000-6.2zm5.1-2a1.15 1.15 0 110 2.3 1.15 1.15 0 010-2.3z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/khatib.alami/" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.5-3.9 3.78-3.9 1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.25 0-1.64.78-1.64 1.58V12h2.8l-.45 2.89h-2.35v6.99A10 10 0 0022 12z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@khatibalami" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Careers column -->
+        <div class="ka-footer-col">
+          <p class="ka-footer-heading">Careers</p>
+          <ul>
+            <li><a href="index_2.html">Career Home</a></li>
+            <li><a href="why_2.html">Why K&amp;A</a></li>
+            <li><a href="life_2.html">Life at K&amp;A</a></li>
+            <li><a href="hiring-process_2.html">Our Hiring Process</a></li>
+            <li><a href="jobs_2.html">Browse All Jobs</a></li>
+            <li><a href="jobs_2.html?type=graduate">Internship &amp; Graduate</a></li>
+            <li><a href="create-account_2.html">Create Account / Sign In</a></li>
+          </ul>
+        </div>
+
+        <!-- Disciplines column -->
+        <div class="ka-footer-col">
+          <p class="ka-footer-heading">Disciplines</p>
+          <ul>
+            <li><a href="jobs_2.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a></li>
+            <li><a href="jobs_2.html?category=Construction%20Supervision">Construction Supervision</a></li>
+            <li><a href="jobs_2.html?category=Project%20%26%20Program%20Management">Project &amp; Program Mgmt</a></li>
+            <li><a href="jobs_2.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a></li>
+            <li><a href="jobs_2.html?category=Digital%20%26%20Technology">Digital &amp; Technology</a></li>
+            <li><a href="jobs_2.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a></li>
+            <li><a href="jobs_2.html?category=Facilities%20Management">Facilities Management</a></li>
+            <li><a href="jobsv.html?category=Business%20Services">Business Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Company column -->
+        <div class="ka-footer-col">
+          <p class="ka-footer-heading">Company</p>
+          <ul>
+            <li><a href="https://www.khatibalami.com/about" target="_blank" rel="noopener">About K&amp;A</a></li>
+            <li><a href="https://www.khatibalami.com/projects" target="_blank" rel="noopener">Our Projects</a></li>
+            <li><a href="https://www.khatibalami.com/news" target="_blank" rel="noopener">News &amp; Insights</a></li>
+            <li><a href="https://www.khatibalami.com/contact" target="_blank" rel="noopener">Contact Us</a></li>
+          </ul>
+          <p class="ka-footer-heading" style="margin-top:1.75rem;">Awards &amp; Accreditations</p>
+          <ul>
+            <li><a href="https://www.khatibalami.com" target="_blank" rel="noopener">ESRI Platinum Partner</a></li>
+            <li><a href="https://www.khatibalami.com" target="_blank" rel="noopener">ISO Certified</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <hr class="ka-footer-divider" />
+    <div class="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p style="color:rgba(255,255,255,0.55);font-size:0.8rem;">&copy; 2026 Khatib &amp; Alami. All rights reserved.</p>
+      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Cookie Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Equal Opportunity</a>
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Accessibility</a>
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:0.8rem;text-decoration:none;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.55)'">Recruiting Agencies</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Hero slider
+    (function () {
+      const slides = document.querySelectorAll('#heroSlider .hero-slide');
+      if (!slides.length) return;
+      let h = 0;
+      function rotate() {
+        slides[h].classList.remove('active');
+        h = (h + 1) % slides.length;
+        slides[h].classList.add('active');
+      }
+      setInterval(rotate, 4500);
+    })();
+
+    // Testimonials slider
+    (function () {
+      const slides = document.querySelectorAll('#tCarousel .t-slide');
+      const dots = document.querySelectorAll('#tDots button');
+      const prev = document.getElementById('tPrev');
+      const next = document.getElementById('tNext');
+      if (!slides.length) return;
+      let i = 0, timer;
+      const accent = getComputedStyle(document.documentElement).getPropertyValue('--ka-accent').trim();
+      function show(n) {
+        slides.forEach((s, k) => s.classList.toggle('active', k === n));
+        dots.forEach((d, k) => {
+          if (k === n) { d.style.backgroundColor = accent; d.classList.remove('bg-gray-400'); }
+          else { d.style.backgroundColor = ''; d.classList.add('bg-gray-400'); }
+        });
+        i = n;
+      }
+      function nx() { show((i + 1) % slides.length); }
+      function pv() { show((i - 1 + slides.length) % slides.length); }
+      function restart() { clearInterval(timer); timer = setInterval(nx, 6000); }
+      next.addEventListener('click', () => { nx(); restart(); });
+      prev.addEventListener('click', () => { pv(); restart(); });
+      dots.forEach(d => d.addEventListener('click', () => { show(parseInt(d.dataset.index, 10)); restart(); }));
+      restart();
+    })();
+
+    // Search autocomplete
+    (function () {
+      const keywordList = [
+        "Architect","Senior Architect","Principal Architect","Graduate Architect",
+        "Urban Planner","Urban Designer","Landscape Architect",
+        "Civil Engineer","Senior Civil Engineer","Structural Engineer","Geotechnical Engineer",
+        "Mechanical Engineer","Electrical Engineer","MEP Engineer",
+        "Transportation Engineer","Highway Engineer","Traffic Engineer",
+        "Water Resources Engineer","Environmental Engineer","Sustainability Engineer",
+        "Project Manager","Senior Project Manager","Construction Manager","Resident Engineer",
+        "Site Supervision Engineer","Works Inspector","Quantity Surveyor","Cost Estimator",
+        "Contracts Manager","Planning Engineer","Scheduling Engineer",
+        "BIM Specialist","BIM Manager","GIS Analyst","GIS Developer","Remote Sensing Specialist",
+        "Application Developer","AI Engineer","Data Scientist","Software Engineer",
+        "HR Business Partner","Talent Acquisition Specialist","Recruiter",
+        "Financial Controller","Finance Manager","Accountant",
+        "Marketing Manager","Bid Manager","Proposal Writer",
+        "Graduate Engineer","Intern – Architecture","Intern – Civil","Intern – Digital"
+      ];
+      const locationList = [
+        "UAE – Dubai","UAE – Abu Dhabi","UAE – Sharjah",
+        "Saudi Arabia – Riyadh","Saudi Arabia – Jeddah","Saudi Arabia – NEOM",
+        "Qatar – Doha","Kuwait – Kuwait City","Bahrain – Manama","Oman – Muscat",
+        "Jordan – Amman","Egypt – Cairo","Lebanon – Beirut",
+        "Iraq – Baghdad","Iraq – Erbil","India – Mumbai","Remote"
+      ];
+      function escapeReg(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+      function highlight(text, query) {
+        if (!query) return text;
+        return text.replace(new RegExp('(' + escapeReg(query) + ')', 'ig'), '<mark>$1</mark>');
+      }
+      function wireAutocomplete(input, list, source) {
+        let active = -1, filtered = [];
+        function render() {
+          const q = input.value.trim();
+          if (!q) { list.classList.remove('show'); list.innerHTML = ''; return; }
+          filtered = source.filter(s => s.toLowerCase().includes(q.toLowerCase())).slice(0, 10);
+          if (!filtered.length) { list.classList.remove('show'); list.innerHTML = ''; return; }
+          list.innerHTML = filtered.map((s, i) => `<div class="ac-item${i===active?' ac-active':''}" role="option" data-i="${i}">${highlight(s, q)}</div>`).join('');
+          list.classList.add('show');
+        }
+        function pick(i) { if (i < 0 || i >= filtered.length) return; input.value = filtered[i]; list.classList.remove('show'); active = -1; }
+        input.addEventListener('input', () => { active = -1; render(); });
+        input.addEventListener('focus', render);
+        input.addEventListener('keydown', (e) => {
+          if (!list.classList.contains('show')) return;
+          if (e.key === 'ArrowDown') { e.preventDefault(); active = Math.min(active + 1, filtered.length - 1); render(); }
+          else if (e.key === 'ArrowUp') { e.preventDefault(); active = Math.max(active - 1, 0); render(); }
+          else if (e.key === 'Enter' && active >= 0) { e.preventDefault(); pick(active); }
+          else if (e.key === 'Escape') { list.classList.remove('show'); }
+        });
+        list.addEventListener('mousedown', (e) => {
+          const el = e.target.closest('.ac-item');
+          if (!el) return; e.preventDefault(); pick(parseInt(el.dataset.i, 10));
+        });
+        document.addEventListener('click', (e) => { if (!list.contains(e.target) && e.target !== input) list.classList.remove('show'); });
+      }
+      const kIn = document.getElementById('search-keyword'), kList = document.getElementById('ac-keyword');
+      const lIn = document.getElementById('search-location'), lList = document.getElementById('ac-location');
+      if (kIn && kList) wireAutocomplete(kIn, kList, keywordList);
+      if (lIn && lList) wireAutocomplete(lIn, lList, locationList);
+    })();
+  </script>
+
+</body>
+</html>
