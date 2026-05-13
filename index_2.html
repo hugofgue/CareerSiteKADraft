@@ -129,14 +129,10 @@
       word-break: break-word; min-height: calc(2 * 1.2em + 14px); box-sizing: border-box; text-align: left;
     }
     .cat-desc {
-      display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;
-      font-size: 0.78rem; line-height: 1.4; color: rgba(255,255,255,0.95);
-      margin-top: 8px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+      font-size: 0.82rem; line-height: 1.5; color: #fff;
+      margin-top: 8px; text-shadow: 0 1px 6px rgba(0,0,0,0.75);
+      display: -webkit-box; -webkit-line-clamp: 8; -webkit-box-orient: vertical; overflow: hidden;
     }
-
-    /* Testimonials */
-    .t-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 600ms ease-in-out; pointer-events: none; }
-    .t-slide.active { opacity: 1; pointer-events: auto; }
 
     /* Search autocomplete */
     .ac-wrap { position: relative; }
@@ -200,8 +196,8 @@
             Disciplines
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
           </a>
-          <div class="disciplines-menu">
-            <a href="jobs_2.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a>
+                    <div class="disciplines-menu">
+            <a href="jobs_2.html?category=Engineering%20Services">Engineering Services</a>
             <a href="jobs_2.html?category=Construction%20Supervision">Construction Supervision</a>
             <a href="jobs_2.html?category=Project%20%26%20Program%20Management">Project &amp; Program Management</a>
             <a href="jobs_2.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a>
@@ -209,6 +205,8 @@
             <a href="jobs_2.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a>
             <a href="jobs_2.html?category=Facilities%20Management">Facilities Management</a>
             <a href="jobs_2.html?category=Business%20Services">Business Services</a>
+            <a href="jobs_2.html?category=Infrastructure">Infrastructure</a>
+            <a href="jobs_2.html?category=Architecture%20and%20Interior%20Design">Architecture &amp; Interior Design</a>
           </div>
         </div>
 
@@ -308,109 +306,135 @@
         <h2 class="h2-style-1 mb-4">Explore Roles by Discipline</h2>
         <p class="text-body mb-10">Browse roles across our core disciplines.</p>
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
 
-          <!-- Engineering & Design -->
-          <a href="jobs_2.html?category=Engineering%20%26%20Design"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
-            <img src="Pics_CareerPage/Disciplines-Pics/EngineeringDesign.png"
-                 alt="Engineering &amp; Design"
+          <!-- Engineering Services -->
+          <a href="jobs_2.html?category=Engineering%20Services"
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/EngineeringDesign1.png"
+                 alt="Engineering Services"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
-              <h3 class="cat-title">Engineering &amp; Design</h3>
-              <p class="cat-desc">Civil, structural, MEP, and architectural engineering across buildings, transport, water, and energy. From concept to detailed design, our engineers and architects shape projects that define skylines and serve communities.</p>
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
+              <h3 class="cat-title">Engineering Services</h3>
+              <p class="cat-desc">Structural, mechanical, and electrical engineering, quantity surveying, and oil &amp; gas. The core multidisciplinary engineering teams who turn designs into buildable, costable realities — from concept calculations to detailed MEP, BOQs, and shop drawings across buildings, industrial, and energy projects.</p>
             </div>
           </a>
 
           <!-- Construction Supervision -->
           <a href="jobs_2.html?category=Construction%20Supervision"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/ConstructionSupervision1.jpg"
                  alt="Construction Supervision"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Construction Supervision</h3>
-              <p class="cat-desc">On-site oversight, works inspection, quality assurance, and HSE control. Our resident engineers and inspectors make sure every project is built to the design, on schedule, and to international standards.</p>
+              <p class="cat-desc">On-site oversight, works inspection, and quality assurance. Our resident engineers and inspectors make sure every project is built to the design, on schedule, and to international standards.</p>
             </div>
           </a>
 
           <!-- Project & Program Management -->
           <a href="jobs_2.html?category=Project%20%26%20Program%20Management"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/ProjectProgramManagement.jpg"
                  alt="Project &amp; Program Management"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Project &amp; Program Management</h3>
-              <p class="cat-desc">End-to-end PMC services across multi-year programs: planning, scheduling, cost control, contract administration, risk, and stakeholder coordination.</p>
+              <p class="cat-desc">PMC services, PMO, project controls, contracts, stakeholder management, and HSE. We lead complex multi-billion-dollar programs from initiation through handover — including flagship engagements in Makkah, Madinah, Jeddah, Riyadh, and Khobar.</p>
             </div>
           </a>
 
           <!-- Planning & Urban Design -->
           <a href="jobs_2.html?category=Planning%20%26%20Urban%20Design"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/PlanningUrbanDesign.jpg"
                  alt="Planning &amp; Urban Design"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Planning &amp; Urban Design</h3>
-              <p class="cat-desc">Master planning, urban design, and landscape architecture. Shaping cities, districts, and public realms — from new urban centres to mixed-use destinations and revitalised waterfronts.</p>
+              <p class="cat-desc">Urban planning and city and regional master planning. We shape how cities grow — from mixed-use districts and giga-projects to integrated regional development frameworks.</p>
             </div>
           </a>
 
           <!-- Digital & Technology -->
           <a href="jobs_2.html?category=Digital%20%26%20Technology"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/DigitalTechnology.jpg"
                  alt="Digital &amp; Technology"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Digital &amp; Technology</h3>
-              <p class="cat-desc">BIM, GIS (ESRI Platinum Partner), remote sensing, digital twins, and AI-driven solutions. Our award-winning Digital Services team builds the tools and platforms behind smarter design and project delivery.</p>
+              <p class="cat-desc">GSI and ESRI platforms, BIM and digital design management, application development, utility solutions, and digital product engineering. We build the geospatial systems, smart-utility tools, and BIM workflows that power our projects and clients' operations.</p>
             </div>
           </a>
 
           <!-- Environment & Sustainability -->
           <a href="jobs_2.html?category=Environment%20%26%20Sustainability"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/EnvironmentSustainability.png"
                  alt="Environment &amp; Sustainability"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Environment &amp; Sustainability</h3>
-              <p class="cat-desc">Environmental impact assessments, ESG advisory, climate resilience, water resources, and green-building certification. Sustainability principles embedded into every discipline and every stage of project delivery.</p>
+              <p class="cat-desc">Sustainability advisory, environmental impact studies, water treatment, renewable energy, and QHSSE. We help clients meet net-zero, ESG, and regulatory targets across the region's most demanding infrastructure and development programs.</p>
             </div>
           </a>
 
           <!-- Facilities Management -->
           <a href="jobs_2.html?category=Facilities%20Management"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/Facilitiesmanagement.png"
                  alt="Facilities Management"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Facilities Management</h3>
-              <p class="cat-desc">Operations, maintenance, and asset management for buildings and infrastructure across their full lifecycle. From hard and soft FM services to performance-driven asset advisory and lifecycle optimisation.</p>
+              <p class="cat-desc">Integrated facilities operations, asset performance, lifecycle maintenance, and workplace services — delivered as a dedicated K&amp;A business line through our PMC engagements. Our FM specialists keep client assets operating reliably, safely, and efficiently from day one of handover.</p>
             </div>
           </a>
 
           <!-- Business Services -->
           <a href="jobs_2.html?category=Business%20Services"
-             class="cat-tile relative overflow-hidden rounded-xl h-60 block group">
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
             <img src="Pics_CareerPage/Disciplines-Pics/BusinessServices.jpg"
                  alt="Business Services"
                  class="absolute inset-0 w-full h-full object-cover" />
-            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(31,41,55,0.6);"></div>
-            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-5 text-white">
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
               <h3 class="cat-title">Business Services</h3>
               <p class="cat-desc">Finance, HR, Legal, IT, Communications, and Business Development. The corporate teams that keep a 6,500-strong, 30+ office firm running smoothly and growing across the region and beyond.</p>
+            </div>
+          </a>
+
+          <!-- Infrastructure -->
+          <a href="jobs_2.html?category=Infrastructure"
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/EngineeringDesign.png"
+                 alt="Infrastructure"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
+              <h3 class="cat-title">Infrastructure</h3>
+              <p class="cat-desc">Water supply and wastewater, stormwater and drainage, roads, highways and bridges, transport and traffic engineering, power transmission and generation, ICT networks, and airports. The civil and utility specialists behind the region's most critical networks.</p>
+            </div>
+          </a>
+
+          <!-- Architecture & Interior Design -->
+          <a href="jobs_2.html?category=Architecture%20and%20Interior%20Design"
+             class="cat-tile relative overflow-hidden rounded-xl h-72 block group">
+            <img src="Pics_CareerPage/Disciplines-Pics/Project Management 3.jpeg"
+                 alt="Architecture &amp; Interior Design"
+                 class="absolute inset-0 w-full h-full object-cover" />
+            <div class="cat-overlay absolute inset-0 transition" style="background-color: rgba(20,28,38,0.68);"></div>
+            <div class="relative z-10 h-full flex flex-col justify-start p-3 md:p-4 text-white">
+              <h3 class="cat-title">Architecture &amp; Interior Design</h3>
+              <p class="cat-desc">Concept design across residential, commercial, retail, healthcare, education, sports, hospitality, aviation terminals, landscape architecture, and interior design with FF&amp;E. Our architects and designers shape landmark buildings and interiors across every sector.</p>
             </div>
           </a>
 
@@ -463,101 +487,25 @@
       </div>
     </section>
 
-    <!-- ===== Testimonials ===== -->
+    <!-- ===== Testimonials — embedded video ===== -->
     <section class="py-16 bg-white">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="h2-style-1 mb-4">Stories Behind K&amp;A Impact</h2>
-        <p class="text-body mb-12">Meet the people shaping their careers at Khatib &amp; Alami</p>
-        <div class="relative overflow-hidden shadow-lg sharp" style="background-color: var(--ka-light-bg);">
-          <div class="relative h-[22rem] md:h-[24rem]" id="tCarousel">
-
-            <div class="t-slide active">
-              <div class="grid md:grid-cols-5 h-full">
-                <div class="md:col-span-2 h-56 md:h-full">
-                  <img src="Testemonials/Anna.webp" alt="Anna" class="w-full h-full object-cover" />
-                </div>
-                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"I joined K&amp;A as a junior and within a few years I was leading a major design package. The mentorship here is exceptional. People invest in you."</p>
-                  <p class="font-bold" style="color: var(--ka-primary);">Anna</p>
-                  <p class="text-sm text-gray-600">Senior Architect &bull; Dubai</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="t-slide">
-              <div class="grid md:grid-cols-5 h-full">
-                <div class="md:col-span-2 h-56 md:h-full">
-                  <img src="Testemonials/Baraa.webp" alt="Baraa" class="w-full h-full object-cover" />
-                </div>
-                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"What sets K&amp;A apart is the collaborative spirit. Engineers, architects, and planners work together from day one, and the projects are genuinely landmark."</p>
-                  <p class="font-bold" style="color: var(--ka-primary);">Baraa</p>
-                  <p class="text-sm text-gray-600">Infrastructure Engineer &bull; Riyadh</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="t-slide">
-              <div class="grid md:grid-cols-5 h-full">
-                <div class="md:col-span-2 h-56 md:h-full">
-                  <img src="Testemonials/Fadel.webp" alt="Fadel" class="w-full h-full object-cover" />
-                </div>
-                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"The diversity of projects is incredible. One month I'm on a sustainable tower, the next I'm planning urban infrastructure across a new district."</p>
-                  <p class="font-bold" style="color: var(--ka-primary);">Fadel</p>
-                  <p class="text-sm text-gray-600">Urban Planner &bull; Abu Dhabi</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="t-slide">
-              <div class="grid md:grid-cols-5 h-full">
-                <div class="md:col-span-2 h-56 md:h-full">
-                  <img src="Testemonials/Hajj-Hassan.webp" alt="Hajj Hassan" class="w-full h-full object-cover" />
-                </div>
-                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"K&amp;A invests in cutting-edge technology and continuous learning. I've grown more here than I did anywhere else. The scale of the work pushes you."</p>
-                  <p class="font-bold" style="color: var(--ka-primary);">Hajj Hassan</p>
-                  <p class="text-sm text-gray-600">BIM Specialist &bull; Dubai</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="t-slide">
-              <div class="grid md:grid-cols-5 h-full">
-                <div class="md:col-span-2 h-56 md:h-full">
-                  <img src="Testemonials/Maria.webp" alt="Maria" class="w-full h-full object-cover" />
-                </div>
-                <div class="md:col-span-3 p-8 md:p-10 flex flex-col justify-center">
-                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mb-4" style="color: var(--ka-accent);"><path d="M7 7h3v3H7zM14 7h3v3h-3z" fill="currentColor"/><path d="M5 15c0-2 1-4 3-5M12 15c0-2 1-4 3-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  <p class="text-lg md:text-xl text-gray-800 italic leading-relaxed mb-5">"The culture is what kept me. People are generous with their time and knowledge, and every project team feels like a small family you actually want to belong to."</p>
-                  <p class="font-bold" style="color: var(--ka-primary);">Maria</p>
-                  <p class="text-sm text-gray-600">Senior Project Manager &bull; Beirut</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <button id="tPrev" aria-label="Previous" class="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow transition z-10">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-primary);"><path d="m15 18-6-6 6-6"/></svg>
-          </button>
-          <button id="tNext" aria-label="Next" class="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2 rounded-full shadow transition z-10">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--ka-primary);"><path d="m9 18 6-6-6-6"/></svg>
-          </button>
-          <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="tDots">
-            <button data-index="0" class="w-2.5 h-2.5 rounded-full transition" style="background-color: var(--ka-accent);"></button>
-            <button data-index="1" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
-            <button data-index="2" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
-            <button data-index="3" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
-            <button data-index="4" class="w-2.5 h-2.5 rounded-full transition bg-gray-400"></button>
-          </div>
+        <p class="text-body mb-10">Hear directly from the people shaping their careers at Khatib &amp; Alami.</p>
+        <div class="overflow-hidden shadow-lg sharp" style="background-color:#000;">
+          <video
+            controls
+            preload="metadata"
+            style="display:block; width:100%; max-height:560px; background:#000;"
+            poster=""
+          >
+            <source src="videos/HRTestimonials.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>
+
 
     <!-- ===== Job Locations ===== -->
     <section class="py-16" style="background-color: var(--ka-light-bg);">
@@ -655,16 +603,18 @@
 
         <!-- Disciplines column -->
         <div class="ka-footer-col">
-          <p class="ka-footer-heading">Disciplines</p>
+                    <p class="ka-footer-heading">Disciplines</p>
           <ul>
-            <li><a href="jobs_2.html?category=Engineering%20%26%20Design">Engineering &amp; Design</a></li>
+            <li><a href="jobs_2.html?category=Engineering%20Services">Engineering Services</a></li>
             <li><a href="jobs_2.html?category=Construction%20Supervision">Construction Supervision</a></li>
             <li><a href="jobs_2.html?category=Project%20%26%20Program%20Management">Project &amp; Program Mgmt</a></li>
             <li><a href="jobs_2.html?category=Planning%20%26%20Urban%20Design">Planning &amp; Urban Design</a></li>
             <li><a href="jobs_2.html?category=Digital%20%26%20Technology">Digital &amp; Technology</a></li>
             <li><a href="jobs_2.html?category=Environment%20%26%20Sustainability">Environment &amp; Sustainability</a></li>
             <li><a href="jobs_2.html?category=Facilities%20Management">Facilities Management</a></li>
-            <li><a href="jobsv.html?category=Business%20Services">Business Services</a></li>
+            <li><a href="jobs_2.html?category=Business%20Services">Business Services</a></li>
+            <li><a href="jobs_2.html?category=Infrastructure">Infrastructure</a></li>
+            <li><a href="jobs_2.html?category=Architecture%20and%20Interior%20Design">Architecture &amp; Interior Design</a></li>
           </ul>
         </div>
 
@@ -714,32 +664,6 @@
         slides[h].classList.add('active');
       }
       setInterval(rotate, 4500);
-    })();
-
-    // Testimonials slider
-    (function () {
-      const slides = document.querySelectorAll('#tCarousel .t-slide');
-      const dots = document.querySelectorAll('#tDots button');
-      const prev = document.getElementById('tPrev');
-      const next = document.getElementById('tNext');
-      if (!slides.length) return;
-      let i = 0, timer;
-      const accent = getComputedStyle(document.documentElement).getPropertyValue('--ka-accent').trim();
-      function show(n) {
-        slides.forEach((s, k) => s.classList.toggle('active', k === n));
-        dots.forEach((d, k) => {
-          if (k === n) { d.style.backgroundColor = accent; d.classList.remove('bg-gray-400'); }
-          else { d.style.backgroundColor = ''; d.classList.add('bg-gray-400'); }
-        });
-        i = n;
-      }
-      function nx() { show((i + 1) % slides.length); }
-      function pv() { show((i - 1 + slides.length) % slides.length); }
-      function restart() { clearInterval(timer); timer = setInterval(nx, 6000); }
-      next.addEventListener('click', () => { nx(); restart(); });
-      prev.addEventListener('click', () => { pv(); restart(); });
-      dots.forEach(d => d.addEventListener('click', () => { show(parseInt(d.dataset.index, 10)); restart(); }));
-      restart();
     })();
 
     // Search autocomplete
